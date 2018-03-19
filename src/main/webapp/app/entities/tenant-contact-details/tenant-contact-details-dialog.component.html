@@ -1,0 +1,60 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header" style="background-color: #e9ecef">
+        <h4 class="modal-title colorblue" id="myTenantContactDetailsLabel">Create or edit a Tenant Contact Details</h4>
+        <button type="button" class="close colorblue" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+    <div class="form-group" [hidden]="!tenantContactDetails.id">
+        <label for="id" style="font-weight: bold">ID</label>
+        <input type="text" class="form-control" id="id" name="id"
+               [(ngModel)]="tenantContactDetails.id" readonly />
+    </div>
+
+
+    <div class="form-group">
+        <label class="form-control-label" for="field_name" style="font-weight: bold">Name</label>
+        <input type="text" class="form-control" name="name" id="field_name"
+               [(ngModel)]="tenantContactDetails.name" />
+    </div>
+
+
+    <div class="form-group">
+        <label class="form-control-label" for="field_eMail" style="font-weight: bold">E Mail</label>
+        <input type="text" class="form-control" name="eMail" id="field_eMail"
+               [(ngModel)]="tenantContactDetails.eMail" />
+    </div>
+
+
+    <div class="form-group">
+        <label class="form-control-label" for="field_mobileNumber" style="font-weight: bold">Mobile Number</label>
+        <input type="number" class="form-control" name="mobileNumber" id="field_mobileNumber"
+               [(ngModel)]="tenantContactDetails.mobileNumber" />
+    </div>
+
+
+    <div class="form-group">
+        <label class="form-control-label" for="field_country" style="font-weight: bold">Country</label>
+        <input type="text" class="form-control" name="country" id="field_country"
+               [(ngModel)]="tenantContactDetails.country" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-control-label" for="field_tenantDetails">Tenant Details</label>
+        <select class="form-control" id="field_tenantDetails" name="tenantDetails" [(ngModel)]="tenantContactDetails.tenantDetails" >
+        <option [ngValue]="null"></option>
+        <option [ngValue]="tenantDetailsOption.id === tenantContactDetails.tenantDetails?.id ? tenantContactDetails.tenantDetails : tenantDetailsOption" *ngFor="let tenantDetailsOption of tenantdetails; trackBy: trackTenantDetailsById">{{tenantDetailsOption.id}}</option>
+        </select>
+    </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,56 @@
+<div class="breadcrumb-container">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-style"  [class.active]="false">
+            <a routerLink="/">Home</a>
+        </li>
+        <li class="breadcrumb-style"  [class.active]="true">
+            <a >Health Checks</a>
+        </li>
+    </ol>
+</div>
+<div class="page-title-container">
+    <div class="page-title-column1">
+        <h4 class="page-title-column1-title index-font">Health Checks</h4>
+
+
+    </div>
+    <button class="btn btn-primary float-right" (click)="refresh()">
+        <span class="fa fa-refresh"></span> <span>Refresh</span>
+    </button>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="table-responsive">
+        <table id="healthCheck" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Service Name</th>
+                    <th class="text-center">Status</th>
+                    <th class="text-center">Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let health of healthData">
+                    <td><span class="text-capitalize">{{ baseName(health.name) }}</span> {{subSystemName(health.name)}}</td>
+                    <td class="text-center">
+                        <span class="badge" [ngClass]="getBadgeClass(health.status)">
+                            {{health.status}}
+                        </span>
+                    </td>
+                    <td class="text-center">
+                        <a class="hand" (click)="showHealth(health)" *ngIf="health.details || health.error">
+                            <i class="fa fa-eye"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

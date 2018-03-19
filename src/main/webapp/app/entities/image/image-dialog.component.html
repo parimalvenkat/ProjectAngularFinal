@@ -1,0 +1,39 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header" style="background-color: #e9ecef">
+        <h4 class="modal-title colorblue" id="myImageLabel">Create or edit a Image</h4>
+        <button type="button" class="close colorblue" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+    <div class="form-group" [hidden]="!image.id">
+        <label for="id" style="font-weight: bold">ID</label>
+        <input type="text" class="form-control" id="id" name="id"
+               [(ngModel)]="image.id" readonly />
+    </div>
+
+
+    <div class="form-group">
+        <label class="form-control-label" for="field_secret" style="font-weight: bold">Secret</label>
+        <input type="text" class="form-control" name="secret" id="field_secret"
+               [(ngModel)]="image.secret" />
+    </div>
+
+
+    <div class="form-group">
+        <label class="form-control-label" for="field_containerImage" style="font-weight: bold">Container Image</label>
+        <input type="text" class="form-control" name="containerImage" id="field_containerImage"
+               [(ngModel)]="image.containerImage" />
+    </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

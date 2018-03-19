@@ -1,0 +1,124 @@
+<div class="breadcrumb-container">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-style"  [class.active]="false">
+            <a routerLink="/">Home</a>
+        </li>
+        <li class="breadcrumb-style"  [class.active]="true">
+            <a >User Management</a>
+        </li>
+    </ol>
+</div>
+<div class="page-title-container">
+    <div class="page-title-column1">
+        <h4 class="page-title-column1-title index-font">User Management</h4>
+        <p class="page-title-helptext">Create or view Users</p>
+    </div>
+    <div class="page-title-column2" align="right">
+        <input type="text" class="form-control" name="search" id="search" placeholder="search"
+               style="height: 38px;width: 30%;display: inline-block;border-radius: 0px" (keypress)="searchItem()" [(ngModel)]="search">
+
+
+        <button type="submit"
+                (click)="clearItems()"
+
+                class="btn btn-primary addbtn btn-sm"
+                style="position:relative;left:-4px;height: 38px;top: -1px;margin-right: 15px;max-width: 35px;margin-bottom: 3px;border-radius: 0px;">
+            <span class="fa fa-close"></span>
+            <!--<span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>-->
+        </button>
+
+
+        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="button" [routerLink]="['/', { outlets: { popup: ['user-management-new'] } }]"
+                class="btn btn-primary addbtn float_right"><i class="fa fa-plus-circle" aria-hidden="true"></i> Create Users</button>
+
+    </div>
+</div>
+
+<jhi-alert></jhi-alert>
+    <div class="table-responsive" *ngIf="users">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+                <th jhiSortBy="id"><span>ID</span> <span class="fa fa-sort"></span></th>
+                <th jhiSortBy="login"><span>Login</span> <span class="fa fa-sort"></span></th>
+                <th jhiSortBy="email"><span>Email</span> <span class="fa fa-sort"></span></th>
+                <th></th>
+                <th><span>Profiles</span></th>
+                <th jhiSortBy="createdDate"><span>Created Date</span> <span class="fa fa-sort"></span></th>
+                <th jhiSortBy="lastModifiedBy"><span>Last Modified By</span> <span class="fa fa-sort"></span></th>
+                <th jhiSortBy="lastModifiedDate"><span>Last Modified Date</span> <span class="fa fa-sort"></span></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody *ngIf ="users">
+            <tr *ngFor="let user of users; trackBy: trackIdentity">
+                <td><a [routerLink]="['../user-management', user.login]">{{user.id}}</a></td>
+                <td>{{user.login}}</td>
+                <td>{{user.email}}</td>
+                <td>
+                    <button class="btn btn-danger btn-sm" (click)="setActive(user, true)" *ngIf="!user.activated"
+                           >Deactivated</button>
+
+
+
+                    <button class="btn btn-success btn-sm" (click)="setActive(user, false)" *ngIf="user.activated"
+                            [disabled]="currentAccount.login === user.login">Activated</button>
+
+
+
+                </td>
+
+                <td>
+
+
+
+                    <div *ngFor="let authority of user.authorities">
+                        <span class="badge badge-info">{{ authority }}</span>
+                    </div>
+
+
+
+
+                </td>
+                <td>{{user.createdDate | date:'dd/MM/yy HH:mm'}}</td>
+                <td>{{user.lastModifiedBy}}</td>
+                <td>{{user.lastModifiedDate | date:'dd/MM/yy HH:mm'}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../user-management', user.login]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'user-management/'+ user.login + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'user-management/'+ user.login + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm" [disabled]="currentAccount.login === user.login">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="users">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

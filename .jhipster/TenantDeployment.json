@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "tenantDepoloymentToDetails",
+            "otherEntityName": "tenantDetails",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "tenantDeployment"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "tenantDeploymentToDeployment",
+            "otherEntityName": "deployment",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "tenantDeployment"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "tenantDeploymentToStages",
+            "otherEntityName": "stages",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "tenantDeployment"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20180207063951",
+    "entityTableName": "tenant_deployment",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

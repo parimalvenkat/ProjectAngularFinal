@@ -1,0 +1,20 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "secret",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "containerImage",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180207063957",
+    "entityTableName": "image",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

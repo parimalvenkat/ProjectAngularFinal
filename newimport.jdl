@@ -1,0 +1,112 @@
+
+entity Nodes
+{
+  	MasterUrl String  maxlength(100)
+}
+
+entity Repositories
+{
+  	Protocol String,
+  	Hostname String,
+  	Port Long,
+  	UserName String ,
+  	Password String ,
+  	Secret String
+}
+
+entity UserDetails
+{
+  	Name String,
+  	eMail String,
+  	MobileNumber Long,
+  	Country String 
+}
+
+entity TenantDeployment
+{
+
+}
+
+entity TenantDetails
+{
+  	Name String,
+  	Description String,
+  	Contactname String,
+  	Contactemail String
+}
+
+entity Deployment
+{
+  	Descriptions String,
+  	Pods String,
+  	Applications String,
+  	Tenant String,
+  	Stage String
+}
+
+entity Stages
+{
+ 	 Name String
+}
+
+entity TenantContactDetails
+{
+ 	Name String,
+  	eMail String,
+  	MobileNumber Long,
+  	Country String
+}
+
+entity Application
+{
+  	Name String,
+  	Description String,
+  	Created ZonedDateTime,
+  	Updated ZonedDateTime,
+  	Version Long
+}
+
+entity Image
+{
+	Secret String,
+	ContainerImage String
+}
+
+entity InboundOutbound
+{
+	Protocol String,
+	Inbound Long,
+	Outbound Long
+}
+
+
+relationship OneToOne 
+{
+	TenantDeployment{TenantDepoloyment_To_Details} to TenantDetails,
+    TenantDeployment{TenantDeployment_To_Deployment} to Deployment,
+    TenantDeployment{TenantDeployment_To_Stages} to Stages
+}
+
+
+
+relationship OneToMany
+{ 
+	TenantDetails {TenantDetials_To_Stages} to Stages,
+    TenantDetails {TenantDetails_To_TenantContactdetails} to TenantContactDetails
+}
+
+
+relationship ManyToOne
+{
+	Deployment {Deployment_To_Applications} to Application
+}
+
+
+relationship ManyToMany
+{
+	TenantDetails {TenantDetails_To_Stages} to Stages,
+    Application {Application_To_Image} to Image ,
+	Application {Application_To_InOutbound} to InboundOutbound
+}
+
+

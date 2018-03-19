@@ -1,0 +1,49 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "tenantDetialsToStages",
+            "otherEntityName": "stages",
+            "otherEntityRelationshipName": "tenantDetails"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "tenantDetailsToTenantContactdetails",
+            "otherEntityName": "tenantContactDetails",
+            "otherEntityRelationshipName": "tenantDetails"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "tenantDetailsToStages",
+            "otherEntityName": "stages",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contactname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contactemail",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180207063952",
+    "entityTableName": "tenant_details",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

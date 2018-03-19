@@ -1,0 +1,67 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header" style="background-color: #e9ecef">
+        <h4 class="modal-title colorblue" id="myDeploymentLabel">Create or edit a Deployment</h4>
+        <button type="button" class="close colorblue" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+    <div class="form-group" [hidden]="!deployment.id">
+        <label for="id" style="font-weight: bold">ID</label>
+        <input type="text" class="form-control" id="id" name="id"
+               [(ngModel)]="deployment.id" readonly />
+    </div>
+
+
+    <div class="form-group">
+        <label class="form-control-label" for="field_descriptions" style="font-weight: bold">Descriptions</label>
+        <input type="text" class="form-control" name="descriptions" id="field_descriptions"
+               [(ngModel)]="deployment.descriptions" />
+    </div>
+
+
+    <div class="form-group">
+        <label class="form-control-label" for="field_pods" style="font-weight: bold">Pods</label>
+        <input type="text" class="form-control" name="pods" id="field_pods"
+               [(ngModel)]="deployment.pods" />
+    </div>
+
+
+    <div class="form-group">
+        <label class="form-control-label" for="field_applications" style="font-weight: bold">Applications</label>
+        <input type="text" class="form-control" name="applications" id="field_applications"
+               [(ngModel)]="deployment.applications" />
+    </div>
+
+
+    <div class="form-group">
+        <label class="form-control-label" for="field_tenant" style="font-weight: bold">Tenant</label>
+        <input type="text" class="form-control" name="tenant" id="field_tenant"
+               [(ngModel)]="deployment.tenant" />
+    </div>
+
+
+    <div class="form-group">
+        <label class="form-control-label" for="field_stage" style="font-weight: bold">Stage</label>
+        <input type="text" class="form-control" name="stage" id="field_stage"
+               [(ngModel)]="deployment.stage" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-control-label" for="field_deploymentToApplications">Deployment To Applications</label>
+        <select class="form-control" id="field_deploymentToApplications" name="deploymentToApplications" [(ngModel)]="deployment.deploymentToApplications" >
+        <option [ngValue]="null"></option>
+        <option [ngValue]="applicationOption.id === deployment.deploymentToApplications?.id ? deployment.deploymentToApplications : applicationOption" *ngFor="let applicationOption of applications; trackBy: trackApplicationById">{{applicationOption.id}}</option>
+        </select>
+    </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

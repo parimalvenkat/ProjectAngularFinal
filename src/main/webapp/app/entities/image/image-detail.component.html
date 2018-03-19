@@ -1,0 +1,31 @@
+
+
+<div *ngIf="image">
+    <h2 style="font-weight: bold"><span>Image</span> {{image.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+<dl class="row-md jh-entity-details">
+    <dt><span>Secret</span></dt>
+    <dd>
+        <span>{{image.secret}}</span>
+    </dd>
+    <dt><span>Container Image</span></dt>
+    <dd>
+        <span>{{image.containerImage}}</span>
+    </dd>
+</dl>
+
+<button type="submit"
+        (click)="previousState()"
+        class="btn btn-info">
+    <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+</button>
+
+<button type="button"
+        [routerLink]="['/', { outlets: { popup: 'image/'+ image.id + '/edit'} }]"
+        replaceUrl="true"
+        queryParamsHandling="merge"
+        class="btn btn-primary">
+    <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+</button>
+</div>

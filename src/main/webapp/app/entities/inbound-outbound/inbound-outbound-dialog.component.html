@@ -1,0 +1,46 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header" style="background-color: #e9ecef">
+        <h4 class="modal-title colorblue" id="myInboundOutboundLabel">Create or edit a Inbound Outbound</h4>
+        <button type="button" class="close colorblue" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+    <div class="form-group" [hidden]="!inboundOutbound.id">
+        <label for="id" style="font-weight: bold">ID</label>
+        <input type="text" class="form-control" id="id" name="id"
+               [(ngModel)]="inboundOutbound.id" readonly />
+    </div>
+
+
+    <div class="form-group">
+        <label class="form-control-label" for="field_protocol" style="font-weight: bold">Protocol</label>
+        <input type="text" class="form-control" name="protocol" id="field_protocol"
+               [(ngModel)]="inboundOutbound.protocol" />
+    </div>
+
+
+    <div class="form-group">
+        <label class="form-control-label" for="field_inbound" style="font-weight: bold">Inbound</label>
+        <input type="number" class="form-control" name="inbound" id="field_inbound"
+               [(ngModel)]="inboundOutbound.inbound" />
+    </div>
+
+
+    <div class="form-group">
+        <label class="form-control-label" for="field_outbound" style="font-weight: bold">Outbound</label>
+        <input type="number" class="form-control" name="outbound" id="field_outbound"
+               [(ngModel)]="inboundOutbound.outbound" />
+    </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

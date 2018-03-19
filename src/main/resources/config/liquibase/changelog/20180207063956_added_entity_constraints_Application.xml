@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Application.
+    -->
+    <changeSet id="20180207063956-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="applications_id"
+                                 baseTableName="application_application_to_image"
+                                 constraintName="fk_application_application_to_image_applications_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="application"/>
+        <addForeignKeyConstraint baseColumnNames="application_to_images_id"
+                                 baseTableName="application_application_to_image"
+                                 constraintName="fk_application_application_to_image_application_to_images_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="image"/>
+        
+        <addForeignKeyConstraint baseColumnNames="applications_id"
+                                 baseTableName="application_application_to_in_outbound"
+                                 constraintName="fk_application_application_to_in_outbound_applications_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="application"/>
+        <addForeignKeyConstraint baseColumnNames="application_to_in_outbounds_id"
+                                 baseTableName="application_application_to_in_outbound"
+                                 constraintName="fk_application_application_to_in_outbound_application_to_in_outbounds_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="inbound_outbound"/>
+        
+    </changeSet>
+</databaseChangeLog>

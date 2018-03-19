@@ -1,0 +1,45 @@
+
+
+<div *ngIf="tenantContactDetails">
+    <h2 style="font-weight: bold"><span>Tenant Contact Details</span> {{tenantContactDetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+<dl class="row-md jh-entity-details">
+    <dt><span>Name</span></dt>
+    <dd>
+        <span>{{tenantContactDetails.name}}</span>
+    </dd>
+    <dt><span>E Mail</span></dt>
+    <dd>
+        <span>{{tenantContactDetails.eMail}}</span>
+    </dd>
+    <dt><span>Mobile Number</span></dt>
+    <dd>
+        <span>{{tenantContactDetails.mobileNumber}}</span>
+    </dd>
+    <dt><span>Country</span></dt>
+    <dd>
+        <span>{{tenantContactDetails.country}}</span>
+    </dd>
+    <dt><span>Tenant Details</span></dt>
+    <dd>
+        <div *ngIf="tenantContactDetails.tenantDetails">
+            <a [routerLink]="['/tenant-details', tenantContactDetails.tenantDetails?.id]">{{tenantContactDetails.tenantDetails?.id}}</a>
+        </div>
+    </dd>
+</dl>
+
+<button type="submit"
+        (click)="previousState()"
+        class="btn btn-info">
+    <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+</button>
+
+<button type="button"
+        [routerLink]="['/', { outlets: { popup: 'tenant-contact-details/'+ tenantContactDetails.id + '/edit'} }]"
+        replaceUrl="true"
+        queryParamsHandling="merge"
+        class="btn btn-primary">
+    <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+</button>
+</div>

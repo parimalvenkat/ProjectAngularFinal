@@ -1,0 +1,41 @@
+
+
+<div *ngIf="tenantDeployment">
+    <h2 style="font-weight: bold"><span>Tenant Deployment</span> {{tenantDeployment.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+<dl class="row-md jh-entity-details">
+    <dt><span>Tenant Depoloyment To Details</span></dt>
+    <dd>
+        <div *ngIf="tenantDeployment.tenantDepoloymentToDetails">
+            <a [routerLink]="['/tenant-details', tenantDeployment.tenantDepoloymentToDetails?.id]">{{tenantDeployment.tenantDepoloymentToDetails?.id}}</a>
+        </div>
+    </dd>
+    <dt><span>Tenant Deployment To Deployment</span></dt>
+    <dd>
+        <div *ngIf="tenantDeployment.tenantDeploymentToDeployment">
+            <a [routerLink]="['/deployment', tenantDeployment.tenantDeploymentToDeployment?.id]">{{tenantDeployment.tenantDeploymentToDeployment?.id}}</a>
+        </div>
+    </dd>
+    <dt><span>Tenant Deployment To Stages</span></dt>
+    <dd>
+        <div *ngIf="tenantDeployment.tenantDeploymentToStages">
+            <a [routerLink]="['/stages', tenantDeployment.tenantDeploymentToStages?.id]">{{tenantDeployment.tenantDeploymentToStages?.id}}</a>
+        </div>
+    </dd>
+</dl>
+
+<button type="submit"
+        (click)="previousState()"
+        class="btn btn-info">
+    <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+</button>
+
+<button type="button"
+        [routerLink]="['/', { outlets: { popup: 'tenant-deployment/'+ tenantDeployment.id + '/edit'} }]"
+        replaceUrl="true"
+        queryParamsHandling="merge"
+        class="btn btn-primary">
+    <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+</button>
+</div>

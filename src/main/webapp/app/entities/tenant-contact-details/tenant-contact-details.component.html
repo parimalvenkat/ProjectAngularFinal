@@ -1,0 +1,100 @@
+<div>
+    <div class="breadcrumb-container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-style"  [class.active]="false">
+                <a routerLink="/">Home</a>
+            </li>
+            <li class="breadcrumb-style"  [class.active]="true">
+                <a ><span>Tenant Contact Details</span></a>
+            </li>
+        </ol>
+    </div>
+    <div class="page-title-container">
+        <div class="page-title-column1">
+            <h4 class="page-title-column1-title index-font">Tenant Contact Details</h4>
+            <p class="page-title-helptext">Create or view Tenant Contact Details</p>
+        </div>
+        <div class="page-title-column2" align="right">
+            <input type="text" class="form-control" name="search" id="search" placeholder="search"
+                   style="height: 38px;width: 30%;display: inline-block;border-radius: 0px" (keypress)="searchItem()" [(ngModel)]="search">
+
+
+            <button  type="reset" onclick="document.getElementById('search').value = ''  " class="btn btn-primary  fa fa-close addbtn btn-sm "
+                    style="position:relative;left:-4px;height: 38px;top: -1px;margin-right: 15px;max-width: 35px;margin-bottom: 3px;border-radius: 0px;">
+
+            </button>
+
+
+            <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="button"  [routerLink]="['/', { outlets: { popup: ['tenant-contact-details-new'] } }]"
+                    class="btn btn-primary addbtn float_right"><i class="fa fa-plus-circle" aria-hidden="true"></i> Create Tenant Contact Details</button>
+
+        </div>
+    </div>
+
+
+
+    <jhi-alert></jhi-alert>
+
+<div class="row" style="margin: 0 30px" *ngIf="tenantContactDetails">
+</div>
+
+
+
+
+
+
+<table class="table width100pct" style="margin-bottom:0; border: 1px solid #e4e3e3;">
+    <thead>
+    <tr>
+    <th class="colorblue"><span>ID</span></th>
+    <th class="colorblue"><span>Name</span></th>
+    <th class="colorblue"><span>E Mail</span></th>
+    <th class="colorblue"><span>Mobile Number</span></th>
+    <th class="colorblue"><span>Country</span></th>
+    <th class="colorblue"><span>Tenant Details</span></th>
+    <th></th>
+    </tr>
+    </thead>
+
+
+
+    <tbody>
+    <tr *ngFor="let tenantContactDetails of tenantContactDetails ;trackBy: trackId">
+        <td><a [routerLink]="['../tenant-contact-details', tenantContactDetails.id ]">{{tenantContactDetails.id}}</a></td>
+        <td>{{tenantContactDetails.name}}</td>
+        <td>{{tenantContactDetails.eMail}}</td>
+        <td>{{tenantContactDetails.mobileNumber}}</td>
+        <td>{{tenantContactDetails.country}}</td>
+        <td>
+            <div *ngIf="tenantContactDetails.tenantDetails">
+            <a [routerLink]="['../tenant-details', tenantContactDetails.tenantDetails?.id ]" >{{tenantContactDetails.tenantDetails?.id}}</a>
+
+        </td>
+        <td class="text-right">
+            <div class="btn-group flex-btn-group-container">
+                <button type="submit"
+                        [routerLink]="['../tenant-contact-details', tenantContactDetails.id ]"
+                        class="btn btn-info btn-sm">
+                    <span class="fa fa-eye"></span>
+                </button>
+                <button type="submit" *jhiHasAnyAuthority="'ROLE_ADMIN'"
+                        [routerLink]="['/', { outlets: { popup: 'tenant-contact-details/'+ tenantContactDetails.id + '/edit'} }]"
+                        replaceUrl="true"
+                        queryParamsHandling="merge"
+                        class="btn btn-primary btn-sm">
+                    <span class="fa fa-pencil"></span>
+                </button>
+                <button type="submit" *jhiHasAnyAuthority="'ROLE_ADMIN'"
+                        [routerLink]="['/', { outlets: { popup: 'tenant-contact-details/'+ tenantContactDetails.id + '/delete'} }]"
+                        replaceUrl="true"
+                        queryParamsHandling="merge"
+                        class="btn btn-danger btn-sm">
+                    <span class="fa fa-remove"></span>
+                </button>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+</div>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Stages.
+    -->
+    <changeSet id="20180207063954-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="tenant_details_id"
+                                 baseTableName="stages"
+                                 constraintName="fk_stages_tenant_details_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tenant_details"/>
+
+    </changeSet>
+</databaseChangeLog>

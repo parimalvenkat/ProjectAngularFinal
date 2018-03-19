@@ -1,0 +1,47 @@
+
+
+<div *ngIf="repositories">
+    <h2 style="font-weight: bold"><span>Repositories</span> {{repositories.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+<dl class="row-md jh-entity-details">
+    <dt><span>Protocol</span></dt>
+    <dd>
+        <span>{{repositories.protocol}}</span>
+    </dd>
+    <dt><span>Hostname</span></dt>
+    <dd>
+        <span>{{repositories.hostname}}</span>
+    </dd>
+    <dt><span>Port</span></dt>
+    <dd>
+        <span>{{repositories.port}}</span>
+    </dd>
+    <dt><span>User Name</span></dt>
+    <dd>
+        <span>{{repositories.userName}}</span>
+    </dd>
+    <dt><span>Password</span></dt>
+    <dd>
+        <span>{{repositories.password}}</span>
+    </dd>
+    <dt><span>Secret</span></dt>
+    <dd>
+        <span>{{repositories.secret}}</span>
+    </dd>
+</dl>
+
+<button type="submit"
+        (click)="previousState()"
+        class="btn btn-info">
+    <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+</button>
+
+<button type="button"
+        [routerLink]="['/', { outlets: { popup: 'repositories/'+ repositories.id + '/edit'} }]"
+        replaceUrl="true"
+        queryParamsHandling="merge"
+        class="btn btn-primary">
+    <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+</button>
+</div>

@@ -1,0 +1,19 @@
+.mat-slider-wrapper {
+    left: 0;
+}
+
+.red_scheme .mat-slider-thumb {
+    background-color: red;
+}
+
+.blue_scheme .mat-slider-thumb {
+    background-color: blue;
+}
+
+.yellow_scheme .mat-slider-thumb {
+    background-color: yellow;
+}
+
+.green_scheme .mat-slider-thumb {
+    background-color: green;
+}

@@ -1,0 +1,39 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "deploymentToApplications",
+            "otherEntityName": "application",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "descriptions",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pods",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "applications",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tenant",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stage",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180207063953",
+    "entityTableName": "deployment",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

@@ -1,0 +1,3 @@
+<div [class]="'slider-container ' + color">
+    <span><mat-slider [thumbLabel]="true" [min]="min" [max]="max" [value]="presetvalue" (change)="slided($event)"></mat-slider></span><span class="badge badge-pill badge-info">{{currentVal}}</span>
+</div>
