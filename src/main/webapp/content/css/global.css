@@ -46,9 +46,6 @@ Generic styles
 /* other generic styles */
 
 .jh-card {
-    padding: 1.5%;
-    padding-top:0px;
-
     border: none;
 }
 .jh-card1 {
@@ -284,8 +281,8 @@ ui bootstrap tweaks
     padding: 0px 25px !important;
 }
 .addbtn{
-    background-color:#0899cc !important;
-    border-color:#0899cc !important;
+    background-color:#03c2f2 !important;
+    border-color:#03c2f2 !important;
 }
 /**/
 /* Page Title related Styles */
@@ -516,4 +513,27 @@ h3.branding_header1 {
     text-align: center;
     padding: 20px 0;
     font-size: 30px;
+}
+.background{
+    background-image: url('../images/catalog-placeholder.png');
+}
+.all-space {
+    padding: 0px 1.5%;
+}
+.settings-container
+{
+    background-image: url("../../content/images/catalog-placeholder.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.8;
+}
+.input-text{
+    /*width: 100%;*/
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }

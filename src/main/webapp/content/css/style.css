@@ -603,7 +603,8 @@ input.gsc-search-button {
 
 .form-control {
   border-radius: 1px;
-  box-shadow: none; }
+  box-shadow: none;
+}
 
 .bs-example-modal .modal {
   z-index: 100;

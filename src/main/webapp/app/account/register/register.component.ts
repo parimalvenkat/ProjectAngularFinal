@@ -18,6 +18,8 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     errorUserExists: string;
     registerAccount: any;
     success: boolean;
+    mobileNumber : number;
+    country : string;
     modalRef: NgbModalRef;
 
     constructor(
@@ -46,6 +48,8 @@ export class RegisterComponent implements OnInit, AfterViewInit {
             this.error = null;
             this.errorUserExists = null;
             this.errorEmailExists = null;
+            this.country = null;
+            this.mobileNumber = null;
             this.registerAccount.langKey = 'en';
             this.registerService.save(this.registerAccount).subscribe(() => {
                 this.success = true;
@@ -53,7 +57,6 @@ export class RegisterComponent implements OnInit, AfterViewInit {
         }
     }
     singin() {
-        this.modalRef = this.loginModalService.open();
         this.router.navigate(['']);
     }
 

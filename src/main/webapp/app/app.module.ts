@@ -48,7 +48,8 @@ import {
         ProfileService,
         customHttpProvider(),
         PaginationConfig,
-        UserRouteAccessService
+        UserRouteAccessService,
+
     ],
     bootstrap: [ JhiMainComponent ]
 })

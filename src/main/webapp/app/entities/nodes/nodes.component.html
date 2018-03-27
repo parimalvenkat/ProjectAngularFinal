@@ -1,5 +1,5 @@
-<div>
-         <div class="breadcrumb-container">
+<div class="all-space">
+         <div class="breadcrumb-container " >
             <ol class="breadcrumb">
                 <li class="breadcrumb-style"  [class.active]="false">
                     <a routerLink="/">Home</a>
@@ -16,9 +16,9 @@
          </div>
          <div class="page-title-column2" align="right">
 
-                <input type="text" class="form-control search-box" [(ngModel)]="terms" id="searchText" placeholder="search">
-                <button type="reset" onclick="document.getElementById('searchText').value = ''" class="btn btn-primary  fa fa-close addbtn btn-sm clear-search"></button>
-                <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="button"  [routerLink]="['/', { outlets: { popup: ['nodes-new'] } }]" class="btn btn-primary addbtn float_right">
+                <input type="text" class="form-control search-box" [(ngModel)]="customsearch" id="searchText" placeholder="search">
+                <button type="reset" onclick="document.getElementById('searchText').value = ''" class="btn btn-primary  fa fa-close addbtn btn-sm clear-search" ></button>
+                <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="button"  [routerLink]="['/', { outlets: { popup: ['nodes-new'] } }]" class="btn btn-primary addbtn float_right" >
                 <i class="fa fa-plus-circle new-entity" aria-hidden="true" ></i> Create Nodes</button>
          </div>
          </div>
@@ -37,22 +37,25 @@
          </tr>
          </thead>
          <tbody>
-         <tr *ngFor="let nodes of nodes | search : terms">
+         <tr *ngFor="let c of nodes | filter: customsearch">
 
-                 <td><a class="colorblue" [routerLink]="['../nodes', nodes.id ]">{{nodes.id}}</a></td>
-                 <td STYLE="font-weight: bold">{{nodes.masterUrl}}</td>
+
+                 <td><a class="colorblue" [routerLink]="['../nodes', c.id ]">{{c.id}}</a></td>
+                 <td style="font-weight: bold">{{c.masterUrl}}</td>
+
+
                  <td class="text-right">
-         <div class="btn-group flex-btn-group-container">
-                <button  type="submit" [routerLink]="['../nodes', nodes.id ]" class="btn btn-info btn-sm">
-                    <span class="fa fa-eye"></span>
+                <div class="btn-group flex-btn-group-container">
+                <button  type="submit" [routerLink]="['../nodes', c.id ]" class="btn btn-info btn-sm" style="background-color:#03e8f2; border-color:#03e8f2">
+                    <span class="fa fa-eye" ></span>
                 </button>
 
-                <button *jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_TENANT']" type="submit" [routerLink]="['/', { outlets: { popup: 'nodes/'+ nodes.id + '/edit'} }]"
+                <button *jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_TENANT']" type="submit" [routerLink]="['/', { outlets: { popup: 'nodes/'+ c.id + '/edit'} }] " style="background-color:#03c2f2;border-color:#03c2f2"
                         replaceUrl="true" queryParamsHandling="merge" class="btn btn-primary btn-sm"><span class="fa fa-pencil"></span>
                 </button>
 
-                <button *jhiHasAnyAuthority="'ROLE_ADMIN'"  type="submit" [routerLink]="['/', { outlets: { popup: 'nodes/'+ nodes.id + '/delete'} }]"
-                        replaceUrl="true" queryParamsHandling="merge" class="btn btn-danger btn-sm"><span class="fa fa-remove"></span>
+                <button *jhiHasAnyAuthority="'ROLE_ADMIN'"  type="submit" [routerLink]="['/', { outlets: { popup: 'nodes/'+ c.id + '/delete'} }]"
+                        replaceUrl="true" queryParamsHandling="merge" class="btn btn-danger btn-sm" style="background-color:#039ef2;border-color:#039ef2;"><span class="fa fa-remove"></span>
                 </button>
          </div>
          </td>

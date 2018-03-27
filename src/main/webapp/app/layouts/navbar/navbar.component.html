@@ -263,21 +263,21 @@
             </div>
 </div>-->
 
-<div class="navbar-nav ml-auto" *ngIf="!isAuthenticated()" >
-    <input type="text" style="margin-top: 5px" class="form-control" name="username" id="username" placeholder="Your username">
-    <input type="password" style="margin-top: 5px" class="form-control" name="password" id="password" placeholder="Your password">
-    <button type="submit" class="btn btn-primary">Sign in</button>
-</div>
-    <span class="navbar-nav ml-auto"  *ngIf="!isAuthenticated()">
-              <span> <a class="nav-link" routerLink="" (click)="login()" id="login">
-                    <i class="fa fa-fw fa-sign-in" aria-hidden="true"></i>
-                    <span>Sign in</span>
-                </a></span>
-               <span> <a class="nav-link" routerLink="register" routerLinkActive="active" (click)="collapseNavbar()">
-                    <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
-                    <span>Register</span>
-                </a></span>
-        </span>
+
+ <form  class="navbar-nav ml-auto" *ngIf="!isAuthenticated()" (ngSubmit)="userlogin()">
+
+
+    <input type="text" class="form-control" name="username" id="username" placeholder="Your username" [(ngModel)]="username" style="border-radius: 0rem;" >
+    <input type="password" class="form-control" name="password" id="password" placeholder="Your password" [(ngModel)]="password" style="border-radius: 0rem;" >
+    <button type="submit" name="singin" class="btn btn-primary fa fa-sign-in" style="background-color: #0899cc;border-color: #0899cc;" ></button>
+
+     <a class="nav-link" routerLink="register" routerLinkActive="active" (click)="toggle()">
+         <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
+     </a>
+
+ </form>
+
+
 </div>
     </div>
 </nav>

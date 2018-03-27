@@ -1,8 +1,10 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { FilterPipe} from '../../entities/nodes/file.pipe';
+import { FilterPipe} from './filter.pipe';
+import { BrowserModule } from '@angular/platform-browser';
 import { Try1SharedModule } from '../../shared';
+import { NgModel } from '@angular/forms';
 import {
     NodesService,
     NodesPopupService,
@@ -25,6 +27,7 @@ const ENTITY_STATES = [
     imports: [
         Try1SharedModule,
         FormsModule,
+        BrowserModule,
         RouterModule.forChild(ENTITY_STATES)
     ],
     declarations: [
@@ -35,6 +38,7 @@ const ENTITY_STATES = [
         NodesPopupComponent,
         NodesDeletePopupComponent,
         FilterPipe,
+
 
     ],
     entryComponents: [

@@ -1,4 +1,4 @@
-<div>
+<div class="all-space">
     <div class="breadcrumb-container">
         <ol class="breadcrumb">
             <li class="breadcrumb-style"  [class.active]="false">
@@ -72,21 +72,21 @@
             <div class="btn-group flex-btn-group-container">
                 <button type="submit"
                         [routerLink]="['../repositories', repositories.id ]"
-                        class="btn btn-info btn-sm">
+                        class="btn btn-info btn-sm" style="background-color:#03e8f2; border-color:#03e8f2">
                     <span class="fa fa-eye"></span>
                 </button>
                 <button type="submit" *jhiHasAnyAuthority="'ROLE_ADMIN'"
                         [routerLink]="['/', { outlets: { popup: 'repositories/'+ repositories.id + '/edit'} }]"
                         replaceUrl="true"
                         queryParamsHandling="merge"
-                        class="btn btn-primary btn-sm">
+                        class="btn btn-primary btn-sm" style="background-color:#03c2f2;border-color:#03c2f2">
                     <span class="fa fa-pencil"></span>
                 </button>
                 <button type="submit" *jhiHasAnyAuthority="'ROLE_ADMIN'"
                         [routerLink]="['/', { outlets: { popup: 'repositories/'+ repositories.id + '/delete'} }]"
                         replaceUrl="true"
                         queryParamsHandling="merge"
-                        class="btn btn-danger btn-sm">
+                        class="btn btn-danger btn-sm" style="background-color:#039ef2;border-color:#039ef2;">
                     <span class="fa fa-remove"></span>
                 </button>
             </div>

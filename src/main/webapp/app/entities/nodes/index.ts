@@ -6,4 +6,4 @@ export * from './nodes-delete-dialog.component';
 export * from './nodes-detail.component';
 export * from './nodes.component';
 export * from './nodes.route';
-export * from './file.pipe';
+export * from './filter.pipe';

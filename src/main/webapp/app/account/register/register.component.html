@@ -1,43 +1,7 @@
-<div style="background-color: #f5f5f5">
-    <!--<div class="breadcrumb-container-1">
-              <span class="float-left colorblue"> <h1 class="branding_header1">OPTIMIZER</h1></span>
-        <span class="float-right" style="padding-right: 4%">Already registered? Sign in</span>
-    </div>-->
-</div>
-    <div class="row">
-<div class="split left" style= "background-color: 	#31b0d5;">
-    <div class="centered">
-<!--
-        <img src="C:\Optimizer\try1\src\main\webapp\content\images\optmizer-b.png" alt="register" >
--->
-        </div>
-</div>
+<div class="settings-container mt-2 mr-0 ml-0"  style="height: 760px; ">
 
+    <div class="offset-7 col-md-4">
 
-<div class="split right" style="background-color: #f5f5f5">
-    <div class="offset-2 col-md-8">
-    <h1 class="branding_header1"> REGISTRATION</h1>
-
-    <div class="alert alert-success" *ngIf="success">
-        <strong>Registration saved!</strong> Please check your email for confirmation.
-    </div>
-
-    <div class="alert alert-danger" *ngIf="error">
-        <strong>Registration failed!</strong> Please try again later.
-    </div>
-
-    <div class="alert alert-danger" *ngIf="errorUserExists">
-        <strong>Login name already registered!</strong> Please choose another one.
-    </div>
-
-    <div class="alert alert-danger" *ngIf="errorEmailExists">
-        <strong>Email is already in use!</strong> Please choose another one.
-    </div>
-
-    <div class="alert alert-danger" *ngIf="doNotMatch">
-        The password and its confirmation do not match!
-    </div>
-        <br>
         <div class="card">
             <div class="card-body">
     <form name="form" role="form" (ngSubmit)="register()" #registerForm="ngForm" *ngIf="!success">
@@ -168,7 +132,7 @@
 
 
             <select type="country" class="form-control" id="country" name="country" #email="ngModel" placeholder="Your country name"
-                    [(ngModel)]="registerAccount.mobileNumber" minlength=5 maxlength=100 country required style="background-color: #f5f5f5">
+                    [(ngModel)]="registerAccount.country" minlength=5 maxlength=100 country required style="background-color: #f5f5f5">
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Albania">Albania</option>
                 <option value="Algeria">Algeria</option>
@@ -434,8 +398,31 @@
         <button type="submit" [disabled]="registerForm.form.invalid" class="btn btn-primary">Register</button> <span style="float: right">Already Registered? <a (click)="singin()" id="signin" routerLinkActive="active" routerLink="">Sign In</a></span>
 
     </form>
+                <br>
+                <div class="alert alert-success" *ngIf="success">
+                    <strong>Registration saved!</strong> Please check your email for confirmation.
+                </div>
+
+                <div class="alert alert-danger" *ngIf="error">
+                    <strong>Registration failed!</strong> Please try again later.
+                </div>
+
+                <div class="alert alert-danger" *ngIf="errorUserExists">
+                    <strong>Login name already registered!</strong> Please choose another one.
+                </div>
+
+                <div class="alert alert-danger" *ngIf="errorEmailExists">
+                    <strong>Email is already in use!</strong> Please choose another one.
+                </div>
+
+                <div class="alert alert-danger" *ngIf="doNotMatch">
+                    The password and its confirmation do not match!
+                </div>
+
 </div>
     </div>
     </div>
+
+
 </div>
     </div>

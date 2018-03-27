@@ -4,7 +4,6 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { Nodes } from './nodes.model';
 import { NodesService } from './nodes.service';
 import { Principal, ResponseWrapper } from '../../shared';
-
 @Component({
     selector: 'jhi-nodes',
     templateUrl: './nodes.component.html'

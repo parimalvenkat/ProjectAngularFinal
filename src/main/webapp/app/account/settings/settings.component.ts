@@ -48,4 +48,5 @@ export class SettingsComponent implements OnInit {
             imageUrl: account.imageUrl
         };
     }
+
 }
