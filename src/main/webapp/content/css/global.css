@@ -537,3 +537,14 @@ h3.branding_header1 {
     border-radius: 4px;
     box-sizing: border-box;
 }
+
+/*=========================================================================================================
+============================================================================================================*/
+#optimizer tr:hover {background-color: #ddd;}
+#optimizer tr:nth-child(even){background-color: #f2f2f2;}
+#optimizer th {
+
+    text-align: left;
+    background-color: #e9ecef;
+    color: #0899cc;
+}

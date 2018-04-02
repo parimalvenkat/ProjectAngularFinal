@@ -12,7 +12,11 @@ import { Try1AccountModule } from './account/account.module';
 import { Try1EntityModule } from './entities/entity.module';
 import { customHttpProvider } from './blocks/interceptor/http.provider';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
-
+/*import {HttpClientModule} from "@angular/common/http";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatTableModule,MatSortModule}  from "@angular/material";
+import {NodesComponent} from "../app/entities/nodes"
+import {AppService} from "./app.service";*/
 
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 
@@ -35,6 +39,12 @@ import {
         Try1AdminModule,
         Try1AccountModule,
         Try1EntityModule,
+       /* HttpClientModule,
+        BrowserAnimationsModule,
+        MatTableModule,
+        MatSortModule,*/
+
+
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [
@@ -43,13 +53,15 @@ import {
         ErrorComponent,
         PageRibbonComponent,
         FooterComponent,
+       /* NodesComponent*/
     ],
     providers: [
         ProfileService,
         customHttpProvider(),
         PaginationConfig,
         UserRouteAccessService,
-
+       /* AppService,
+*/
     ],
     bootstrap: [ JhiMainComponent ]
 })

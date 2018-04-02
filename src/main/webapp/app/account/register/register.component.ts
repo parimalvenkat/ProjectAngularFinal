@@ -1,7 +1,6 @@
 import { Component, OnInit, AfterViewInit, Renderer, ElementRef } from '@angular/core';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
-
 import { Register } from './register.service';
 import { LoginModalService, EMAIL_ALREADY_USED_TYPE, LOGIN_ALREADY_USED_TYPE } from '../../shared';
 
@@ -21,6 +20,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     mobileNumber : number;
     country : string;
     modalRef: NgbModalRef;
+
 
     constructor(
         private loginModalService: LoginModalService,
@@ -57,7 +57,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
         }
     }
     singin() {
-        this.router.navigate(['']);
+        this.router.navigate(['/']);
     }
 
     openLogin() {

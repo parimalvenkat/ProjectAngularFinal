@@ -2,12 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
-
-
+import {NavbarService} from "./navbar.service";
 import { ProfileService } from '../profiles/profile.service';
 import { Principal, LoginModalService, LoginService} from '../../shared';
 import { StateStorageService } from '../../shared/auth/state-storage.service';
-import { EventEmitter } from '@angular/core';
 
 
 import { VERSION } from '../../app.constants';
@@ -31,6 +29,8 @@ export class NavbarComponent implements OnInit{
     password: string;
     rememberMe: boolean;
     username: string;
+    regist: boolean;
+
 
 
     constructor(
@@ -56,7 +56,9 @@ export class NavbarComponent implements OnInit{
     }
 
     collapseNavbar() {
+        this.regist=false;
         this.isNavbarCollapsed = true;
+
     }
 
     isAuthenticated() {
@@ -86,9 +88,9 @@ export class NavbarComponent implements OnInit{
     toggle()
     {
 
+        this.regist=true;
 
     }
-
 
 userlogin()
 {

@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import {FormsModule} from "@angular/forms";
 import { ActivatedRoute } from '@angular/router';
 import { Response } from '@angular/http';
 
@@ -33,6 +34,7 @@ export class ApplicationDialogComponent implements OnInit {
         private imageService: ImageService,
         private inboundOutboundService: InboundOutboundService,
         private eventManager: JhiEventManager
+
     ) {
     }
 
