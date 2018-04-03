@@ -1,0 +1,62 @@
+<div>
+    <h2>
+        <span jhiTranslate="optimizerApp.scaleManagement.home.title">Scale Managements</span>
+        <button class="btn btn-primary float-right jh-create-entity create-scale-management" [routerLink]="['/', { outlets: { popup: ['scale-management-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="optimizerApp.scaleManagement.home.createLabel">
+            Create new Scale Management
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="scaleManagements">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="optimizerApp.scaleManagement.instancenos">Instancenos</span></th>
+            <th><span jhiTranslate="optimizerApp.scaleManagement.deployments">Deployments</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let scaleManagement of scaleManagements ;trackBy: trackId">
+                <td><a [routerLink]="['../scale-management', scaleManagement.id ]">{{scaleManagement.id}}</a></td>
+                <td>{{scaleManagement.instancenos}}</td>
+                <td>
+                    <div *ngIf="scaleManagement.deployments">
+                        <a [routerLink]="['../deployments', scaleManagement.deployments?.id ]" >{{scaleManagement.deployments?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../scale-management', scaleManagement.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'scale-management/'+ scaleManagement.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'scale-management/'+ scaleManagement.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

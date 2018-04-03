@@ -6,3 +6,4 @@ export * from './deployment-delete-dialog.component';
 export * from './deployment-detail.component';
 export * from './deployment.component';
 export * from './deployment.route';
+export * from './dropdown.component'

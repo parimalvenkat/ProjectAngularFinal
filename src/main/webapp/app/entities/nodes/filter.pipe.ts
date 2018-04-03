@@ -15,18 +15,17 @@ export class FilterPipe implements PipeTransform {
 
 
         return items.filter(e =>
+            e.masterUrl.toLowerCase().includes(value.toLowerCase())
 
-        {
-            e.masterUrl.toLowerCase().includes(value.toLocaleLowerCase()
+        );
 
-        )});
 
+    }}
         /*
                      return items.filter(e=> e.id.toExponential().includes(value.toExponential()));
 
-
+ e.id.toString().includes(value.toString())
 
         */
 
-    }
-}
+

@@ -1,0 +1,35 @@
+
+<div *ngIf="versionManagement">
+    <h2><span jhiTranslate="optimizerApp.versionManagement.detail.title">Version Management</span> {{versionManagement.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="optimizerApp.versionManagement.version">Version</span></dt>
+        <dd>
+            <span>{{versionManagement.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="optimizerApp.versionManagement.action">Action</span></dt>
+        <dd>
+            <span>{{versionManagement.action}}</span>
+        </dd>
+        <dt><span jhiTranslate="optimizerApp.versionManagement.deployments">Deployments</span></dt>
+        <dd>
+            <div *ngIf="versionManagement.deployments">
+                <a [routerLink]="['/deployments', versionManagement.deployments?.id]">{{versionManagement.deployments?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'version-management/'+ versionManagement.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

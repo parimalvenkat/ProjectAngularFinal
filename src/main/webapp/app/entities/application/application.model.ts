@@ -1,4 +1,5 @@
 import { BaseEntity } from './../../shared';
+import {InboundOutbound} from "../inbound-outbound";
 
 export class Application implements BaseEntity {
     constructor(
@@ -10,6 +11,15 @@ export class Application implements BaseEntity {
         public version?: number,
         public applicationToImages?: BaseEntity[],
         public applicationToInOutbounds?: BaseEntity[],
+        public logoContentType?: string,
+        public logo?: any,
+        public secret?: string,
+        public containerImage?: string,
+        public inboundOutboundPorts?: InboundOutbound[],
+        public numberOfInstances?: string,
+        public numberOfCores?: number,
+        public memory?: number,
+
     ) {
     }
 }

@@ -4,40 +4,28 @@
     <h2 style="font-weight: bold"><span>Application</span> {{application.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
-<dl class="row-md jh-entity-details">
-    <dt><span>Name</span></dt>
-    <dd>
-        <span>{{application.name}}</span>
-    </dd>
-    <dt><span>Description</span></dt>
-    <dd>
-        <span>{{application.description}}</span>
-    </dd>
-    <dt><span>Created</span></dt>
-    <dd>
-        <span>{{application.created | date:'medium'}}</span>
-    </dd>
-    <dt><span>Updated</span></dt>
-    <dd>
-        <span>{{application.updated | date:'medium'}}</span>
-    </dd>
-    <dt><span>Version</span></dt>
-    <dd>
-        <span>{{application.version}}</span>
-    </dd>
-    <dt><span>Application To Image</span></dt>
-    <dd>
-        <span *ngFor="let applicationToImage of application.applicationToImages; let last = last">
-                <a [routerLink]="['/image', applicationToImage?.id ]">{{applicationToImage.id}}</a>{{last ? '' : ', '}}
-            </span>
-    </dd>
-    <dt><span>Application To In Outbound</span></dt>
-    <dd>
-        <span *ngFor="let applicationToInOutbound of application.applicationToInOutbounds; let last = last">
-                <a [routerLink]="['/inbound-outbound', applicationToInOutbound?.id ]">{{applicationToInOutbound.id}}</a>{{last ? '' : ', '}}
-            </span>
-    </dd>
-</dl>
+    <dl class="row-md jh-entity-details">
+        <dt><span >Name</span></dt>
+        <dd>
+            <span>{{application.name}}</span>
+        </dd>
+        <dt><span >Description</span></dt>
+        <dd>
+            <span>{{application.description}}</span>
+        </dd>
+        <dt><span >Version</span></dt>
+        <dd>
+            <span>{{application.version}}</span>
+        </dd>
+        <dt><span >Logo</span></dt>
+        <dd>
+            <div *ngIf="application.logo">
+                <a (click)="openFile(application.logoContentType, application.logo)">
+                    <img [src]="'data:' + application.logoContentType + ';base64,' + application.logo" style="max-width: 100%;" alt="application image"/>
+                </a>
+            </div>
+        </dd>
+    </dl>
 
 <button type="submit"
         (click)="previousState()"

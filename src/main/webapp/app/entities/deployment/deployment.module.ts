@@ -1,5 +1,6 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA,ApplicationModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+
 
 import { Try1SharedModule } from '../../shared';
 import {
@@ -13,7 +14,11 @@ import {
     DeploymentDeleteDialogComponent,
     deploymentRoute,
     deploymentPopupRoute,
+    DeploymentDropdownComponent,
 } from './';
+import {DialogContentComponent} from "./dialog-content/dialog-content.component";
+import {Try1ScaleManagementModule} from "../scale-management/scale-management.module";
+import {MatSliderModule, MatChipsModule, MatDialogModule} from "@angular/material";
 
 const ENTITY_STATES = [
     ...deploymentRoute,
@@ -23,7 +28,12 @@ const ENTITY_STATES = [
 @NgModule({
     imports: [
         Try1SharedModule,
-        RouterModule.forChild(ENTITY_STATES)
+        RouterModule.forRoot(ENTITY_STATES, { useHash: true }),
+        MatSliderModule,
+        MatDialogModule,
+        RouterModule.forChild(ENTITY_STATES),
+        Try1ScaleManagementModule,
+
     ],
     declarations: [
         DeploymentComponent,
@@ -32,6 +42,8 @@ const ENTITY_STATES = [
         DeploymentDeleteDialogComponent,
         DeploymentPopupComponent,
         DeploymentDeletePopupComponent,
+        DeploymentDropdownComponent,
+        DialogContentComponent
     ],
     entryComponents: [
         DeploymentComponent,

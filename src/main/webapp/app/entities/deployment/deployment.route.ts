@@ -1,10 +1,15 @@
-import { Routes } from '@angular/router';
+import { Injectable } from '@angular/core';
+import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from '@angular/router';
 
 import { UserRouteAccessService } from '../../shared';
+
 import { DeploymentComponent } from './deployment.component';
 import { DeploymentDetailComponent } from './deployment-detail.component';
 import { DeploymentPopupComponent } from './deployment-dialog.component';
 import { DeploymentDeletePopupComponent } from './deployment-delete-dialog.component';
+
+import {ScaleManagementPopupComponent} from "../scale-management/scale-management-dialog.component";
+import {VersionManagementPopupComponent} from "../version-management/version-management-dialog.component";
 
 export const deploymentRoute: Routes = [
     {
@@ -56,5 +61,25 @@ export const deploymentPopupRoute: Routes = [
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
-    }
+    },/*{
+        path: 'scale-management/:id',
+        component: ScaleManagementPopupComponent,
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'Deployments'
+        },
+        canActivate: [UserRouteAccessService],
+        outlet: 'popup'
+    },
+    {
+        path: 'version-management/:id',
+        component: VersionManagementPopupComponent,
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'Deployments'
+        },
+        canActivate: [UserRouteAccessService],
+        outlet: 'popup'
+    }*/
+
 ];

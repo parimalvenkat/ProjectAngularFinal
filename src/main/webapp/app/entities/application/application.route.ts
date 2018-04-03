@@ -1,4 +1,5 @@
-import { Routes } from '@angular/router';
+import { Injectable } from '@angular/core';
+import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from '@angular/router';
 
 import { UserRouteAccessService } from '../../shared';
 import { ApplicationComponent } from './application.component';
@@ -56,5 +57,15 @@ export const applicationPopupRoute: Routes = [
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
-    }
+    },
+    {
+        path: 'application/:id/clone',
+        component: ApplicationPopupComponent,
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'Applications'
+        },
+        canActivate: [UserRouteAccessService],
+        outlet: 'popup'
+    },
 ];

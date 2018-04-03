@@ -1,0 +1,40 @@
+<div *ngIf="inputData">
+    <div *ngFor="let data of inputData; let i = index" style="min-width: 578px;text-align: left">
+    <div class="row">
+        <div class="col-sm-3">
+        <div class="form-group">
+        <label class="form-control-label" style="font-weight: bold;">Protocol:</label>
+        <select   class="form-control" name="{{i}}_tenant" id="{{i}}_field_tenant" [(ngModel)]="data.protocol" style="margin-top: 5px;height: 35px">
+            <option [value]="'http'">HTTP</option>
+            <option [value]="'https'" >HTTPS</option>
+            <option [value]="'tcp'" >TCP</option>
+            <option [value]="'udp'" >UDP</option>
+        </select>
+        </div>
+        </div>
+
+        <div class="col-sm-3">
+        <div class="form-group">
+        <label class="form-control-label" style="font-weight: bold">{{keyLabel}}:</label>
+        <input class="form-control" type="text" id="{{i}}_key" name="{{i}}_key" size="15" maxlength="30" [(ngModel)]="data.key" style="margin-top: 5px;height: 35px"/>
+        </div>
+        </div>
+
+        <div class="col-sm-3">
+        <div class="form-group">
+        <label class="form-control-label" style="font-weight: bold">{{valueLabel}}:</label>
+        <input class="form-control" type="text"  id="{{i}}_value" name="{{i}}_value" size="15" maxlength="30" [(ngModel)]="data.value"style="margin-top: 5px;height: 35px"/>
+        </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="form-group">
+        <div *ngIf="i == (inputData.length - 1)" style="display: inline-block;font-size: 20px" class="form-control-lg">
+            <a class="fa fa-plus-circle" style="cursor: pointer;color: #0899cc" (click)="addRow()"></a>
+        </div>
+        <a class="fa fa-minus-circle form-control-lg" style="cursor: pointer;color: red;font-size: 20px" (click)="delRow(data)"></a>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

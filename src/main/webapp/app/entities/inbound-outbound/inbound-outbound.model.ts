@@ -6,6 +6,7 @@ export class InboundOutbound implements BaseEntity {
         public protocol?: string,
         public inbound?: number,
         public outbound?: number,
+        public applications?: BaseEntity,
     ) {
     }
 }

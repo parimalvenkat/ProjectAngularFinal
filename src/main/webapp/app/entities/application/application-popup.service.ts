@@ -7,6 +7,10 @@ import { ApplicationService } from './application.service';
 
 @Injectable()
 export class ApplicationPopupService {
+    applicationsModalRef(arg0: any, arg1: any): any {
+        throw new Error("Method not implemented.");
+    }
+
     private ngbModalRef: NgbModalRef;
 
     constructor(
@@ -25,14 +29,21 @@ export class ApplicationPopupService {
             if (isOpen) {
                 resolve(this.ngbModalRef);
             }
+            let rparams: string[];
+            if(id){
+                rparams = id.split(":");
+            }
 
-            if (id) {
-                this.applicationService.find(id).subscribe((application) => {
-                    application.created = this.datePipe
-                        .transform(application.created, 'yyyy-MM-ddTHH:mm:ss');
-                    application.updated = this.datePipe
-                        .transform(application.updated, 'yyyy-MM-ddTHH:mm:ss');
-                    this.ngbModalRef = this.applicationModalRef(component, application);
+            if(id && rparams.length >1){
+                this.applicationService.find(Number(rparams[0])).subscribe((applications) => {
+                    this.ngbModalRef = this.applicationModalRef(component, applications);
+                    this.ngbModalRef.componentInstance.applications.id = null;
+                    resolve(this.ngbModalRef);
+                });
+            }
+            else if (id && rparams.length < 2) {
+                this.applicationService.find(id).subscribe((applications) => {
+                    this.ngbModalRef = this.applicationModalRef(component, applications);
                     resolve(this.ngbModalRef);
                 });
             } else {

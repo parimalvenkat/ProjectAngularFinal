@@ -1,41 +1,54 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy,ElementRef, AfterViewInit } from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import { ActivatedRoute } from '@angular/router';
 import { Response } from '@angular/http';
 
+
 import { Observable } from 'rxjs/Rx';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
+import { JhiEventManager, JhiAlertService,JhiDataUtils } from 'ng-jhipster';
 
 import { Application } from './application.model';
 import { ApplicationPopupService } from './application-popup.service';
 import { ApplicationService } from './application.service';
 import { Image, ImageService } from '../image';
 import { InboundOutbound, InboundOutboundService } from '../inbound-outbound';
-import { ResponseWrapper } from '../../shared';
+import { ResponseWrapper } from  '../../shared';
+
+import {Repositories, RepositoriesService} from "../repositories";
+import {NgModule} from "@angular/compiler/src/core";
 
 @Component({
     selector: 'jhi-application-dialog',
     templateUrl: './application-dialog.component.html'
 })
+
+
 export class ApplicationDialogComponent implements OnInit {
 
     application: Application;
     isSaving: boolean;
 
     images: Image[];
-
-    inboundoutbounds: InboundOutbound[];
+    public fileName : string="";
+    reposotories : Repositories;
+    InboundOutbounds: any[];
+    InboundOutbound : InboundOutbound[];
 
     constructor(
         public activeModal: NgbActiveModal,
+        private dataUtils: JhiDataUtils,
         private jhiAlertService: JhiAlertService,
         private applicationService: ApplicationService,
         private imageService: ImageService,
         private inboundOutboundService: InboundOutboundService,
-        private eventManager: JhiEventManager
-
+        private repositoryService: RepositoriesService,
+        private elementRef: ElementRef,
+        private eventManager: JhiEventManager,
     ) {
+        this.InboundOutbounds=[];
+        this.InboundOutbounds.push({protocol:'tcp',key:'', value:''});
+
     }
 
     ngOnInit() {
@@ -43,7 +56,25 @@ export class ApplicationDialogComponent implements OnInit {
         this.imageService.query()
             .subscribe((res: ResponseWrapper) => { this.images = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
         this.inboundOutboundService.query()
-            .subscribe((res: ResponseWrapper) => { this.inboundoutbounds = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+            .subscribe((res: ResponseWrapper) => { this.InboundOutbounds = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+         this.getAllRepositories();
+    }
+    byteSize(field) {
+        return this.dataUtils.byteSize(field);
+    }
+
+    openFile(contentType, field) {
+        return this.dataUtils.openFile(contentType, field);
+    }
+
+    setFileData(event, entity, field, isImage) {
+        this.fileName = event.currentTarget.files[0].name;
+        this.dataUtils.setFileData(event, entity, field, isImage);
+    }
+
+    clearInputImage(field: string, fieldContentType: string, idInput: string) {
+        this.dataUtils.clearInputImage(this.application, this.elementRef, field, fieldContentType, idInput);
+        this.fileName = "";
     }
 
     clear() {
@@ -51,7 +82,17 @@ export class ApplicationDialogComponent implements OnInit {
     }
 
     save() {
+
         this.isSaving = true;
+        if(this.InboundOutbounds && this.InboundOutbounds.length > 0){
+            this.application.inboundOutboundPorts = [];
+            for(const data of this.InboundOutbounds){
+                let dataObj:InboundOutbound;
+                dataObj = new InboundOutbound(0,data.protocol,data.key,data.value,null);
+                this.application.inboundOutboundPorts.push(dataObj);
+            }
+        }
+
         if (this.application.id !== undefined) {
             this.subscribeToSaveResponse(
                 this.applicationService.update(this.application));
@@ -59,7 +100,7 @@ export class ApplicationDialogComponent implements OnInit {
             this.subscribeToSaveResponse(
                 this.applicationService.create(this.application));
         }
-    }
+           }
 
     private subscribeToSaveResponse(result: Observable<Application>) {
         result.subscribe((res: Application) =>
@@ -78,6 +119,14 @@ export class ApplicationDialogComponent implements OnInit {
 
     private onError(error: any) {
         this.jhiAlertService.error(error.message, null, null);
+    }
+    getAllRepositories() {
+        this.repositoryService.query().subscribe(
+            (res: ResponseWrapper) => {
+                this.reposotories= res.json;
+            },
+            (res: ResponseWrapper) => this.onError(res.json)
+        );
     }
 
     trackImageById(index: number, item: Image) {

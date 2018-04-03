@@ -283,6 +283,7 @@ ui bootstrap tweaks
 .addbtn{
     background-color:#03c2f2 !important;
     border-color:#03c2f2 !important;
+    width: 204px ! important;
 }
 /**/
 /* Page Title related Styles */

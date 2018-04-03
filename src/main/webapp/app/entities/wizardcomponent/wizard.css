@@ -1,10 +1,9 @@
-.card1 { height: 100%; }
-
-.card-header1 { background-color: #fff; padding: 0; font-size: 1.25rem; }
-.card-block1 { overflow-y: auto; }
-.card-footer1 { background-color: #fff; border-top: 0 none; }
-.nav-item1 { padding: 1rem 0rem; border-bottom: 0.5rem solid #ccc; }
-.active1 { font-weight: bold; color: #0899cc; border-bottom-color: #0899cc !important; }
-.enabled1 { cursor: pointer; border-bottom-color: #0899cc; }
-.disabled1 { color: #ccc; }
-.completed1 { cursor: default; }
+.card { height: 100%; }
+.card-header { background-color: #fff; padding: 0; font-size: 1.25rem; }
+.card-block { overflow-y: auto; }
+.card-footer { background-color: #fff; border-top: 0 none; }
+.nav-item { padding: 1rem 0rem; border-bottom: 0.5rem solid #ccc; }
+.active { font-weight: bold; color: #0899cc; border-bottom-color: #0899cc !important; }
+.enabled { cursor: pointer; border-bottom-color: #0899cc; }
+.disabled { color: #ccc; }
+.completed { cursor: default; }

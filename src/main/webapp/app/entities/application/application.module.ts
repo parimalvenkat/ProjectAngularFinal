@@ -1,5 +1,8 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import {Try1DeploymentModule} from '../deployment/deployment.module'
+import {Try1StagesModule} from "../stages/stages.module";
+import {Try1TenantDetailsModule} from "../tenant-details/tenant-details.module";
 
 import { Try1SharedModule } from '../../shared';
 import {
@@ -23,7 +26,10 @@ const ENTITY_STATES = [
 @NgModule({
     imports: [
         Try1SharedModule,
-        RouterModule.forChild(ENTITY_STATES)
+        Try1DeploymentModule,
+        Try1TenantDetailsModule,
+        Try1StagesModule,
+        RouterModule.forRoot(ENTITY_STATES, {useHash: true}),
     ],
     declarations: [
         ApplicationComponent,
@@ -44,6 +50,7 @@ const ENTITY_STATES = [
         ApplicationService,
         ApplicationPopupService,
     ],
+    exports: [],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class Try1ApplicationModule {}

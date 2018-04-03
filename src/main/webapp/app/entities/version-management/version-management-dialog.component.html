@@ -1,0 +1,62 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header information">
+        <div class="font-modal-header style-display-inline-block" id="myApplicationsLabel" >Version {{versionManagement.action == "upgrade"?"Upgrade":"Degrade"}}</div>
+        <button type="button" style="font-size: 20px;border: 0;color: #0899cc;background-color: #ebf0f5;cursor: pointer" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()"><span class="fa fa-times" aria-hidden="true"></span></button>
+    </div>
+
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <!--<div class="form-group" [hidden]="!versionManagement.id">-->
+            <!--<label for="id" jhiTranslate="global.field.id">ID</label>-->
+            <!--<input type="text" class="form-control" id="id" name="id"-->
+                   <!--[(ngModel)]="versionManagement.id" readonly />-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+            <!--<label class="form-control-label" jhiTranslate="optimizerApp.versionManagement.version" for="field_version">Version</label>-->
+            <!--<input type="text" class="form-control" name="version" id="field_version"-->
+                <!--[(ngModel)]="versionManagement.version" required />-->
+            <!--<div [hidden]="!(editForm.controls.version?.dirty && editForm.controls.version?.invalid)">-->
+                <!--<small class="form-text text-danger"-->
+                   <!--[hidden]="!editForm.controls.version?.errors?.required" jhiTranslate="entity.validation.required">-->
+                   <!--This field is required.-->
+                <!--</small>-->
+                <!--<small class="form-text text-danger"-->
+                    <!--[hidden]="!editForm.controls.version?.errors?.number" jhiTranslate="entity.validation.number">-->
+                    <!--This field should be a number.-->
+                <!--</small>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <div class="row" style="margin: 0 30px" *ngIf="uiApplications">
+            <div style="max-width: 35%; min-width: 20%" *ngFor="let application of uiApplications ;trackBy: trackId">
+                <div class="card-deck" style="margin-bottom:10px;padding: 5px">
+                    <div class="card">
+                        <!--<img class="card-img-top" [src]="'data:' + application.logoContentType + ';base64,' + application.logo" alt="Image not found" onerror="this.onerror=null;this.src='../../../content/images/app-icon.png';"-->
+                        <!--style="padding: 20px;width: 100%;">-->
+
+                        <img class="card-img-top" [src]="'data:' + application.logoContentType + ';base64,' + application.logo"
+                             style="padding: 20px;width: 100%;height: 150px">
+                        <div class="card-body">
+                            <h3 class="card-title" style="margin-bottom: 25px">{{application.name}}
+                                <span class="badge badge-pill badge-info pull-right">{{application.version}}</span>
+                            </h3>
+                            <div style="width: 100%;text-align: center">
+                            <mat-checkbox (change)="versionManagement.version = application.version"></mat-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Deploy</span>
+        </button>
+    </div>
+</form>

@@ -15,16 +15,40 @@ import {
     JhiLoginModalComponent,
     Principal,
     HasAnyAuthorityDirective,
+
+
 } from './';
+import {JhiSocialComponent} from './social/social.component';
+import {SocialService} from "./social/social.service";
+import {CompositeInputFieldComponent} from "../entities/compositeinputfield/compositeinputfield.component";
+import {WizardComponent} from "../entities/wizardcomponent/wizard.component";
+import {WizardStepComponent} from "../entities/wizardcomponent/wizard-step.component";
+import {MatProgressSpinnerModule, MatSliderModule} from "@angular/material";
+import {SliderWidget} from "./slider/slider.widget";
+import {LoadingWidget} from "./loading/loading.widget";
+import {HttpClientModule} from "@angular/common/http";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatTableModule,MatSortModule}  from "@angular/material";
+import {NodesComponent} from "../entities/nodes"
+/*
+import {AppService} from "./app.service";
+*/
 
 @NgModule({
     imports: [
         Try1SharedLibsModule,
-        Try1SharedCommonModule
+        Try1SharedCommonModule,
+        MatSliderModule,
+        MatProgressSpinnerModule
     ],
     declarations: [
+        JhiSocialComponent,
         JhiLoginModalComponent,
-        HasAnyAuthorityDirective
+        HasAnyAuthorityDirective,CompositeInputFieldComponent,
+        WizardComponent,
+        WizardStepComponent,
+        SliderWidget,
+        LoadingWidget
     ],
     providers: [
         LoginService,
@@ -36,14 +60,20 @@ import {
         AuthServerProvider,
         UserService,
         DatePipe,
-        FilterPipe
+        FilterPipe,
+        SocialService
     ],
     entryComponents: [JhiLoginModalComponent],
     exports: [
         Try1SharedCommonModule,
         JhiLoginModalComponent,
         HasAnyAuthorityDirective,
-        DatePipe
+        DatePipe,
+        CompositeInputFieldComponent,
+        WizardComponent,
+        WizardStepComponent,
+        SliderWidget,
+        LoadingWidget
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
