@@ -42,8 +42,8 @@
         <div style="max-width: 20%; min-width: 20%" *ngFor="let application of applications ;trackBy: trackId">
             <div class="card-deck" style="margin-bottom:10px;padding: 5px">
                 <div class="card">
-
-                        <img class="card-img-top" [src]="'data:' + application.logoContentType + ';base64,' + application.logo"
+                    <h1>{{application.logoContentType}}</h1>
+                        <img class="card-img-top" [src]="'data:' + 'image/png' + ';base64,' + application.logo"
                              style="padding: 20px;width: 100%;height: 150px">
                         <div class="card-body">
                         <h3 class="card-title">{{application.name}}
@@ -71,7 +71,7 @@
                             </button>
                         </div>
                         <div class="float-right">
-                            <button type="submit" [routerLink]="['/', { outlets: { popup: 'deployment/' + application.id +'/deployment-new' } }]" class="btn btn-info btn-sm">
+                            <button type="submit" data-toggle="modal" data-target="#poper"[routerLink]="['/', { outlets: { popup: 'deployment-new-app/' + application.id } }]" class="btn btn-info btn-sm">
                                 <span class="fa fa-cog"></span>
                                 <span class="d-none d-md-inline">Deploy</span>
                             </button>

@@ -2,6 +2,9 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA,ApplicationModule } from '@angular/cor
 import { RouterModule } from '@angular/router';
 
 
+import {WizardComponent} from "../../entities/wizardcomponent/wizard.component";
+import {WizardStepComponent} from "../../entities/wizardcomponent/wizard-step.component";
+
 import { Try1SharedModule } from '../../shared';
 import {
     DeploymentService,

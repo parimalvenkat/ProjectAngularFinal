@@ -1,8 +1,6 @@
-import { Injectable } from '@angular/core';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 
 import { UserRouteAccessService } from '../../shared';
-
 import { DeploymentComponent } from './deployment.component';
 import { DeploymentDetailComponent } from './deployment-detail.component';
 import { DeploymentPopupComponent } from './deployment-dialog.component';
@@ -10,7 +8,6 @@ import { DeploymentDeletePopupComponent } from './deployment-delete-dialog.compo
 
 import {ScaleManagementPopupComponent} from "../scale-management/scale-management-dialog.component";
 import {VersionManagementPopupComponent} from "../version-management/version-management-dialog.component";
-
 export const deploymentRoute: Routes = [
     {
         path: 'deployment',
@@ -32,6 +29,16 @@ export const deploymentRoute: Routes = [
 ];
 
 export const deploymentPopupRoute: Routes = [
+    {
+        path: 'deployment-new-app/:appid',
+        component: DeploymentPopupComponent,
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'Deployments'
+        },
+        canActivate: [UserRouteAccessService],
+        outlet: 'popup'
+    },
     {
         path: 'deployment-new',
         component: DeploymentPopupComponent,
@@ -61,12 +68,13 @@ export const deploymentPopupRoute: Routes = [
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
-    },/*{
+    },
+    {
         path: 'scale-management/:id',
         component: ScaleManagementPopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'Deployments'
+            pageTitle: 'optimizerApp.deployments.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
@@ -76,10 +84,9 @@ export const deploymentPopupRoute: Routes = [
         component: VersionManagementPopupComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'Deployments'
+            pageTitle: 'optimizerApp.deployments.home.title'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
-    }*/
-
+    }
 ];

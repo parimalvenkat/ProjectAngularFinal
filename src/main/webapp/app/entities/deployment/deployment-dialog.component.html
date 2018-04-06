@@ -1,67 +1,137 @@
 <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
 
-    <div class="modal-header" style="background-color: #e9ecef">
-        <h4 class="modal-title colorblue" id="myDeploymentLabel">Create or edit a Deployment</h4>
-        <button type="button" class="close colorblue" data-dismiss="modal" aria-hidden="true"
-                (click)="clear()">&times;</button>
+    <div class="modal-header information">
+        <div class="font-modal-header style-display-inline-block" id="myApplicationsLabel" >Create deployment</div>
+        <button type="button" style="font-size: 20px;border: 0;color: #0899cc;background-color: #ebf0f5;cursor: pointer" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()"><span class="fa fa-times" aria-hidden="true"></span></button>
     </div>
-    <div class="modal-body">
+
+
+
+    <form-wizard>
+
+
         <jhi-alert-error></jhi-alert-error>
-    <div class="form-group" [hidden]="!deployment.id">
-        <label for="id" style="font-weight: bold">ID</label>
-        <input type="text" class="form-control" id="id" name="id"
-               [(ngModel)]="deployment.id" readonly />
-    </div>
 
 
-    <div class="form-group">
-        <label class="form-control-label" for="field_descriptions" style="font-weight: bold">Descriptions</label>
-        <input type="text" class="form-control" name="descriptions" id="field_descriptions"
-               [(ngModel)]="deployment.descriptions" />
-    </div>
+        <wizard-step [title]="'Deployment infrastructure'" >
+            <div class="row" style="margin-top: 20px">
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label class="form-control-label"  for="field_tenant" style="font-weight: bold">Tenant</label>
+                        <select class="form-control" name="tenantdetail" id="field_tenant" [(ngModel)]="deployments.tenant" style="margin-top: 5px">
+                            <option *ngFor="let tenant of tenantdetails" [value]="tenant.name">{{tenant.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label class="form-control-label"  for="field_stage" style="font-weight: bold">Stage</label>
+                        <select class="form-control" name="stages" id="field_stage" [(ngModel)]="deployments.stage" style="margin-top: 5px">
+                            <option *ngFor="let stage of stages" [value]="stage.name">{{stage.name}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </wizard-step>
 
 
-    <div class="form-group">
-        <label class="form-control-label" for="field_pods" style="font-weight: bold">Pods</label>
-        <input type="text" class="form-control" name="pods" id="field_pods"
-               [(ngModel)]="deployment.pods" />
-    </div>
+
+        <wizard-step [title]="'Application info'" >
+            <div class="form-group" [hidden]="!deployments.id" style="margin-top: 20px">
+                <label for="id" style="font-weight: bold">ID</label>
+                <input type="text" class="form-control" id="id" name="id" [(ngModel)]="deployments.id" readonly style="margin-top: 5px"/>
+            </div>
+            <div class="form-group" style="margin-top: 20px">
+                <label class="form-control-label"  for="field_appName" style="font-weight: bold">Name</label>
+                <input type="text" class="form-control" name="appName" id="field_appName" [(ngModel)]="deployments.appName" required style="margin-top: 5px"/>
+                <div [hidden]="!(editForm.controls.appName?.dirty && editForm.controls.appName?.invalid)">
+                    <small class="form-text text-danger" [hidden]="!editForm.controls.appName?.errors?.required" >
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-control-label"  for="field_description" style="font-weight: bold">Description</label>
+                <textarea type="text" class="form-control" name="description" id="field_description" [(ngModel)]="deployments.descriptions" required style="margin-top: 5px"
+                ></textarea>
+                <div [hidden]="!(editForm.controls.description?.dirty && editForm.controls.description?.invalid)">
+                    <small class="form-text text-danger" [hidden]="!editForm.controls.description?.errors?.required" >
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-control-label"  for="field_containerImage" style="font-weight: bold">Container Image</label>
+                <input type="text" class="form-control" name="containerImage" id="field_containerImage" [(ngModel)]="deployments.containerImage" style="margin-top: 5px"
+                       required />
+                <div [hidden]="!(editForm.controls.containerImage?.dirty && editForm.controls.containerImage?.invalid)">
+                    <small class="form-text text-danger" [hidden]="!editForm.controls.containerImage?.errors?.required" >
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-control-label"  for="field_secret" style="font-weight: bold">secret</label>
+                <select class="form-control" name="secret" id="field_secret" [(ngModel)]="deployments.secret" style="margin-top: 5px">
+                    <option *ngFor="let repository of repositories" [value]="repository.secret">{{repository.secret}}</option>
+                </select>
+            </div>
+        </wizard-step>
 
 
-    <div class="form-group">
-        <label class="form-control-label" for="field_applications" style="font-weight: bold">Applications</label>
-        <input type="text" class="form-control" name="applications" id="field_applications"
-               [(ngModel)]="deployment.applications" />
-    </div>
 
 
-    <div class="form-group">
-        <label class="form-control-label" for="field_tenant" style="font-weight: bold">Tenant</label>
-        <input type="text" class="form-control" name="tenant" id="field_tenant"
-               [(ngModel)]="deployment.tenant" />
-    </div>
 
 
-    <div class="form-group">
-        <label class="form-control-label" for="field_stage" style="font-weight: bold">Stage</label>
-        <input type="text" class="form-control" name="stage" id="field_stage"
-               [(ngModel)]="deployment.stage" />
-    </div>
 
-    <div class="form-group">
-        <label class="form-control-label" for="field_deploymentToApplications">Deployment To Applications</label>
-        <select class="form-control" id="field_deploymentToApplications" name="deploymentToApplications" [(ngModel)]="deployment.deploymentToApplications" >
-        <option [ngValue]="null"></option>
-        <option [ngValue]="applicationOption.id === deployment.deploymentToApplications?.id ? deployment.deploymentToApplications : applicationOption" *ngFor="let applicationOption of applications; trackBy: trackApplicationById">{{applicationOption.id}}</option>
-        </select>
-    </div>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
-            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
-        </button>
-        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
-            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
-        </button>
-    </div>
+
+
+
+        <wizard-step [title]="'Instance details'" >
+
+            <div class="form-group" style="margin-top: 5px;margin-left: 5px;margin-top: 20px">
+                <jhi-compositeinput [inputData]="InboundOutbounds" [keyLabel]="'Inbound'" [valueLabel]="'Outbound'"></jhi-compositeinput>
+            </div>
+
+            <div class="row" style="margin-left: -10px;margin-top: 20px">
+                <div class="col-sm-3" style="float:left">
+                    <div class="form-group">
+                        <label class="form-control-label"  style="font-weight: bold">Number Of Instances</label>
+                        <jhi-slider [max]="10" [min]="0" [color]="'red_scheme'" [presetvalue]="deployments.numberOfInstances" (valChanged)="deployments.numberOfInstances = $event"></jhi-slider>
+                        <div [hidden]="!(editForm.controls.numberOfInstances?.dirty && editForm.controls.numberOfInstances?.invalid)">
+                            <small class="form-text text-danger" [hidden]="!editForm.controls.numberOfInstances?.errors?.required" >
+                                This field is required.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3" style="float:left">
+                    <div class="form-group">
+                        <label class="form-control-label"  style="font-weight: bold">Number Of Cores</label>
+                        <jhi-slider [max]="10" [min]="0" [color]="'yellow_scheme'" [presetvalue]="deployments.numberOfCores" (valChanged)="deployments.numberOfCores = $event"></jhi-slider>
+                    </div>
+                </div>
+                <div class="col-sm-3" style="float:left">
+                    <div class="form-group">
+                        <label class="form-control-label"  style="font-weight: bold">Memory(GB)</label>
+                        <jhi-slider [max]="10" [min]="0" [color]="'green_scheme'" [presetvalue]="deployments.memory" (valChanged)="deployments.memory = $event"></jhi-slider>
+                    </div>
+                </div>
+            </div>
+
+
+        </wizard-step>
+        <wizard-step [title]="'Finish'" (onComplete)="save()">
+            <h4 style="margin-top: 20px;margin-left: 18px;color: #0899cc">Click done to deploy your application !!!</h4>
+            <jhi-alert-error></jhi-alert-error>
+        </wizard-step>
+    </form-wizard>
+
+
+
+
+
+
+    </form-wizard>
 </form>

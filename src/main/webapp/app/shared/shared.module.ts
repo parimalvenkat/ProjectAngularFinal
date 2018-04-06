@@ -73,7 +73,8 @@ import {AppService} from "./app.service";
         WizardComponent,
         WizardStepComponent,
         SliderWidget,
-        LoadingWidget
+        LoadingWidget,
+
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 

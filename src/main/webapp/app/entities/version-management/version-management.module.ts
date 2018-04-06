@@ -48,4 +48,4 @@ const ENTITY_STATES = [
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class OptimizerVersionManagementModule {}
+export class Try1VersionManagementModule {}

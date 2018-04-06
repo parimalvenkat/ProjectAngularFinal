@@ -3,7 +3,8 @@ import { RouterModule } from '@angular/router';
 import {Try1DeploymentModule} from '../deployment/deployment.module'
 import {Try1StagesModule} from "../stages/stages.module";
 import {Try1TenantDetailsModule} from "../tenant-details/tenant-details.module";
-
+import {WizardComponent} from "../../entities/wizardcomponent/wizard.component";
+import {WizardStepComponent} from "../../entities/wizardcomponent/wizard-step.component";
 import { Try1SharedModule } from '../../shared';
 import {
     ApplicationService,
@@ -38,6 +39,7 @@ const ENTITY_STATES = [
         ApplicationDeleteDialogComponent,
         ApplicationPopupComponent,
         ApplicationDeletePopupComponent,
+
     ],
     entryComponents: [
         ApplicationComponent,
@@ -50,7 +52,10 @@ const ENTITY_STATES = [
         ApplicationService,
         ApplicationPopupService,
     ],
-    exports: [],
+    exports: [
+
+
+    ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class Try1ApplicationModule {}

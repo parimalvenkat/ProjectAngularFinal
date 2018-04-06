@@ -68,8 +68,13 @@ export class ApplicationDialogComponent implements OnInit {
     }
 
     setFileData(event, entity, field, isImage) {
+        console.log("event:", event);
+        console.log("entity:", entity);
+        console.log("field:", field);
+        console.log("isImage:", isImage);
         this.fileName = event.currentTarget.files[0].name;
         this.dataUtils.setFileData(event, entity, field, isImage);
+
     }
 
     clearInputImage(field: string, fieldContentType: string, idInput: string) {

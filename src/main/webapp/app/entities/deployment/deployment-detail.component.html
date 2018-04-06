@@ -4,34 +4,44 @@
     <h2 style="font-weight: bold"><span>Deployment</span> {{deployment.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
-<dl class="row-md jh-entity-details">
-    <dt><span>Descriptions</span></dt>
-    <dd>
-        <span>{{deployment.descriptions}}</span>
-    </dd>
-    <dt><span>Pods</span></dt>
-    <dd>
-        <span>{{deployment.pods}}</span>
-    </dd>
-    <dt><span>Applications</span></dt>
-    <dd>
-        <span>{{deployment.applications}}</span>
-    </dd>
-    <dt><span>Tenant</span></dt>
-    <dd>
-        <span>{{deployment.tenant}}</span>
-    </dd>
-    <dt><span>Stage</span></dt>
-    <dd>
-        <span>{{deployment.stage}}</span>
-    </dd>
-    <dt><span>Deployment To Applications</span></dt>
-    <dd>
-        <div *ngIf="deployment.deploymentToApplications">
-            <a [routerLink]="['/application', deployment.deploymentToApplications?.id]">{{deployment.deploymentToApplications?.id}}</a>
-        </div>
-    </dd>
-</dl>
+    <dl class="row-md jh-entity-details">
+        <dt><span>App Name</span></dt>
+        <dd>
+            <span>{{deployment.appName}}</span>
+        </dd>
+        <dt><span >Container Image</span></dt>
+        <dd>
+            <span>{{deployment.containerImage}}</span>
+        </dd>
+        <dt><span>Number Of Instances</span></dt>
+        <dd>
+            <span>{{deployment.numberOfInstances}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{deployment.description}}</span>
+        </dd>
+        <dt><span>Number Of Cores</span></dt>
+        <dd>
+            <span>{{deployment.numberOfCores}}</span>
+        </dd>
+        <dt><span>Memory</span></dt>
+        <dd>
+            <span>{{deployment.memory}}</span>
+        </dd>
+        <dt><span>Tenant</span></dt>
+        <dd>
+            <span>{{deployment.tenant}}</span>
+        </dd>
+        <dt><span>Stage</span></dt>
+        <dd>
+            <span>{{deployment.stage}}</span>
+        </dd>
+        <dt><span>Secret</span></dt>
+        <dd>
+            <span>{{deployment.secret}}</span>
+        </dd>
+    </dl>
 
 <button type="submit"
         (click)="previousState()"
