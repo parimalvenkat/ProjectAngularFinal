@@ -34,18 +34,60 @@
     <jhi-alert></jhi-alert>
 
 
-
-
-
-
     <div class="row" style="margin: 0 30px">
-        <div style="max-width: 20%; min-width: 20%" *ngFor="let application of applications ;trackBy: trackId">
-            <div class="card-deck" style="margin-bottom:10px;padding: 5px">
-                <div class="card">
-                    <h1>{{application.logoContentType}}</h1>
-                        <img class="card-img-top" [src]="'data:' + 'image/png' + ';base64,' + application.logo"
+            <div style="max-width: 20%; min-width: 20%" *ngFor="let application of applications ;trackBy: trackId">
+                <div class="card-deck" style="margin-bottom:10px;padding: 5px">
+                    <div class="card">
+         <img class="card-img-top" [src]="'data:' + application.logoContentType + ';base64,' + application.logo"
                              style="padding: 20px;width: 100%;height: 150px">
                         <div class="card-body">
+                            <h3 class="card-title">{{application.name}}
+                                <span class="badge badge-pill badge-info pull-right">{{application.version}}</span>
+                            </h3>
+                            <p class="card-text" style="height: 90px; overflow: auto">{{application.description}}</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="float-left">
+                                <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit" [routerLink]="['../application', application.id ]" class="btn btn-info btn-sm">
+                                    <span class="fa fa-eye"></span>
+                                </button>
+                                <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit" [routerLink]="['/', { outlets: { popup: 'application/'+ application.id + '/edit'} }]" replaceUrl="true"
+                                    class="btn btn-primary btn-sm">
+                                    <span class="fa fa-pencil"></span>
+                                </button>
+                                <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit" [routerLink]="['/', { outlets: { popup: 'application/'+ application.id + ':clone/edit'} }]" replaceUrl="true"
+                                        class="btn btn-primary btn-sm">
+                                    <span class="fa fa-clone"></span>
+                                </button>
+                                <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit" [routerLink]="['/', { outlets: { popup: 'application/'+ application.id + '/delete'} }]" replaceUrl="true"
+                                    class="btn btn-danger btn-sm">
+                                    <span class="fa fa-remove"></span>
+                                </button>
+                            </div>
+                            <div class="float-right">
+                                <button type="submit" [routerLink]="['/', { outlets: { popup: 'deployment-new-app/' + application.id } }]" class="btn btn-info btn-sm">
+                                    <span class="fa fa-cog"></span>
+                                    <span class="d-none d-md-inline">Deploy</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    <!--<div class="row" style="margin: 0 30px">
+       <div style="max-width: 20%; min-width: 20%" *ngFor="let app of application ;trackBy: trackId"> 
+            <div class="card-deck" style="margin-bottom:10px;padding: 5px">
+                <div class="card">
+                    <h1> </h1>
+                
+                   <h1>{{application.id}}</h1>
+                   <img class="card-img-top" [src]="'data:' + 'image/png' + ';base64,' + application.logo"
+                         style="padding: 20px;width: 100%;height: 150px">
+                    <div class="card-body">
                         <h3 class="card-title">{{application.name}}
                             <span class="badge badge-pill badge-info pull-right">{{application.version}}</span>
                         </h3>
@@ -77,9 +119,8 @@
                             </button>
                         </div>
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
-    </div>
+    </div>-->
 </div>
-

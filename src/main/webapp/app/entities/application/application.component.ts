@@ -13,8 +13,8 @@ import { Principal, ResponseWrapper } from '../../shared';
     templateUrl: './application.component.html'
 })
 export class ApplicationComponent implements OnInit, OnDestroy {
-applications: Application[];
-originalApp: Application[];
+    applications: Application[];
+    originalApp: Application[];
     currentAccount: any;
     eventSubscriber: Subscription;
     search : string;

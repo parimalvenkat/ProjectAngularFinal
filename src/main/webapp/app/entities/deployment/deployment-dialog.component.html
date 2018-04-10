@@ -90,48 +90,48 @@
 
         <wizard-step [title]="'Instance details'" >
 
-            <div class="form-group" style="margin-top: 5px;margin-left: 5px;margin-top: 20px">
-                <jhi-compositeinput [inputData]="InboundOutbounds" [keyLabel]="'Inbound'" [valueLabel]="'Outbound'"></jhi-compositeinput>
-            </div>
-
-            <div class="row" style="margin-left: -10px;margin-top: 20px">
-                <div class="col-sm-3" style="float:left">
-                    <div class="form-group">
-                        <label class="form-control-label"  style="font-weight: bold">Number Of Instances</label>
-                        <jhi-slider [max]="10" [min]="0" [color]="'red_scheme'" [presetvalue]="deployments.numberOfInstances" (valChanged)="deployments.numberOfInstances = $event"></jhi-slider>
-                        <div [hidden]="!(editForm.controls.numberOfInstances?.dirty && editForm.controls.numberOfInstances?.invalid)">
-                            <small class="form-text text-danger" [hidden]="!editForm.controls.numberOfInstances?.errors?.required" >
-                                This field is required.
-                            </small>
+            
+                <div class="form-group" style="margin-top: 5px;margin-left: 5px;margin-top: 20px">
+                        <jhi-compositeinput [inputData]="inboundOutbound" [keyLabel]="'Inbound'" [valueLabel]="'Outbound'"></jhi-compositeinput>
+                    </div>
+        
+        
+        
+        
+        
+        
+                    <div class="form-group" style="margin-left: -9px">
+                        <div class="col-sm-3" style="float:left">
+                            <div class="form-group">
+                                <label class="form-control-label"  style="font-weight: bold">Number Of Instances</label>
+                                <jhi-slider [max]="10" [min]="0"  [color]="'red_scheme'" [presetvalue]="deployments.numberOfInstances" (valChanged)="deployments.numberOfInstances = $event"></jhi-slider>
+                                <div [hidden]="!(editForm.controls.numberOfInstances?.dirty && editForm.controls.numberOfInstances?.invalid)">
+                                    <small class="form-text text-danger" [hidden]="!editForm.controls.numberOfInstances?.errors?.required" jhiTranslate="entity.validation.required">
+                                        This field is required.
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3" style="float:left">
+                            <div class="form-group">
+                                <label class="form-control-label"  style="font-weight: bold">Number Of Cores</label>
+                                <jhi-slider [max]="10" [min]="0" [color]="'yellow_scheme'" [presetvalue]="deployments.numberOfCores" (valChanged)="deployments.numberOfCores = $event"></jhi-slider>
+                            </div>
+                        </div>
+                        <div class="col-sm-3" style="float:left">
+                            <div class="form-group" style="margin-left: 5px;width: 100%">
+                                <label class="form-control-label" style="font-weight: bold">Memory (in GB)</label>
+                                <jhi-slider [max]="10" [min]="0" [color]="'green_scheme'" [presetvalue]="deployments.memory" (valChanged)="deployments.memory = $event"></jhi-slider>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-3" style="float:left">
-                    <div class="form-group">
-                        <label class="form-control-label"  style="font-weight: bold">Number Of Cores</label>
-                        <jhi-slider [max]="10" [min]="0" [color]="'yellow_scheme'" [presetvalue]="deployments.numberOfCores" (valChanged)="deployments.numberOfCores = $event"></jhi-slider>
-                    </div>
-                </div>
-                <div class="col-sm-3" style="float:left">
-                    <div class="form-group">
-                        <label class="form-control-label"  style="font-weight: bold">Memory(GB)</label>
-                        <jhi-slider [max]="10" [min]="0" [color]="'green_scheme'" [presetvalue]="deployments.memory" (valChanged)="deployments.memory = $event"></jhi-slider>
-                    </div>
-                </div>
-            </div>
-
 
         </wizard-step>
-        <wizard-step [title]="'Finish'" (onComplete)="save()">
+        <wizard-step [title]="'Finish'" (onComplete)="save()" >
             <h4 style="margin-top: 20px;margin-left: 18px;color: #0899cc">Click done to deploy your application !!!</h4>
             <jhi-alert-error></jhi-alert-error>
         </wizard-step>
     </form-wizard>
 
 
-
-
-
-
-    </form-wizard>
 </form>

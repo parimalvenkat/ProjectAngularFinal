@@ -31,7 +31,7 @@ export class ApplicationDialogComponent implements OnInit {
 
     images: Image[];
     public fileName : string="";
-    reposotories : Repositories;
+    repositories : Repositories;
     InboundOutbounds: any[];
     InboundOutbound : InboundOutbound[];
 
@@ -57,7 +57,7 @@ export class ApplicationDialogComponent implements OnInit {
             .subscribe((res: ResponseWrapper) => { this.images = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
         this.inboundOutboundService.query()
             .subscribe((res: ResponseWrapper) => { this.InboundOutbounds = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
-         this.getAllRepositories();
+        this.getAllRepositories();
     }
     byteSize(field) {
         return this.dataUtils.byteSize(field);
@@ -88,15 +88,16 @@ export class ApplicationDialogComponent implements OnInit {
 
     save() {
 
+    
         this.isSaving = true;
-        if(this.InboundOutbounds && this.InboundOutbounds.length > 0){
+      /* if(this.InboundOutbounds && this.InboundOutbounds.length > 0){
             this.application.inboundOutboundPorts = [];
             for(const data of this.InboundOutbounds){
                 let dataObj:InboundOutbound;
-                dataObj = new InboundOutbound(0,data.protocol,data.key,data.value,null);
+                dataObj = new InboundOutbound (0,data.protocol,data.key,data.value,null);
                 this.application.inboundOutboundPorts.push(dataObj);
             }
-        }
+        } */
 
         if (this.application.id !== undefined) {
             this.subscribeToSaveResponse(
@@ -105,7 +106,7 @@ export class ApplicationDialogComponent implements OnInit {
             this.subscribeToSaveResponse(
                 this.applicationService.create(this.application));
         }
-           }
+    }
 
     private subscribeToSaveResponse(result: Observable<Application>) {
         result.subscribe((res: Application) =>
@@ -128,7 +129,7 @@ export class ApplicationDialogComponent implements OnInit {
     getAllRepositories() {
         this.repositoryService.query().subscribe(
             (res: ResponseWrapper) => {
-                this.reposotories= res.json;
+                this.repositories= res.json;
             },
             (res: ResponseWrapper) => this.onError(res.json)
         );

@@ -17,7 +17,7 @@ export class Deployment implements BaseEntity {
         public tenant?: string,
         public stage?: string,
         public deploymentToApplications?: BaseEntity,
-        public inboundOutboundPorts?: InboundOutbound[],
+        public inboundOutbound?: InboundOutbound[],
     ) {
     }
 }

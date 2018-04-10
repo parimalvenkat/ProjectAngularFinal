@@ -8,7 +8,7 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import {Stages} from "../stages";
 import {TenantDetails} from "../tenant-details";
 import {Repositories} from "../repositories";
-import {InboundOutbound} from "../inbound-outbound";
+import {InboundOutbound,InboundOutboundService} from "../inbound-outbound";
 import {TenantDetailsService} from "../tenant-details";
 import {StagesService} from "../stages";
 import {RepositoriesService} from "../repositories";
@@ -36,7 +36,9 @@ export class DeploymentDialogComponent implements OnInit {
     tenantdetails: TenantDetails;
     repositories: Repositories;
     applications: Application;
-    InboundOutbound: any[];
+    inboundOutbound: any[];
+   // InboundOutbound : InboundOutbound[];
+
 
     constructor(
         public activeModal: NgbActiveModal,
@@ -49,6 +51,8 @@ export class DeploymentDialogComponent implements OnInit {
         private eventManager: JhiEventManager,
         public router: Router,
         private route: ActivatedRoute,
+        private inboundOutboundService: InboundOutboundService,
+
 
 
         private appService: AppService
@@ -56,6 +60,8 @@ export class DeploymentDialogComponent implements OnInit {
 
 
     ) {
+        this.inboundOutbound=[];
+        this.inboundOutbound.push({protocol:'tcp',key:'', value:''});
     }
 
     ngOnInit() {
@@ -65,7 +71,10 @@ export class DeploymentDialogComponent implements OnInit {
         this.getAllTenantDetails();
         this.applicationService.query()
             .subscribe((res: ResponseWrapper) => { this.applications = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
-    }
+            this.inboundOutboundService.query()
+            .subscribe((res: ResponseWrapper) => { this.inboundOutbound = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+    
+        }
 
     clear() {
         this.activeModal.dismiss('cancel');
@@ -73,17 +82,18 @@ export class DeploymentDialogComponent implements OnInit {
 
     save() {
 
-        this.appService.loading.showLoading();
+       
+       // this.appService.loading.showLoading();
 
         this.isSaving = true;
-        if(this.InboundOutbound && this.InboundOutbound.length > 0){
-            this.deployment.inboundOutboundPorts = [];
-            for(const data of this.InboundOutbound){
+        if(this.inboundOutbound && this.inboundOutbound.length > 0){
+            this.deployment.inboundOutbound = [];
+            for(const data of this.inboundOutbound){
                 let dataObj:InboundOutbound;
                 dataObj = new InboundOutbound(0,data.protocol,data.key,data.value,null);
-                this.deployment.inboundOutboundPorts.push(dataObj);
+                this.deployment.inboundOutbound.push(dataObj);
             }
-        }
+        } 
 
         if (this.deployment.id !== undefined) {
             this.subscribeToSaveResponse(
@@ -92,6 +102,9 @@ export class DeploymentDialogComponent implements OnInit {
             this.subscribeToSaveResponse(
                 this.deploymentService.create(this.deployment));
         }
+        console.log("data check",this.deploymentService.create(this.deployment));
+        this.subscribeToSaveResponse(this.deploymentService.create(this.deployment));
+        
     }
 
 

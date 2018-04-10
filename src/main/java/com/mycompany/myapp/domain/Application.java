@@ -4,7 +4,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.HashSet;
@@ -26,11 +26,16 @@ public class Application implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "name")
+    @NotNull
+    @Size(min = 5, max = 20)
+    @Column(name = "name", length = 20, nullable = false)
     private String name;
 
-    @Column(name = "description")
+    @NotNull
+    @Size(min = 10, max = 100)
+    @Column(name = "description", length = 100, nullable = false)
     private String description;
+
 
     @Column(name = "created")
     private ZonedDateTime created;
@@ -39,21 +44,52 @@ public class Application implements Serializable {
     private ZonedDateTime updated;
 
     @Column(name = "version")
-    private Long version;
+    private String version;
+
+    @Lob
+    @Column(name = "logo")
+    private byte[] logo;
+
+    @Column(name = "logo_content_type")
+    private String logoContentType;
+
+    @NotNull
+    @Column(name = "container_image", nullable = false)
+    private String containerImage;
+
+    @NotNull
+    @Column(name = "number_of_instances", nullable = false)
+    private String numberOfInstances;
+
+
+    @Column(name = "number_of_cores")
+    private Integer numberOfCores;
+
+    @Column(name = "memory")
+    private Integer memory;
+
+
+    @Column(name = "secret")
+    private String secret;
+// adding application to image
 
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JoinTable(name = "application_application_to_image",
-               joinColumns = @JoinColumn(name="applications_id", referencedColumnName="id"),
-               inverseJoinColumns = @JoinColumn(name="application_to_images_id", referencedColumnName="id"))
+        joinColumns = @JoinColumn(name="applications_id", referencedColumnName="id"),
+        inverseJoinColumns = @JoinColumn(name="application_to_images_id", referencedColumnName="id"))
     private Set<Image> applicationToImages = new HashSet<>();
 
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JoinTable(name = "application_application_to_in_outbound",
-               joinColumns = @JoinColumn(name="applications_id", referencedColumnName="id"),
-               inverseJoinColumns = @JoinColumn(name="application_to_in_outbounds_id", referencedColumnName="id"))
+        joinColumns = @JoinColumn(name="applications_id", referencedColumnName="id"),
+        inverseJoinColumns = @JoinColumn(name="application_to_in_outbounds_id", referencedColumnName="id"))
     private Set<InboundOutbound> applicationToInOutbounds = new HashSet<>();
+//=================================/////////////
+
+    //@OneToMany(cascade = CascadeType.ALL, mappedBy = "applications")
+    private transient Set<InboundOutbound> inboundOutbound = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -77,6 +113,34 @@ public class Application implements Serializable {
         this.name = name;
     }
 
+    public void setInboundOutboundPorts(Set<InboundOutbound> data){
+        System.out.println("----------------------------------------");
+        System.out.println(data);
+        System.out.println("----------------------------------------");
+        this.inboundOutbound = data;
+    }
+
+    public Set<InboundOutbound> getInboundOutboundPorts(){
+        return this.inboundOutbound;
+    }
+
+    public Application inboundOutboundPorts(Set<InboundOutbound> inboundOutboundPorts){
+        this.inboundOutbound = inboundOutboundPorts;
+        return  this;
+    }
+
+    public Application addInboundOutboundPorts(InboundOutbound inboundOutboundPorts){
+        this.inboundOutbound.add(inboundOutboundPorts);
+        inboundOutboundPorts.setApplications(this);
+        return  this;
+
+    }
+    public Application removeInboundOutboundPorts(InboundOutbound inboundOutboundPorts){
+        this.inboundOutbound.remove(inboundOutboundPorts);
+        inboundOutboundPorts.setApplications(null);
+        return this;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -90,44 +154,20 @@ public class Application implements Serializable {
         this.description = description;
     }
 
-    public ZonedDateTime getCreated() {
-        return created;
-    }
-
-    public Application created(ZonedDateTime created) {
-        this.created = created;
-        return this;
-    }
-
-    public void setCreated(ZonedDateTime created) {
-        this.created = created;
-    }
-
-    public ZonedDateTime getUpdated() {
-        return updated;
-    }
-
-    public Application updated(ZonedDateTime updated) {
-        this.updated = updated;
-        return this;
-    }
-
-    public void setUpdated(ZonedDateTime updated) {
-        this.updated = updated;
-    }
-
-    public Long getVersion() {
+    public String getVersion() {
         return version;
     }
 
-    public Application version(Long version) {
+    public Application version(String version) {
         this.version = version;
         return this;
     }
 
-    public void setVersion(Long version) {
+    public void setVersion(String version) {
         this.version = version;
     }
+
+    //addin application to image
 
     public Set<Image> getApplicationToImages() {
         return applicationToImages;
@@ -174,6 +214,102 @@ public class Application implements Serializable {
     public void setApplicationToInOutbounds(Set<InboundOutbound> inboundOutbounds) {
         this.applicationToInOutbounds = inboundOutbounds;
     }
+
+
+    public ZonedDateTime getCreated() {
+        return created;
+    }
+
+    public Application created(ZonedDateTime created) {
+        this.created = created;
+        return this;
+    }
+
+    public void setCreated(ZonedDateTime created) {
+        this.created = created;
+    }
+
+    public ZonedDateTime getUpdated() {
+        return updated;
+    }
+
+    public Application updated(ZonedDateTime updated) {
+        this.updated = updated;
+        return this;
+    }
+
+    public void setUpdated(ZonedDateTime updated) {
+        this.updated = updated;
+    }
+    //the end
+
+
+
+    public byte[] getLogo() {
+        return logo;
+    }
+
+    public Application logo(byte[] logo) {
+        this.logo = logo;
+        return this;
+    }
+
+    public void setLogo(byte[] logo) {
+        this.logo = logo;
+    }
+
+    public String getLogoContentType() {
+        return logoContentType;
+    }
+
+    public Application logoContentType(String logoContentType) {
+        this.logoContentType = logoContentType;
+        return this;
+    }
+
+    public void setLogoContentType(String logoContentType) {
+        this.logoContentType = logoContentType;
+    }
+
+    public String getContainerImage() {
+        return containerImage;
+    }
+
+    public void setContainerImage(String containerImage) {
+        this.containerImage = containerImage;
+    }
+
+    public String getNumberOfInstances() {
+        return numberOfInstances;
+    }
+
+    public void setNumberOfInstances(String numberOfInstances) {
+        this.numberOfInstances = numberOfInstances;
+    }
+
+    public Integer getNumberOfCores() {
+        return numberOfCores;
+    }
+
+    public void setNumberOfCores(Integer numberOfCores) {
+        this.numberOfCores = numberOfCores;
+    }
+
+    public Integer getMemory() {
+        return memory;
+    }
+
+    public void setMemory(Integer memory) {
+        this.memory = memory;
+    }
+
+    public String getSecret() {
+        return secret;
+    }
+
+    public void setSecret(String secret) {
+        this.secret = secret;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -184,11 +320,11 @@ public class Application implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Application application = (Application) o;
-        if (application.getId() == null || getId() == null) {
+        Application applications = (Application) o;
+        if (applications.getId() == null || getId() == null) {
             return false;
         }
-        return Objects.equals(getId(), application.getId());
+        return Objects.equals(getId(), applications.getId());
     }
 
     @Override
@@ -198,13 +334,15 @@ public class Application implements Serializable {
 
     @Override
     public String toString() {
-        return "Application{" +
+        return "Applications{" +
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", description='" + getDescription() + "'" +
             ", created='" + getCreated() + "'" +
             ", updated='" + getUpdated() + "'" +
-            ", version=" + getVersion() +
+            ", version='" + getVersion() + "'" +
+            ", logo='" + getLogo() + "'" +
+            ", logoContentType='" + getLogoContentType()+ "'" +
             "}";
     }
 }

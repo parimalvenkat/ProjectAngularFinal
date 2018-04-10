@@ -32,6 +32,9 @@ public class InboundOutbound implements Serializable {
     @Column(name = "outbound")
     private Long outbound;
 
+    @ManyToOne
+    private Application application;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -80,6 +83,18 @@ public class InboundOutbound implements Serializable {
         this.outbound = outbound;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+    public Application getApplications() {
+        return application;
+    }
+
+    public InboundOutbound applications(Application applications) {
+        this.application = applications;
+        return this;
+    }
+
+    public void setApplications(Application applications) {
+        this.application = applications;
+    }
 
     @Override
     public boolean equals(Object o) {

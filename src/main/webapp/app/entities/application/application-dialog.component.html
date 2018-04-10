@@ -80,32 +80,6 @@
             </div>
         </wizard-step>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <wizard-step [title]="'Image info'" >
             <div class="form-group" style="margin-left: 5px;margin-top: 20px">
                 <label class="form-control-label"  for="field_secret" style="font-weight: bold">secret</label>
@@ -134,12 +108,7 @@
                 <jhi-compositeinput [inputData]="InboundOutbounds" [keyLabel]="'Inbound'" [valueLabel]="'Outbound'"></jhi-compositeinput>
             </div>
 
-
-
-
-
-
-            <div class="form-group" style="margin-left: -9px">
+             <div class="form-group" style="margin-left: -9px">
                 <div class="col-sm-3" style="float:left">
                     <div class="form-group">
                         <label class="form-control-label"  style="font-weight: bold">Number Of Instances</label>
@@ -165,19 +134,10 @@
                 </div>
             </div>
         </wizard-step>
-
-
         <wizard-step [title]="'Finish'" (onComplete)="save()">
             <h4 style="margin-top: 20px;margin-left: 18px;color: #0899cc; font-family: Roboto, sans-serif">click DONE  to create your application.</h4>
             <jhi-alert-error></jhi-alert-error>
         </wizard-step>
     </form-wizard>
-
-
-
-
-
-
-
 
 </form>
