@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy,ElementRef, AfterViewInit } from '@angular
 import {FormsModule} from "@angular/forms";
 import { ActivatedRoute } from '@angular/router';
 import { Response } from '@angular/http';
-import {ApplicationImportComponent} from './application-import.component';
 
 
 import { Observable } from 'rxjs/Rx';
@@ -11,7 +10,6 @@ import { JhiEventManager, JhiAlertService,JhiDataUtils } from 'ng-jhipster';
 
 import { Application } from './application.model';
 import {ApplicationPopupService} from './application-popup.service';
-import {ApplicationImportService} from './application-import.service';
 import { ApplicationService } from './application.service';
 import { Image, ImageService } from '../image';
 import { InboundOutbound, InboundOutboundService } from '../inbound-outbound';
@@ -71,14 +69,20 @@ export class ApplicationDialogComponent implements OnInit {
     }
 
     setFileData(event, entity, field, isImage) {
-        console.log("event:", event);
-        console.log("entity:", entity);
-        console.log("field:", field);
-        console.log("isImage:", isImage);
         this.fileName = event.currentTarget.files[0].name;
         this.dataUtils.setFileData(event, entity, field, isImage);
 
     }
+
+    setJsonData(json) {
+       console.log(json);
+       console.log("saravana");
+
+    }
+
+
+
+
 
     clearInputImage(field: string, fieldContentType: string, idInput: string) {
         this.dataUtils.clearInputImage(this.application, this.elementRef, field, fieldContentType, idInput);
@@ -187,32 +191,3 @@ export class ApplicationPopupComponent implements OnInit, OnDestroy {
         this.routeSub.unsubscribe();
     }
 }
-@Component({
-    selector:'jhi-import-popup',
-    template:''
-})
-export class AppImportComponent implements OnInit,OnDestroy{
-    routeSub: any;
-
-    constructor(
-        private route: ActivatedRoute,
-        private applicationimportService: ApplicationImportService
-    ) {}
-
-    ngOnInit() {
-        this.routeSub = this.route.params.subscribe((params) => {
-            if ( params['id'] ) {
-                this.applicationimportService
-                    .open(ApplicationImportComponent as Component, params['id']);
-            } else {
-                this.applicationimportService
-                    .open(ApplicationImportComponent as Component);
-            }
-        });
-    }
-
-    ngOnDestroy() {
-        this.routeSub.unsubscribe();
-    }
-
-} 

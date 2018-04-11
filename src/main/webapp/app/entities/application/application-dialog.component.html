@@ -15,7 +15,7 @@
         <jhi-alert-error></jhi-alert-error>
 
         <wizard-step [title]="'Application details'">
-            <div class="form-group" [hidden]="!application.id" style="margin-left: 5px">
+         <!--   <div class="form-group" [hidden]="!application.id" style="margin-left: 5px">
                 <label for="id" >ID</label>
                 <input type="text" class="form-control" id="id" name="id"
                        [(ngModel)]="application.id" readonly />
@@ -62,7 +62,7 @@
                 <label class="form-control-label"  for="field_version" style="font-weight: bold">Version</label>
                 <input type="text" class="form-control" name="version" id="field_version" style="margin-top: 5px"
                        [(ngModel)]="application.version"  />
-            </div>
+            </div>-->
             <div class="form-group" style="margin-left: 5px">
                 <div style="margin-top: 5px; padding-top: 10px">
                     <div class="fileUpload btn button-primary">
@@ -78,9 +78,17 @@
                 <input type="hidden" class="form-control" name="logoContentType" id="field_logoContentType"
                        [(ngModel)]="application.logoContentType" />
             </div>
+            <div>
+                <div class="fileUpload btn button-primary">
+                    <span>Upload json</span>
+                    <input type="file" id="file_logo" class="upload" (change)="setJsonData('json')" />
+                </div>
+            </div>
+
+            
         </wizard-step>
 
-        <wizard-step [title]="'Image info'" >
+      <!--  <wizard-step [title]="'Image info'" >
             <div class="form-group" style="margin-left: 5px;margin-top: 20px">
                 <label class="form-control-label"  for="field_secret" style="font-weight: bold">secret</label>
                 <select class="form-control" name="secret" id="field_secret" [(ngModel)]="application.secret" style="margin-top: 5px">
@@ -133,7 +141,7 @@
                     </div>
                 </div>
             </div>
-        </wizard-step>
+        </wizard-step>-->
         <wizard-step [title]="'Finish'" (onComplete)="save()">
             <h4 style="margin-top: 20px;margin-left: 18px;color: #0899cc; font-family: Roboto, sans-serif">click DONE  to create your application.</h4>
             <jhi-alert-error></jhi-alert-error>
