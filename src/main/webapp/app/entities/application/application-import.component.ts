@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy,ElementRef, AfterViewInit } from '@angular
 import {FormsModule} from "@angular/forms";
 import { ActivatedRoute } from '@angular/router';
 import { Response } from '@angular/http';
-import {ApplicationImportComponent} from './application-import.component';
 
 
 import { Observable } from 'rxjs/Rx';
@@ -10,8 +9,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager, JhiAlertService,JhiDataUtils } from 'ng-jhipster';
 
 import { Application } from './application.model';
-import {ApplicationPopupService} from './application-popup.service';
-import {ApplicationImportService} from './application-import.service';
+import { ApplicationPopupService } from './application-popup.service';
 import { ApplicationService } from './application.service';
 import { Image, ImageService } from '../image';
 import { InboundOutbound, InboundOutboundService } from '../inbound-outbound';
@@ -21,12 +19,12 @@ import {Repositories, RepositoriesService} from "../repositories";
 import {NgModule} from "@angular/compiler/src/core";
 
 @Component({
-    selector: 'jhi-application-dialog',
-    templateUrl: './application-dialog.component.html'
+    selector: 'jhi-application-import',
+    templateUrl: './application-import.component.html'
 })
 
 
-export class ApplicationDialogComponent implements OnInit {
+export class ApplicationImportComponent implements OnInit {
 
     application: Application;
     isSaving: boolean;
@@ -47,7 +45,6 @@ export class ApplicationDialogComponent implements OnInit {
         private repositoryService: RepositoriesService,
         private elementRef: ElementRef,
         private eventManager: JhiEventManager,
-      //  private applicationimport:ApplicationImportComponent,
     ) {
         this.InboundOutbounds=[];
         this.InboundOutbounds.push({protocol:'tcp',key:'', value:''});
@@ -158,61 +155,3 @@ export class ApplicationDialogComponent implements OnInit {
     }
 }
 
-@Component({
-    selector: 'jhi-application-popup',
-    template: ''
-})
-export class ApplicationPopupComponent implements OnInit, OnDestroy {
-
-    routeSub: any;
-
-    constructor(
-        private route: ActivatedRoute,
-        private applicationPopupService: ApplicationPopupService
-    ) {}
-
-    ngOnInit() {
-        this.routeSub = this.route.params.subscribe((params) => {
-            if ( params['id'] ) {
-                this.applicationPopupService
-                    .open(ApplicationDialogComponent as Component, params['id']);
-            } else {
-                this.applicationPopupService
-                    .open(ApplicationDialogComponent as Component);
-            }
-        });
-    }
-
-    ngOnDestroy() {
-        this.routeSub.unsubscribe();
-    }
-}
-@Component({
-    selector:'jhi-import-popup',
-    template:''
-})
-export class AppImportComponent implements OnInit,OnDestroy{
-    routeSub: any;
-
-    constructor(
-        private route: ActivatedRoute,
-        private applicationimportService: ApplicationImportService
-    ) {}
-
-    ngOnInit() {
-        this.routeSub = this.route.params.subscribe((params) => {
-            if ( params['id'] ) {
-                this.applicationimportService
-                    .open(ApplicationImportComponent as Component, params['id']);
-            } else {
-                this.applicationimportService
-                    .open(ApplicationImportComponent as Component);
-            }
-        });
-    }
-
-    ngOnDestroy() {
-        this.routeSub.unsubscribe();
-    }
-
-} 

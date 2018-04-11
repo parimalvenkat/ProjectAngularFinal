@@ -9,10 +9,7 @@
   ],
   "dependencies": {
     "@angular/common": "5.1.0",
-
-
     "@angular/compiler": "5.1.0",
-
     "@angular/core": "5.1.0",
     "@angular/forms": "5.1.0",
     "@angular/http": "5.1.0",
@@ -26,6 +23,7 @@
     "jquery": "3.2.1",
     "ng-jhipster": "0.3.4",
     "ngx-cookie": "2.0.1",
+    "ngx-image-cropper": "^0.2.2",
     "ngx-infinite-scroll": "0.5.1",
     "ngx-webstorage": "2.0.1",
     "reflect-metadata": "0.1.10",

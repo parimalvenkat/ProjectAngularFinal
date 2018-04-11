@@ -26,8 +26,14 @@
             </button>
 
 
-            <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="button" data-toggle="modal" data-target="#poper" [routerLink]="['/', { outlets: { popup: ['application-new'] } }]"
+        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="button" data-toggle="modal" data-target="#poper" [routerLink]="['/', { outlets: { popup: ['application-new'] } }]"
                     class="btn btn-primary addbtn float_right"><i class="fa fa-plus-circle" aria-hidden="true"></i> Create Application</button>
+
+        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="button" data-toggle="modal" data-target="#poper" [routerLink]="['/', { outlets: { popup: ['application-import'] } }]"
+                    class="btn btn-primary addbtn float_right"><i class="fa fa-plus-circle" aria-hidden="true"></i> Import Application</button>
+
+          
+             
 
         </div>
     </div>

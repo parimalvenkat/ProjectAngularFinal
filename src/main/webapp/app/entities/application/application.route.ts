@@ -6,6 +6,7 @@ import { ApplicationComponent } from './application.component';
 import { ApplicationDetailComponent } from './application-detail.component';
 import { ApplicationPopupComponent } from './application-dialog.component';
 import { ApplicationDeletePopupComponent } from './application-delete-dialog.component';
+import {AppImportComponent} from './application-dialog.component';
 
 export const applicationRoute: Routes = [
     {
@@ -26,6 +27,20 @@ export const applicationRoute: Routes = [
         canActivate: [UserRouteAccessService]
     }
 ];
+export const applicationImportRoute: Routes=[
+    {
+        path: 'application-import',
+        component: AppImportComponent,
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'Applications'
+        },
+        canActivate: [UserRouteAccessService],
+        outlet: 'popup'
+    }
+
+
+];
 
 export const applicationPopupRoute: Routes = [
     {
@@ -38,6 +53,20 @@ export const applicationPopupRoute: Routes = [
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
     },
+
+
+/*{
+    path:'application-import',
+    component:AppImportComponent,
+    data:{
+        authorities:['ROLE_USER'],
+        pageTitle:'Applications'
+    },
+    canActivate:[UserRouteAccessService],
+    outlet:'popup'
+},*/
+
+
     {
         path: 'application/:id/edit',
         component: ApplicationPopupComponent,

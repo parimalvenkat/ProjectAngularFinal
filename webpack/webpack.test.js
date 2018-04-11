@@ -17,7 +17,7 @@ module.exports = (WATCH) => ({
             {
                 test: /\.ts$/,
                 loaders: ['awesome-typescript-loader', 'angular2-template-loader?keepUrl=true'],
-                exclude: /node_modules/
+                exclude: [/node_modules/, /\.(spec)\.js$/]
             },
             {
                 test: /\.(html|css)$/,

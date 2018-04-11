@@ -38,7 +38,7 @@ export class DeploymentComponent implements OnInit, OnDestroy {
         private jhiAlertService: JhiAlertService,
         private eventManager: JhiEventManager,
         private principal: Principal,
-        public dialog: MatDialog
+       public dialog: MatDialog
     ) {
     }
 
@@ -122,7 +122,7 @@ export class DeploymentComponent implements OnInit, OnDestroy {
     }
     openDialog() {
         let dialogRef = this.dialog.open(DialogContentComponent, {
-            width: '600px',
+           width: '600px',
             data: 'This text is passed into the dialog!'
         });
         dialogRef.afterClosed().subscribe(result => {
