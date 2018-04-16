@@ -3,33 +3,33 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { SERVER_API_URL } from '../../app.constants';
 
-import { TenantDetails } from './tenant-details.model';
+import { Tenant } from './tenant.model';
 import { ResponseWrapper, createRequestOption } from '../../shared';
 
 @Injectable()
-export class TenantDetailsService {
+export class TenantService {
 
-    private resourceUrl = SERVER_API_URL + '/api/tenant-details';
+    private resourceUrl = SERVER_API_URL + 'api/tenants';
 
     constructor(private http: Http) { }
 
-    create(tenantDetails: TenantDetails): Observable<TenantDetails> {
-        const copy = this.convert(tenantDetails);
+    create(tenant: Tenant): Observable<Tenant> {
+        const copy = this.convert(tenant);
         return this.http.post(this.resourceUrl, copy).map((res: Response) => {
             const jsonResponse = res.json();
             return this.convertItemFromServer(jsonResponse);
         });
     }
 
-    update(tenantDetails: TenantDetails): Observable<TenantDetails> {
-        const copy = this.convert(tenantDetails);
+    update(tenant: Tenant): Observable<Tenant> {
+        const copy = this.convert(tenant);
         return this.http.put(this.resourceUrl, copy).map((res: Response) => {
             const jsonResponse = res.json();
             return this.convertItemFromServer(jsonResponse);
         });
     }
 
-    find(id: number): Observable<TenantDetails> {
+    find(id: number): Observable<Tenant> {
         return this.http.get(`${this.resourceUrl}/${id}`).map((res: Response) => {
             const jsonResponse = res.json();
             return this.convertItemFromServer(jsonResponse);
@@ -56,18 +56,18 @@ export class TenantDetailsService {
     }
 
     /**
-     * Convert a returned JSON object to TenantDetails.
+     * Convert a returned JSON object to Tenant.
      */
-    private convertItemFromServer(json: any): TenantDetails {
-        const entity: TenantDetails = Object.assign(new TenantDetails(), json);
+    private convertItemFromServer(json: any): Tenant {
+        const entity: Tenant = Object.assign(new Tenant(), json);
         return entity;
     }
 
     /**
-     * Convert a TenantDetails to a JSON which can be sent to the server.
+     * Convert a Tenant to a JSON which can be sent to the server.
      */
-    private convert(tenantDetails: TenantDetails): TenantDetails {
-        const copy: TenantDetails = Object.assign({}, tenantDetails);
+    private convert(tenant: Tenant): Tenant {
+        const copy: Tenant = Object.assign({}, tenant);
         return copy;
     }
 }

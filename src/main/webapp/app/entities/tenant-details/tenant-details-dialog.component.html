@@ -41,12 +41,12 @@
                [(ngModel)]="tenantDetails.contactemail" />
     </div>
 
-    <div class="form-group">
+   <!-- <div class="form-group">
         <label for="field_tenantDetailsToStages">Tenant Details To Stages</label>
         <select class="form-control" id="field_tenantDetailsToStages" multiple name="tenantDetailsToStages" [(ngModel)]="tenantDetails.tenantDetailsToStages">
         <option [ngValue]="getSelected(tenantDetails.tenantDetailsToStages, stagesOption)" *ngFor="let stagesOption of stages; trackBy: trackStagesById">{{stagesOption.id}}</option>
         </select>
-    </div>
+    </div>-->
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">

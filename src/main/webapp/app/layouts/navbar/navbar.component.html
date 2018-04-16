@@ -38,7 +38,7 @@
                             <span>Repositories</span>
                         </a>
                     </li>
-                    <li>
+               <!--     <li>
                         <a class="dropdown-item" routerLink="user-details" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <i class="material-icons" style="font-size:20px;">accessibility</i>
                             <span>User Details</span>
@@ -49,7 +49,7 @@
                             <i class="material-icons" style="font-size:20px;">build</i>
                             <span>Tenant Deployment</span>
                         </a>
-                    </li>
+                    </li> -->
                     <li>
                         <a class="dropdown-item" routerLink="tenant-details" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <i class="material-icons" style="font-size:20px;">fingerprint</i>
@@ -62,7 +62,7 @@
                             <span>Deployment</span>
                         </a>
                     </li>
-                    <li>
+            <!--        <li>
                         <a class="dropdown-item" routerLink="stages" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <i class="material-icons" style="font-size:20px;">equalizer</i>
                             <span>Stages</span>
@@ -73,14 +73,14 @@
                             <i class="material-icons" style="font-size:20px;">contacts</i>
                             <span>Tenant Contact Details</span>
                         </a>
-                    </li>
+                    </li> -->
                     <li>
                         <a class="dropdown-item" routerLink="application" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <i class="material-icons" style="font-size:20px;">dialpad</i>
                             <span>Application</span>
                         </a>
                     </li>
-                    <li>
+               <!--     <li>
                         <a class="dropdown-item" routerLink="image" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <i class="material-icons" style="font-size:20px;">image</i>
                             <span>Image</span>
@@ -91,8 +91,17 @@
                             <i class="material-icons" style="font-size:20px;">business</i>
                             <span>Inbound Outbound</span>
                         </a>
-                    </li>
+                    </li> -->
 
+
+                    
+                    
+                    <li>
+                        <a class="dropdown-item" routerLink="tenant" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                            <span>Tenant</span>
+                        </a>
+                    </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>
@@ -118,7 +127,7 @@
                             <span>Metrics</span>
                         </a>
                     </li>
-                    <li>
+                   <li>
                         <a class="dropdown-item" routerLink="jhi-health" routerLinkActive="active" (click)="collapseNavbar()">
                             <i class="fa fa-fw fa-heart" aria-hidden="true"></i>
                             <span>Health</span>

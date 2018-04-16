@@ -1,0 +1,50 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "stages",
+            "otherEntityName": "stages",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "tenant"
+        },
+        {
+            "relationshipName": "y",
+            "otherEntityName": "stages",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "tenant"
+        },
+        {
+            "relationshipName": "n",
+            "otherEntityName": "n",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "tenant"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "contact_name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "contact_email",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180416073019",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "tenant",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

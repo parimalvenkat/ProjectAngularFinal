@@ -1,4 +1,4 @@
-<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+<!--<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
 
     <div class="modal-header information">
         <div class="font-modal-header style-display-inline-block" id="myApplicationsLabel" >Create deployment</div>
@@ -15,15 +15,15 @@
 
 
         <wizard-step [title]="'Deployment infrastructure'" >
-            <div class="row" style="margin-top: 20px">
+          <div class="row" style="margin-top: 20px">
                 <div class="col-sm">
                     <div class="form-group">
                         <label class="form-control-label"  for="field_tenant" style="font-weight: bold">Tenant</label>
-                        <select class="form-control" name="tenantdetail" id="field_tenant" [(ngModel)]="deployments.tenant" style="margin-top: 5px">
-                            <option *ngFor="let tenant of tenantdetails" [value]="tenant.name">{{tenant.name}}</option>
+                        <select class="form-control" name="tenantdetail" id="field_tenant" [(ngModel)]="deployments.tenantdetail" style="margin-top: 5px">
+                            <option *ngFor="let tenantdetail of tenantdetails" [value]="tenantdetail.name">{{tenantdetails.name}}</option>
                         </select>
                     </div>
-                </div>
+                </div> 
                 <div class="col-sm">
                     <div class="form-group">
                         <label class="form-control-label"  for="field_stage" style="font-weight: bold">Stage</label>
@@ -134,4 +134,118 @@
     </form-wizard>
 
 
-</form>
+</form> -->
+
+ <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+
+        <div class="modal-header information">
+            <div class="font-modal-header style-display-inline-block" id="myApplicationsLabel" >Create deployment</div>
+            <button type="button" style="font-size: 20px;border: 0;color: #0899cc;background-color: #ebf0f5;cursor: pointer" data-dismiss="modal" aria-hidden="true"
+                    (click)="clear()"><span class="fa fa-times" aria-hidden="true"></span></button>
+        </div>
+    
+    
+        <form-wizard style="min-height: 100px">
+            <wizard-step [title]="'Deployment infrastructure'" >
+                <div class="row" style="margin-top: 20px">
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label class="form-control-label"  for="field_tenant" style="font-weight: bold">Tenant</label>
+                            <select class="form-control" name="tenant" id="field_tenant" [(ngModel)]="deployments.tenant" style="margin-top: 5px">
+                                <option *ngFor="let tenant of tenants" [value]="tenant.name">{{tenant.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="optimizerApp.deployments.stage" for="field_stage" style="font-weight: bold">Stage</label>
+                            <select class="form-control" name="stage" id="field_stage" [(ngModel)]="deployments.stage" style="margin-top: 5px">
+                                <option *ngFor="let stage of stages" [value]="stage.name">{{stage.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </wizard-step>
+            <wizard-step [title]="'Application info'" >
+                <div class="form-group" [hidden]="!deployments.id" style="margin-top: 20px">
+                    <label for="id" jhiTranslate="global.field.id" style="font-weight: bold">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" [(ngModel)]="deployments.id" readonly style="margin-top: 5px"/>
+                </div>
+                <div class="form-group" style="margin-top: 20px">
+                    <label class="form-control-label" jhiTranslate="optimizerApp.deployments.appName" for="field_appName" style="font-weight: bold">Name</label>
+                    <input type="text" class="form-control" name="appName" id="field_appName" [(ngModel)]="deployments.appName" required style="margin-top: 5px"/>
+                    <div [hidden]="!(editForm.controls.appName?.dirty && editForm.controls.appName?.invalid)">
+                        <small class="form-text text-danger" [hidden]="!editForm.controls.appName?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optimizerApp.deployments.description" for="field_description" style="font-weight: bold">Description</label>
+                    <textarea type="text" class="form-control" name="description" id="field_description" [(ngModel)]="deployments.description" required style="margin-top: 5px"
+                    ></textarea>
+                    <div [hidden]="!(editForm.controls.description?.dirty && editForm.controls.description?.invalid)">
+                        <small class="form-text text-danger" [hidden]="!editForm.controls.description?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optimizerApp.deployments.containerImage" for="field_containerImage" style="font-weight: bold">Container Image</label>
+                    <input type="text" class="form-control" name="containerImage" id="field_containerImage" [(ngModel)]="deployments.containerImage" style="margin-top: 5px"
+                           required />
+                    <div [hidden]="!(editForm.controls.containerImage?.dirty && editForm.controls.containerImage?.invalid)">
+                        <small class="form-text text-danger" [hidden]="!editForm.controls.containerImage?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optimizerApp.deployments.secret" for="field_secret" style="font-weight: bold">secret</label>
+                    <select class="form-control" name="secret" id="field_secret" [(ngModel)]="deployments.secret" style="margin-top: 5px">
+                        <option *ngFor="let repository of repositories" [value]="repository.secret">{{repository.secret}}</option>
+                    </select>
+                </div>
+            </wizard-step>
+            <wizard-step [title]="'Instance details'" >
+                <div class="row" style="margin-left: -10px;margin-top: 20px">
+                    <div class="col-sm-3" style="float:left">
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="optimizerApp.deployments.numberOfInstances" style="font-weight: bold">Number Of Instances</label>
+                            <jhi-slider [max]="10" [min]="0" [color]="'red_scheme'" [presetvalue]="deployments.numberOfInstances" (valChanged)="deployments.numberOfInstances = $event"></jhi-slider>
+                            <div [hidden]="!(editForm.controls.numberOfInstances?.dirty && editForm.controls.numberOfInstances?.invalid)">
+                                <small class="form-text text-danger" [hidden]="!editForm.controls.numberOfInstances?.errors?.required" jhiTranslate="entity.validation.required">
+                                    This field is required.
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" style="float:left">
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="optimizerApp.deployments.numberOfCores" style="font-weight: bold">Number Of Cores</label>
+                            <jhi-slider [max]="10" [min]="0" [color]="'yellow_scheme'" [presetvalue]="deployments.numberOfCores" (valChanged)="deployments.numberOfCores = $event"></jhi-slider>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" style="float:left">
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="optimizerApp.deployments.memory" style="font-weight: bold">Memory(GB)</label>
+                            <jhi-slider [max]="10" [min]="0" [color]="'green_scheme'" [presetvalue]="deployments.memory" (valChanged)="deployments.memory = $event"></jhi-slider>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <jhi-compositeinput [keyLabel]="'Inbound'" [valueLabel]="'Outbound'" [inputData]="inboundOutboundPorts"></jhi-compositeinput>
+                </div>
+                </div>
+            </wizard-step>
+            <wizard-step [title]="'Finish'" (onComplete)="save()">
+                <h4 style="margin-top: 20px;margin-left: 18px;color: #0899cc">Click done to deploy your application !!!</h4>
+                <jhi-alert-error></jhi-alert-error>
+            </wizard-step>
+        </form-wizard>
+    
+    
+    
+    </form> 
+    

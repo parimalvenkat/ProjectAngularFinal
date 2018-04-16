@@ -1,8 +1,7 @@
-import { Component, OnInit, OnDestroy,ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy,ElementRef, AfterViewInit,ViewChild  } from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Response } from '@angular/http';
-
 
 import { Observable } from 'rxjs/Rx';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
@@ -26,6 +25,9 @@ import {NgModule} from "@angular/compiler/src/core";
 
 export class ApplicationDialogComponent implements OnInit {
 
+
+    @ViewChild('fileInput') fileInput;
+
     application: Application;
     isSaving: boolean;
 
@@ -34,8 +36,15 @@ export class ApplicationDialogComponent implements OnInit {
     repositories : Repositories;
     InboundOutbounds: any[];
     InboundOutbound : InboundOutbound[];
+    fileToUpload: File = null;
+    jsonFileContent: String;
+    createApp: boolean = false;
+    ModalTitle: String;
+    event: String;
 
     constructor(
+        private router: Router,
+        private activatedRoute: ActivatedRoute,
         public activeModal: NgbActiveModal,
         private dataUtils: JhiDataUtils,
         private jhiAlertService: JhiAlertService,
@@ -49,8 +58,10 @@ export class ApplicationDialogComponent implements OnInit {
     ) {
         this.InboundOutbounds=[];
         this.InboundOutbounds.push({protocol:'tcp',key:'', value:''});
-
+        
     }
+    
+    
 
     ngOnInit() {
         this.isSaving = false;
@@ -60,6 +71,27 @@ export class ApplicationDialogComponent implements OnInit {
             .subscribe((res: ResponseWrapper) => { this.InboundOutbounds = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
         this.getAllRepositories();
     }
+    checkURL(){
+        if(String(this.router.url).includes("edit")){
+            this.ModalTitle="Edit Application";
+            this.event="Update";
+            this.createApp = false;
+            this.jsonFileContent = '{\n"NAME": "' + this.application.name + '",\n'+ 
+            '"DESCRIPTION": "' + this.application.description + '",\n'+
+            '"SECRET": "' + this.application.secret + '",\n'+
+            '"VERSION": "' + this.application.version + '",\n'+
+            '"CONTAINER_IMAGE": "' + this.application.containerImage + '",\n'+
+            '"NUMBER_OF_CORES": "' + this.application.numberOfCores + '",\n'+
+            '"NUMBER_OF_INSTANCES": "' + this.application.numberOfInstances + '",\n'+
+            '"MEMORY": "' + this.application.memory + '"\n}';
+        }
+        else{
+            this.ModalTitle="Create an Application";
+            this.event="Create";
+            this.createApp = true;
+        }
+    }
+    
     byteSize(field) {
         return this.dataUtils.byteSize(field);
     }
@@ -70,16 +102,77 @@ export class ApplicationDialogComponent implements OnInit {
 
     setFileData(event, entity, field, isImage) {
         this.fileName = event.currentTarget.files[0].name;
+        if(this.fileName==""){
+      
+            
+        }
+        
         this.dataUtils.setFileData(event, entity, field, isImage);
-
     }
 
-    setJsonData(json) {
-       console.log(json);
-       console.log("saravana");
-
+    setJsonFileData(event, entity, field, isImage) {
+        this.fileName = event.currentTarget.files[0].name;
+        // this.dataUtils.setFileData(event, entity, field, isImage);
+        let file = event.target.files[0];
+        let reader = new FileReader();
+        reader.readAsText(file);
+        reader.onload = () => {
+            // this.form.get('avatar').setValue({
+            //   filename: file.name,
+            //   filetype: file.type,
+            //   value: reader.result.split(',')[1]
+            // })
+            this.jsonFileContent = reader.result;
+            var json = JSON.parse(reader.result);
+            console.log(json);
+            this.application.name = json.NAME;
+            this.application.description = json.DESCRIPTION;
+            this.application.version = json.VERSION;
+            this.application.secret = json.SECRET;
+            this.application.containerImage = json.CONTAINER_IMAGE;
+            this.application.numberOfInstances = json.NUMBER_OF_INSTANCES;
+            this.application.numberOfCores = json.NUMBER_OF_CORES;
+            this.application.memory = json.MEMORY;
+        };
     }
 
+    updatejson(event){
+        this.jsonFileContent = event.target.value;
+        var json = JSON.parse(event.target.value);
+        this.application.name = json.NAME;
+        this.application.description = json.DESCRIPTION;
+        this.application.version = json.VERSION;
+        this.application.secret = json.SECRET;
+        this.application.containerImage = json.CONTAINER_IMAGE;
+        this.application.numberOfInstances = json.NUMBER_OF_INSTANCES;
+        this.application.numberOfCores = json.NUMBER_OF_CORES;
+        this.application.memory = json.MEMORY;
+    }
+
+    handleFileInput(files: FileList) {
+        this.fileToUpload = files.item(0);
+    }
+
+    
+    private upload() {
+        const fileBrowser = this.fileInput.nativeElement;
+        if (fileBrowser.files && fileBrowser.files[0]) {
+          const formData = new FormData();
+          formData.append('files', fileBrowser.files[0]);
+          const xhr = new XMLHttpRequest();
+          xhr.open('POST', '/api/Data/UploadFiles', true);
+          xhr.onload = function () {
+            if (this['status'] === 200) {
+                const responseText = this['responseText'];
+                const files = JSON.parse(responseText);
+                //todo: emit event
+            } else {
+              //todo: error handling
+            }
+          };
+          xhr.send(formData);
+        }
+      }
 
 
 

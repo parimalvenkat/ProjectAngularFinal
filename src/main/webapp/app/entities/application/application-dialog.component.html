@@ -1,9 +1,8 @@
 <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
 
     <div class="modal-header" style="background-color: #e9ecef">
-        <h4 class="modal-title colorblue" id="myApplicationLabel" style="font-family: Roboto, sans-serif">Create an Application</h4>
-        <button type="button" class="close colorblue" data-dismiss="modal" aria-hidden="true"
-                (click)="clear()">&times;</button>
+        <h4 class="modal-title colorblue" id="myApplicationLabel" style="font-family: Roboto, sans-serif">{{this.ModalTitle}}</h4>
+        <button type="button" class="close colorblue" data-dismiss="modal" aria-hidden="true" (click)="clear()">&times;</button>
     </div>
 
 
@@ -14,8 +13,8 @@
 
         <jhi-alert-error></jhi-alert-error>
 
-        <wizard-step [title]="'Application details'">
-         <!--   <div class="form-group" [hidden]="!application.id" style="margin-left: 5px">
+        <wizard-step [title]="'Upload Data Files'">
+            <!--     <div class="form-group" [hidden]="!application.id" style="margin-left: 5px">
                 <label for="id" >ID</label>
                 <input type="text" class="form-control" id="id" name="id"
                        [(ngModel)]="application.id" readonly />
@@ -62,33 +61,62 @@
                 <label class="form-control-label"  for="field_version" style="font-weight: bold">Version</label>
                 <input type="text" class="form-control" name="version" id="field_version" style="margin-top: 5px"
                        [(ngModel)]="application.version"  />
-            </div>-->
-            <div class="form-group" style="margin-left: 5px">
+            </div> -->
+            {{checkURL()}}
+            <div *ngIf="createApp" class="form-group" style="margin-left: 5px">
                 <div style="margin-top: 5px; padding-top: 10px">
                     <div class="fileUpload btn button-primary">
                         <span>Upload logo</span>
-                        <input type="file" id="file_logo" class="upload" (change)="setFileData($event, application, 'logo', true)" accept="image/*" />
+                        <input type="file" id="file_logo" class="upload" (change)="setFileData($event, application, 'logo', true)" accept="image/*"
+                        />
+                        <span>Upload json</span>
+                        <input type="file" id="file_json" class="upload" (change)="setJsonFileData($event, application, 'json', false)" accept=".json"
+                        />
                     </div>
-                    <span *ngIf="application.logo"><button type="button" (click)="clearInputImage('logo', 'logoContentType', 'fileImage')" class="btn btn-secondary btn-xs"> Remove</button></span>
-                    <br><br>
-                    <img [src]="'data:' + application.logoContentType + ';base64,' + application.logo" style="max-height: 100px;" *ngIf="application.logo" alt="application image"/>
+                    <span *ngIf="application.logo">
+                        <button type="button" (click)="clearInputImage('logo', 'logoContentType', 'fileImage')" class="btn btn-secondary btn-xs">
+                        Remove</button>
+                    </span>
+                    <br>
+                    <br>
+                    <img [src]="'data:' + application.logoContentType + ';base64,' + application.logo" style="max-height: 100px;" *ngIf="application.logo"
+                        alt="application image" />
+                    <div *ngIf="jsonFileContent">
+                        <div>Name: {{application.name}}</div>
+                        <div>Description: {{application.description}}</div>
+                        <div>Version: {{application.version}}</div>
+                        <div>Secret: {{application.secret}}</div>
+                        <div>Container Image: {{application.containerImage}}</div>
+                        <div>Number of Cores: {{application.numberOfCores}}</div>
+                        <div>Number of Instances: {{application.numberOfInstances}}</div>
+                        <div>Memory: {{application.memory}}</div>
+                    </div>
                 </div>
-                <input type="hidden" class="form-control" name="logo" id="field_logo"
-                       [(ngModel)]="application.logo"  />
-                <input type="hidden" class="form-control" name="logoContentType" id="field_logoContentType"
-                       [(ngModel)]="application.logoContentType" />
+                <input type="hidden" class="form-control" name="logo" id="field_logo" [(ngModel)]="application.logo" />
+                <input type="hidden" class="form-control" name="logoContentType" id="field_logoContentType" [(ngModel)]="application.logoContentType"
+                />
             </div>
-            <div>
+            <div *ngIf="!createApp">
+                <div>
+                    <textarea style="width:600px;height:250px" (change)="updatejson($event)">{{this.jsonFileContent}}</textarea>
+                </div>
                 <div class="fileUpload btn button-primary">
-                    <span>Upload json</span>
-                    <input type="file" id="file_logo" class="upload" (change)="setJsonData('json')" />
-                </div>
+                        <span>Upload logo</span>
+                        <input type="file" id="file_logo" class="upload" (change)="setFileData($event, application, 'logo', true)" accept="image/*"
+                        />
+                    </div>
+                    <span *ngIf="application.logo">
+                        <button type="button" (click)="clearInputImage('logo', 'logoContentType', 'fileImage')" class="btn btn-secondary btn-xs">
+                        Remove</button>
+                    </span>
+                    <br>
+                    <br>
+                    <img [src]="'data:' + application.logoContentType + ';base64,' + application.logo" style="max-height: 100px;" *ngIf="application.logo"
+                        alt="application image" />
             </div>
-
-            
         </wizard-step>
 
-      <!--  <wizard-step [title]="'Image info'" >
+        <!--    <wizard-step [title]="'Image info'" >
             <div class="form-group" style="margin-left: 5px;margin-top: 20px">
                 <label class="form-control-label"  for="field_secret" style="font-weight: bold">secret</label>
                 <select class="form-control" name="secret" id="field_secret" [(ngModel)]="application.secret" style="margin-top: 5px">
@@ -141,9 +169,9 @@
                     </div>
                 </div>
             </div>
-        </wizard-step>-->
+        </wizard-step> -->
         <wizard-step [title]="'Finish'" (onComplete)="save()">
-            <h4 style="margin-top: 20px;margin-left: 18px;color: #0899cc; font-family: Roboto, sans-serif">click DONE  to create your application.</h4>
+            <h4 style="margin-top: 20px;margin-left: 18px;color: #0899cc; font-family: Roboto, sans-serif">click DONE to {{this.event}} your application.</h4>
             <jhi-alert-error></jhi-alert-error>
         </wizard-step>
     </form-wizard>
