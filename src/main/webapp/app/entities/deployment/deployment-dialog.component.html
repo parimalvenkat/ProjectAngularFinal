@@ -23,7 +23,7 @@
                             <option *ngFor="let tenantdetail of tenantdetails" [value]="tenantdetail.name">{{tenantdetails.name}}</option>
                         </select>
                     </div>
-                </div> 
+                </div>
                 <div class="col-sm">
                     <div class="form-group">
                         <label class="form-control-label"  for="field_stage" style="font-weight: bold">Stage</label>
@@ -90,16 +90,16 @@
 
         <wizard-step [title]="'Instance details'" >
 
-            
+
                 <div class="form-group" style="margin-top: 5px;margin-left: 5px;margin-top: 20px">
                         <jhi-compositeinput [inputData]="inboundOutbound" [keyLabel]="'Inbound'" [valueLabel]="'Outbound'"></jhi-compositeinput>
                     </div>
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
                     <div class="form-group" style="margin-left: -9px">
                         <div class="col-sm-3" style="float:left">
                             <div class="form-group">
@@ -144,8 +144,8 @@
             <button type="button" style="font-size: 20px;border: 0;color: #0899cc;background-color: #ebf0f5;cursor: pointer" data-dismiss="modal" aria-hidden="true"
                     (click)="clear()"><span class="fa fa-times" aria-hidden="true"></span></button>
         </div>
-    
-    
+
+
         <form-wizard style="min-height: 100px">
             <wizard-step [title]="'Deployment infrastructure'" >
                 <div class="row" style="margin-top: 20px">
@@ -159,7 +159,7 @@
                     </div>
                     <div class="col-sm">
                         <div class="form-group">
-                            <label class="form-control-label" jhiTranslate="optimizerApp.deployments.stage" for="field_stage" style="font-weight: bold">Stage</label>
+                            <label class="form-control-label"  for="field_stage" style="font-weight: bold">Stage</label>
                             <select class="form-control" name="stage" id="field_stage" [(ngModel)]="deployments.stage" style="margin-top: 5px">
                                 <option *ngFor="let stage of stages" [value]="stage.name">{{stage.name}}</option>
                             </select>
@@ -244,8 +244,7 @@
                 <jhi-alert-error></jhi-alert-error>
             </wizard-step>
         </form-wizard>
-    
-    
-    
-    </form> 
-    
+
+
+
+    </form>

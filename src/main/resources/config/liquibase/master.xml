@@ -17,6 +17,7 @@
     <include file="config/liquibase/changelog/20180207063957_added_entity_Image.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180207063958_added_entity_InboundOutbound.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180416073019_added_entity_Tenant.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180417061544_added_entity_Tenants.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20180207063951_added_entity_constraints_TenantDeployment.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180207063952_added_entity_constraints_TenantDetails.xml" relativeToChangelogFile="false"/>
@@ -24,5 +25,6 @@
     <include file="config/liquibase/changelog/20180207063954_added_entity_constraints_Stages.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180207063955_added_entity_constraints_TenantContactDetails.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180207063956_added_entity_constraints_Application.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180417061544_added_entity_constraints_Tenants.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

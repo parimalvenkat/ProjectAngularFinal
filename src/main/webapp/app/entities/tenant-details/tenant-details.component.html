@@ -59,33 +59,33 @@
 
 
     <tbody>
-    <tr *ngFor="let tenantDetails of tenantDetails ;trackBy: trackId">
-        <td><a [routerLink]="['../tenant-details', tenantDetails.id ]">{{tenantDetails.id}}</a></td>
-        <td>{{tenantDetails.name}}</td>
-        <td>{{tenantDetails.description}}</td>
-        <td>{{tenantDetails.contactname}}</td>
-        <td>{{tenantDetails.contactemail}}</td>
+    <tr *ngFor="let tenantDetail of tenantDetails ;trackBy: trackId">
+        <td><a [routerLink]="['../tenant-details', tenantDetail.id ]">{{tenantDetail.id}}</a></td>
+        <td>{{tenantDetail.name}}</td>
+        <td>{{tenantDetail.description}}</td>
+        <td>{{tenantDetail.contact_name}}</td>
+        <td>{{tenantDetail.contact_email}}</td>
         <td>
-            <span *ngFor="let tenantDetailsToStages of tenantDetails.tenantDetailsToStages; let last = last">
-                            <a class="form-control-static" [routerLink]="['../stages', tenantDetailsToStages?.id ]">{{tenantDetailsToStages.id}}</a>{{last ? '' : ', '}}
+            <span *ngFor="let tenantDetailsToStage of tenantDetail.tenantDetailsToStages; let last = last">
+                            <a class="form-control-static" [routerLink]="['../stages', tenantDetailsToStage?.id ]">{{tenantDetailsToStage.id}}</a>{{last ? '' : ', '}}
                         </span>
         </td>
         <td class="text-right">
             <div class="btn-group flex-btn-group-container">
                 <button type="submit"
-                        [routerLink]="['../tenant-details', tenantDetails.id ]"
+                        [routerLink]="['../tenant-details', tenantDetail.id ]"
                         class="btn btn-info btn-sm" style="background-color:#03e8f2; border-color:#03e8f2">
                     <span class="fa fa-eye"></span>
                 </button>
                 <button type="submit" *jhiHasAnyAuthority="'ROLE_ADMIN'"
-                        [routerLink]="['/', { outlets: { popup: 'tenant-details/'+ tenantDetails.id + '/edit'} }]"
+                        [routerLink]="['/', { outlets: { popup: 'tenant-details/'+ tenantDetail.id + '/edit'} }]"
                         replaceUrl="true"
                         queryParamsHandling="merge"
                         class="btn btn-primary btn-sm" style="background-color:#03c2f2;border-color:#03c2f2" >
                     <span class="fa fa-pencil"></span>
                 </button>
                 <button type="submit" *jhiHasAnyAuthority="'ROLE_ADMIN'"
-                        [routerLink]="['/', { outlets: { popup: 'tenant-details/'+ tenantDetails.id + '/delete'} }]"
+                        [routerLink]="['/', { outlets: { popup: 'tenant-details/'+ tenantDetail.id + '/delete'} }]"
                         replaceUrl="true"
                         queryParamsHandling="merge"
                         class="btn btn-danger btn-sm" style="background-color:#039ef2;border-color:#039ef2;" >

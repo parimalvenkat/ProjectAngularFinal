@@ -1,0 +1,60 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "stages",
+            "otherEntityName": "stages",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "tenants"
+        },
+        {
+            "relationshipName": "man",
+            "otherEntityName": "stages",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "y",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "tenants"
+        },
+        {
+            "relationshipName": "tenant_contact_details",
+            "otherEntityName": "tenant_contact_details",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "tenants"
+        },
+        {
+            "relationshipName": "m",
+            "otherEntityName": "stages",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "tenants"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "contact_name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "contact_email",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20180417061544",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "tenants",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

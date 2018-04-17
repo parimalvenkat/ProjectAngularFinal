@@ -59,10 +59,8 @@ public class CacheConfiguration {
             cm.createCache(com.mycompany.myapp.domain.InboundOutbound.class.getName(), jcacheConfiguration);
           
            
-            cm.createCache(com.mycompany.myapp.domain.Tenant.class.getName(), jcacheConfiguration);
-            cm.createCache(com.mycompany.myapp.domain.Tenant.class.getName() + ".stages", jcacheConfiguration);
-            cm.createCache(com.mycompany.myapp.domain.Tenant.class.getName() + ".ys", jcacheConfiguration);
-            cm.createCache(com.mycompany.myapp.domain.Tenant.class.getName() + ".ns", jcacheConfiguration);
+      
+            
             // jhipster-needle-ehcache-add-entry
         };
     }

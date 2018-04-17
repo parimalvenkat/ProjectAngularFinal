@@ -32,10 +32,10 @@ public class TenantDetails implements Serializable {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "contactname")
+    @Column(name = "CONTACT_NAME")
     private String contactname;
 
-    @Column(name = "contactemail")
+    @Column(name = "CONTACT_EMAIL")
     private String contactemail;
 
     @OneToMany(mappedBy = "tenantDetails")

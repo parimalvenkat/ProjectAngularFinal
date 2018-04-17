@@ -14,7 +14,6 @@ import { Try1InboundOutboundModule } from './inbound-outbound/inbound-outbound.m
 import {Try1ScaleManagementModule} from './scale-management/scale-management.module';
 import {Try1VersionManagementModule} from "./version-management/version-management.module";
 
-import { Try1TenantModule } from './tenant/tenant.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -34,7 +33,7 @@ import { Try1TenantModule } from './tenant/tenant.module';
         Try1VersionManagementModule,
         
        
-        Try1TenantModule,
+        
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],
