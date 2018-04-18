@@ -73,7 +73,7 @@ export class DeploymentDialogComponent implements OnInit {
             .subscribe((res: ResponseWrapper) => { this.applications = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
             this.inboundOutboundService.query()
             .subscribe((res: ResponseWrapper) => { this.inboundOutbound = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
-    
+
         }
 
     clear() {
@@ -82,7 +82,7 @@ export class DeploymentDialogComponent implements OnInit {
 
     save() {
 
-       
+
        // this.appService.loading.showLoading();
 
         this.isSaving = true;
@@ -93,7 +93,7 @@ export class DeploymentDialogComponent implements OnInit {
                 dataObj = new InboundOutbound(0,data.protocol,data.key,data.value,null);
                 this.deployments.inboundOutbound.push(dataObj);
             }
-        } 
+        }
 
         if (this.deployments.id !== undefined) {
             this.subscribeToSaveResponse(
@@ -104,7 +104,7 @@ export class DeploymentDialogComponent implements OnInit {
         }
         console.log("data check",this.deploymentService.create(this.deployments));
         this.subscribeToSaveResponse(this.deploymentService.create(this.deployments));
-        
+
     }
 
 
@@ -264,7 +264,7 @@ export class DeploymentDialogComponent implements OnInit {
     }
 
     save() {
-        this.appService.loading.showLoading();
+       this.appService.loading.showLoading();
         this.isSaving = true;
         if(this.inboundOutboundPorts && this.inboundOutboundPorts.length > 0){
             this.deployments.inboundOutbound = [];
@@ -320,6 +320,7 @@ export class DeploymentDialogComponent implements OnInit {
         this.eventManager.broadcast({ name: 'deploymentsListModification', content: 'OK' });
         this.isSaving = false;
         this.activeModal.dismiss(result);
+        //this.router.navigateByUrl('/deployment', { skipLocationChange: true });
         this.appService.loading.timeoutLoading({execute: ()=>{
             this.router.navigateByUrl('/deployment', { skipLocationChange: true });
         }}, 1000);

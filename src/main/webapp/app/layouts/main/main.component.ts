@@ -3,6 +3,7 @@ import { Router, ActivatedRouteSnapshot, NavigationEnd } from '@angular/router';
 
 // import {JhiLanguageHelper} from '../../shared';
 import { Title } from '@angular/platform-browser';
+import {AppService} from "../../app.service";
 
 @Component({
     selector: 'jhi-main',
@@ -13,7 +14,7 @@ export class JhiMainComponent implements OnInit {
     constructor(
         private titleService: Title,
         private router: Router,
-
+        public appService: AppService
     ) {}
 
     private getPageTitle(routeSnapshot: ActivatedRouteSnapshot) {

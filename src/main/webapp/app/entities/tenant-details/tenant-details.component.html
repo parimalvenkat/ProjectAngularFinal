@@ -49,10 +49,11 @@
     <th class="colorblue"><span>ID</span></th>
     <th class="colorblue"><span>Name</span></th>
     <th class="colorblue"><span>Description</span></th>
-    <th class="colorblue"><span>Contactname</span></th>
-    <th class="colorblue"><span>Contactemail</span></th>
+    <th class="colorblue"><span>Contact Name</span></th>
+    <th class="colorblue"><span>Contact e-mail</span></th>
    <!-- <th class="colorblue"><span>Tenant Details To Stages</span></th> -->
-    <th></th>
+    <th class="colorblue"></th>
+        <th></th>
     </tr>
     </thead>
 
@@ -63,8 +64,8 @@
         <td><a [routerLink]="['../tenant-details', tenantDetail.id ]">{{tenantDetail.id}}</a></td>
         <td>{{tenantDetail.name}}</td>
         <td>{{tenantDetail.description}}</td>
-        <td>{{tenantDetail.contact_name}}</td>
-        <td>{{tenantDetail.contact_email}}</td>
+        <td>{{tenantDetail.contactname}}</td>
+        <td>{{tenantDetail.contactemail}}</td>
         <td>
             <span *ngFor="let tenantDetailsToStage of tenantDetail.tenantDetailsToStages; let last = last">
                             <a class="form-control-static" [routerLink]="['../stages', tenantDetailsToStage?.id ]">{{tenantDetailsToStage.id}}</a>{{last ? '' : ', '}}

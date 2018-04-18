@@ -5,8 +5,8 @@ export class TenantDetails implements BaseEntity {
         public id?: number,
         public name?: string,
         public description?: string,
-        public contact_name?: string,
-        public contact_email?: string,
+        public contactname?: string,
+        public contactemail?: string,
         public tenantDetailsToTenantContactdetails?: BaseEntity[],
         public tenantDetailsToStages?: BaseEntity[],
     ) {

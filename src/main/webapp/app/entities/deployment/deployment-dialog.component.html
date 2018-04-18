@@ -173,7 +173,7 @@
                     <input type="text" class="form-control" id="id" name="id" [(ngModel)]="deployments.id" readonly style="margin-top: 5px"/>
                 </div>
                 <div class="form-group" style="margin-top: 20px">
-                    <label class="form-control-label" jhiTranslate="optimizerApp.deployments.appName" for="field_appName" style="font-weight: bold">Name</label>
+                    <label class="form-control-label"  for="field_appName" style="font-weight: bold">Name</label>
                     <input type="text" class="form-control" name="appName" id="field_appName" [(ngModel)]="deployments.appName" required style="margin-top: 5px"/>
                     <div [hidden]="!(editForm.controls.appName?.dirty && editForm.controls.appName?.invalid)">
                         <small class="form-text text-danger" [hidden]="!editForm.controls.appName?.errors?.required" jhiTranslate="entity.validation.required">
@@ -182,7 +182,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="optimizerApp.deployments.description" for="field_description" style="font-weight: bold">Description</label>
+                    <label class="form-control-label"  for="field_description" style="font-weight: bold">Description</label>
                     <textarea type="text" class="form-control" name="description" id="field_description" [(ngModel)]="deployments.description" required style="margin-top: 5px"
                     ></textarea>
                     <div [hidden]="!(editForm.controls.description?.dirty && editForm.controls.description?.invalid)">
@@ -192,7 +192,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="optimizerApp.deployments.containerImage" for="field_containerImage" style="font-weight: bold">Container Image</label>
+                    <label class="form-control-label"  for="field_containerImage" style="font-weight: bold">Container Image</label>
                     <input type="text" class="form-control" name="containerImage" id="field_containerImage" [(ngModel)]="deployments.containerImage" style="margin-top: 5px"
                            required />
                     <div [hidden]="!(editForm.controls.containerImage?.dirty && editForm.controls.containerImage?.invalid)">
@@ -202,7 +202,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="optimizerApp.deployments.secret" for="field_secret" style="font-weight: bold">secret</label>
+                    <label class="form-control-label" for="field_secret" style="font-weight: bold">secret</label>
                     <select class="form-control" name="secret" id="field_secret" [(ngModel)]="deployments.secret" style="margin-top: 5px">
                         <option *ngFor="let repository of repositories" [value]="repository.secret">{{repository.secret}}</option>
                     </select>
@@ -212,7 +212,7 @@
                 <div class="row" style="margin-left: -10px;margin-top: 20px">
                     <div class="col-sm-3" style="float:left">
                         <div class="form-group">
-                            <label class="form-control-label" jhiTranslate="optimizerApp.deployments.numberOfInstances" style="font-weight: bold">Number Of Instances</label>
+                            <label class="form-control-label"  style="font-weight: bold">Number Of Instances</label>
                             <jhi-slider [max]="10" [min]="0" [color]="'red_scheme'" [presetvalue]="deployments.numberOfInstances" (valChanged)="deployments.numberOfInstances = $event"></jhi-slider>
                             <div [hidden]="!(editForm.controls.numberOfInstances?.dirty && editForm.controls.numberOfInstances?.invalid)">
                                 <small class="form-text text-danger" [hidden]="!editForm.controls.numberOfInstances?.errors?.required" jhiTranslate="entity.validation.required">
@@ -223,13 +223,13 @@
                     </div>
                     <div class="col-sm-3" style="float:left">
                         <div class="form-group">
-                            <label class="form-control-label" jhiTranslate="optimizerApp.deployments.numberOfCores" style="font-weight: bold">Number Of Cores</label>
+                            <label class="form-control-label"  style="font-weight: bold">Number Of Cores</label>
                             <jhi-slider [max]="10" [min]="0" [color]="'yellow_scheme'" [presetvalue]="deployments.numberOfCores" (valChanged)="deployments.numberOfCores = $event"></jhi-slider>
                         </div>
                     </div>
                     <div class="col-sm-3" style="float:left">
                         <div class="form-group">
-                            <label class="form-control-label" jhiTranslate="optimizerApp.deployments.memory" style="font-weight: bold">Memory(GB)</label>
+                            <label class="form-control-label"  style="font-weight: bold">Memory(GB)</label>
                             <jhi-slider [max]="10" [min]="0" [color]="'green_scheme'" [presetvalue]="deployments.memory" (valChanged)="deployments.memory = $event"></jhi-slider>
                         </div>
                     </div>

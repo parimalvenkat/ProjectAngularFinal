@@ -28,6 +28,7 @@ export class ApplicationComponent implements OnInit, OnDestroy {
     ) {
     }
 
+
     loadAll() {
         this.applicationService.query().subscribe(
             (res: ResponseWrapper) => {

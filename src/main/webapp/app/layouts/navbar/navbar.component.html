@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark navbar-expand-md jh-navbar">
+<nav class="navbar navbar-dark sticky-top navbar-expand-md jh-navbar">
     <div class="jh-logo-container float-left">
         <a class="jh-navbar-toggler d-lg-none float-right" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
             <i class="fa fa-bars"></i>
@@ -62,18 +62,18 @@
                             <span>Deployment</span>
                         </a>
                     </li>
-            <!--        <li>
+                 <li>
                         <a class="dropdown-item" routerLink="stages" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <i class="material-icons" style="font-size:20px;">equalizer</i>
                             <span>Stages</span>
                         </a>
                     </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="tenant-contact-details" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <i class="material-icons" style="font-size:20px;">contacts</i>
-                            <span>Tenant Contact Details</span>
-                        </a>
-                    </li> -->
+                    <!--      <li>
+                           <a class="dropdown-item" routerLink="tenant-contact-details" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                               <i class="material-icons" style="font-size:20px;">contacts</i>
+                               <span>Tenant Contact Details</span>
+                           </a>
+                       </li> -->
                     <li>
                         <a class="dropdown-item" routerLink="application" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <i class="material-icons" style="font-size:20px;">dialpad</i>
@@ -94,10 +94,10 @@
                     </li> -->
 
 
-                    
-                    
-                   
-                   
+
+
+
+
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>
@@ -194,7 +194,7 @@
                       Account
                       </span>
 
-                      <ul class="dropdown-menu" ngbDropdownMenu>
+                      <ul class="dropdown-menu top-fix" ngbDropdownMenu>
 
 
 
@@ -269,12 +269,12 @@
 </div>-->
 
 
- <form  class="navbar-nav ml-auto" *ngIf="!isAuthenticated()" (ngSubmit)="userlogin()">
+ <form  class="navbar-nav ml-7" *ngIf="!isAuthenticated()" (ngSubmit)="userlogin()">
 
 
-    <input type="text" class="form-control" name="username" id="username" placeholder="Your username" [(ngModel)]="username" style="border-radius: 0rem;" [hidden]="regist"    >
-    <input type="password" class="form-control" name="password" id="password" placeholder="Your password" [(ngModel)]="password" style="border-radius: 0rem;" [hidden]="regist"  >
-    <button type="submit" name="singin" class="btn btn-primary fa fa-sign-in" style="background-color: #0899cc;border-color: #0899cc;" [hidden]="regist"  ></button>
+    <input type="text" class="form-control mr-3" name="username" id="username" placeholder="Your username" [(ngModel)]="username" style="border-radius:5px;" [hidden]="regist"    >
+    <input type="password" class="form-control" name="password" id="password" placeholder="Your password" [(ngModel)]="password" style="border-radius: 5px;" [hidden]="regist"  >
+    <button type="submit" name="singin" class="btn btn-primary fa fa-sign-in" style="cursor: pointer;background-color: #0899cc;border-color: #0899cc;" [hidden]="regist"  > </button>
 
      <a class="nav-link" routerLink="register" routerLinkActive="active" (click)="toggle()">
          <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
