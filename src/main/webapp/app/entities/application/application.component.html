@@ -20,7 +20,7 @@
 
 
             <button type="reset" onclick="document.getElementById('search').value = ''  " class="btn btn-primary  fa fa-close addbtn btn-sm "
-                    style="position:relative;left:-4px;height: 38px;top: -1px;margin-right: 15px;max-width: 35px;margin-bottom: 3px;border-radius: 0px;">
+                    style="position:relative;left:-5px;height: 38px;top: -1px;margin-right: 15px;max-width: 35px;margin-bottom: 3px;border-radius: 0px;">
 
 
             </button>
@@ -44,12 +44,12 @@
                     <div class="card">
 
          <img onerror="this.onerror=null;this.src='https://i.imgur.com/SBntdac.png';" class="card-img-top" [src]="'data:' + application.logoContentType + ';base64,' + application.logo"
-                             style="padding: 20px;width: 100%;height: 150px">
-                        <div class="card-body">
-                            <h3 class="card-title">{{application.name}}
+                             style="padding: 20px;width: 100%;height: 170px">
+                        <div class="card-body added-card">
+                            <h3 class="card-title m-0 paricolor">{{application.name}}
                                 <span class="badge badge-pill badge-info pull-right">{{application.version}}</span>
                             </h3>
-                            <p class="card-text" style="height: 90px; overflow: auto">{{application.description}}</p>
+                            <p class="card-text samplecolor" style="height: 90px; overflow: auto">{{application.description}}</p>
                         </div>
                         <div class="card-footer">
                             <div class="float-left">

@@ -253,7 +253,7 @@
 &ndash;&gt;
                     <input type="password" style="margin-top: 5px" class="form-control" name="password" id="password" placeholder="Your password"
                            [(ngModel)]="password">
-                </div>
+                </div>tooltip
                 <div class="form-check">
                     <label class="form-check-label" for="rememberMe">
                         <input class="form-check-input" type="checkbox" name="rememberMe" id="rememberMe" [(ngModel)]="rememberMe" checked>
@@ -270,14 +270,12 @@
 
 
  <form  class="navbar-nav ml-7" *ngIf="!isAuthenticated()" (ngSubmit)="userlogin()">
-
-
     <input type="text" class="form-control mr-3" name="username" id="username" placeholder="Your username" [(ngModel)]="username" style="border-radius:5px;" [hidden]="regist"    >
     <input type="password" class="form-control" name="password" id="password" placeholder="Your password" [(ngModel)]="password" style="border-radius: 5px;" [hidden]="regist"  >
-    <button type="submit" name="singin" class="btn btn-primary fa fa-sign-in" style="cursor: pointer;background-color: #0899cc;border-color: #0899cc;" [hidden]="regist"  > </button>
+    <button type="submit" name="singin" class="btn btn-primary fa fa-sign-in" style="cursor: pointer;background-color: #0899cc;border-color: #0899cc;" [hidden]="regist" data-toggle="tooltip" data-placement="top" title="Login" ></button>
 
      <a class="nav-link" routerLink="register" routerLinkActive="active" (click)="toggle()">
-         <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
+         <i data-toggle="tooltip" data-placement="top" title="Register" class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
      </a>
 
 

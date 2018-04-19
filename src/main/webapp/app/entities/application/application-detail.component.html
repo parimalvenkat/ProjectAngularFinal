@@ -1,5 +1,55 @@
 
 
+<div style="max-width: 1450px;" class="container mt-5">
+
+    <table class="table text-center lightblue">
+        <jhi-alert-error></jhi-alert-error>
+
+        <thead class="thead-light">
+        <tr>
+            <th class="colorblue" scope="col">ID</th>
+            <th class="colorblue" scope="col">Logo</th>
+            <th class="colorblue" scope="col">Name</th>
+            <th class="colorblue" scope="col">Description</th>
+            <th class="colorblue" scope="col">Version</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngIf="application">
+            <td> {{application.id}}</td>
+            <td *ngIf="application.logo">
+                <a (click)="openFile(application.logoContentType, application.logo)">
+                    <img [src]="'data:' + application.logoContentType + ';base64,' + application.logo" style=" max-width: 150px;" alt="application image"/>
+                </a></td>
+            <td>{{application.name}}</td>
+            <td>{{application.description}}</td>
+            <td>{{application.version}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="row mt-3">
+        <div class="col-md-1">
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+            </button>
+
+        </div>
+        <div class="offset-10 col-md-1">
+            <button type="button"
+                    [routerLink]="['/', { outlets: { popup: 'application/'+ application.id + '/edit'} }]"
+                    replaceUrl="true"
+                    queryParamsHandling="merge"
+                    class="btn btn-primary">
+                <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<!--
 <div *ngIf="application">
     <h2 style="font-weight: bold"><span>Application</span> {{application.id}}</h2>
     <hr>
@@ -41,3 +91,4 @@
     <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
 </button>
 </div>
+-->

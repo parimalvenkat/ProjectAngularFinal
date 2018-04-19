@@ -386,7 +386,7 @@ ui bootstrap tweaks
 }
 
 .colorblue{
-    color:#0899cc;
+    color:#0899cc !important;
 }
 
 .search-box{
@@ -584,4 +584,25 @@ body{
 }
 .top-fix{
     top:34px !important;
+}
+/*TOOL TIP*/
+
+.lightblue{
+    box-shadow: 0px 0px 14px 0px;
+}
+.card{
+    box-shadow: 0px 0px 10px 2px;
+}
+.added-card{
+    padding: 0px;
+}
+.paricolor {
+    padding: .75rem 1.25rem;
+    background-color: rgba(0, 0, 0, .03);
+    border-top: 1px solid rgba(0, 0, 0, .125);
+}
+.samplecolor{
+    background-color: rgba(0,0,0,.03);
+    border-top: 1px solid rgba(0,0,0,.125);
+    padding: .75rem 1.25rem;
 }
