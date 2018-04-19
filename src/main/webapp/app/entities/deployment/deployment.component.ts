@@ -56,7 +56,7 @@ export class DeploymentComponent implements OnInit, OnDestroy {
         } else {
             let result: Deployment[] = [];
             for(let app of this.orgDeployments){
-                if(app.appName.toLowerCase().indexOf(this.search.toLowerCase()) > -1 ||  app.containerImage.toLowerCase().indexOf(this.search.toLowerCase()) > -1 || app.descriptions.toLowerCase().indexOf(this.search.toLowerCase()) > -1 || app.tenant.toLowerCase().indexOf(this.search.toLowerCase()) > -1){
+                if(app.applications.toLowerCase().indexOf(this.search.toLowerCase()) > -1 ||  app.containerImage.toLowerCase().indexOf(this.search.toLowerCase()) > -1 || app.descriptions.toLowerCase().indexOf(this.search.toLowerCase()) > -1 || app.tenant.toLowerCase().indexOf(this.search.toLowerCase()) > -1){
                     result.push(app);
                 }
             }

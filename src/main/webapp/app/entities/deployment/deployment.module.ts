@@ -1,9 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA,ApplicationModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
-import {CompositeInputFieldComponent} from "../../entities/compositeinputfield/compositeinputfield.component";
-import {WizardComponent} from "../../entities/wizardcomponent/wizard.component";
-import {WizardStepComponent} from "../../entities/wizardcomponent/wizard-step.component";
+import {Try1StagesModule} from "../stages/stages.module";
+import {Try1TenantDetailsModule} from "../tenant-details/tenant-details.module";
 
 import { Try1SharedModule } from '../../shared';
 import {
@@ -18,7 +16,7 @@ import {
     deploymentRoute,
     deploymentPopupRoute,
     DeploymentDropdownComponent,
-    
+
 } from './';
 import {DialogContentComponent} from "./dialog-content/dialog-content.component";
 import {Try1ScaleManagementModule} from "../scale-management/scale-management.module";
@@ -37,7 +35,9 @@ const ENTITY_STATES = [
         MatDialogModule,
         RouterModule.forChild(ENTITY_STATES),
         Try1ScaleManagementModule,
-        
+        Try1TenantDetailsModule,
+        Try1StagesModule
+
 
     ],
     declarations: [

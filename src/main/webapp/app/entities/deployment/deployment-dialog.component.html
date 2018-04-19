@@ -140,7 +140,7 @@
 
 
         <div class="modal-header information">
-            <div class="font-modal-header style-display-inline-block" id="myApplicationsLabel" >Create deployment for APPLICATION ID-{{applications.id}}  APPLCATION NAME {{applications.name}} </div>
+            <div class="font-modal-header style-display-inline-block" id="myApplicationsLabel" >Create deployment</div>
             <button type="button" style="font-size: 20px;border: 0;color: #0899cc;background-color: #ebf0f5;cursor: pointer" data-dismiss="modal" aria-hidden="true"
                     (click)="clear()"><span class="fa fa-times" aria-hidden="true"></span></button>
         </div>
@@ -173,7 +173,11 @@
                     <input type="text" class="form-control" id="id" name="id" [(ngModel)]="deployments.id"  readonly style="margin-top: 5px"/>                </div>
                 <div class="form-group" style="margin-top: 20px">
                     <label class="form-control-label"  for="field_applications" style="font-weight: bold">Name</label>
-                    <textarea type="text" class="form-control" name="appName" id="field_applications" [(ngModel)]="deployments.applications" required style="margin-top: 5px">{{applications.name}}</textarea>
+
+<!--
+               <input type="text"  class="form-control" value="{{applications.name}}" required style="margin-top: 5px"/>
+-->
+                 <input type="text"  class="form-control" name="appName" id="field_applications"  [ngModel]="deployments.applications" required style="margin-top: 5px"/>
                     <div [hidden]="!(editForm.controls.applications?.dirty && editForm.controls.applications?.invalid)">
                         <small class="form-text text-danger" [hidden]="!editForm.controls.appName?.errors?.required" jhiTranslate="entity.validation.required">
                             This field is required.
