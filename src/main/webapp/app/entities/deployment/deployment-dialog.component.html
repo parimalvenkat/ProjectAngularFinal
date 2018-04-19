@@ -140,7 +140,7 @@
 
 
         <div class="modal-header information">
-            <div class="font-modal-header style-display-inline-block" id="myApplicationsLabel" >Create deployment</div>
+            <div class="font-modal-header style-display-inline-block" id="myApplicationsLabel" >Create deployment for APPLICATION ID-{{applications.id}}  APPLCATION NAME {{applications.name}} </div>
             <button type="button" style="font-size: 20px;border: 0;color: #0899cc;background-color: #ebf0f5;cursor: pointer" data-dismiss="modal" aria-hidden="true"
                     (click)="clear()"><span class="fa fa-times" aria-hidden="true"></span></button>
         </div>
@@ -148,7 +148,7 @@
 
         <form-wizard style="min-height: 100px">
             <wizard-step [title]="'Deployment infrastructure'" >
-                <div class="row" style="margin-top: 20px">
+                    <div class="row" style="margin-top: 20px">
                     <div class="col-sm">
                         <div class="form-group">
                             <label class="form-control-label"  for="field_tenant" style="font-weight: bold">Tenant</label>
@@ -170,21 +170,19 @@
             <wizard-step [title]="'Application info'" >
                 <div class="form-group" [hidden]="!deployments.id" style="margin-top: 20px">
                     <label for="id" jhiTranslate="global.field.id" style="font-weight: bold">ID</label>
-                    <input type="text" class="form-control" id="id" name="id" [(ngModel)]="deployments.id" readonly style="margin-top: 5px"/>
-                </div>
+                    <input type="text" class="form-control" id="id" name="id" [(ngModel)]="deployments.id"  readonly style="margin-top: 5px"/>                </div>
                 <div class="form-group" style="margin-top: 20px">
-                    <label class="form-control-label"  for="field_appName" style="font-weight: bold">Name</label>
-                    <input type="text" class="form-control" name="appName" id="field_appName" [(ngModel)]="deployments.appName" required style="margin-top: 5px"/>
-                    <div [hidden]="!(editForm.controls.appName?.dirty && editForm.controls.appName?.invalid)">
+                    <label class="form-control-label"  for="field_applications" style="font-weight: bold">Name</label>
+                    <textarea type="text" class="form-control" name="appName" id="field_applications" [(ngModel)]="deployments.applications" required style="margin-top: 5px">{{applications.name}}</textarea>
+                    <div [hidden]="!(editForm.controls.applications?.dirty && editForm.controls.applications?.invalid)">
                         <small class="form-text text-danger" [hidden]="!editForm.controls.appName?.errors?.required" jhiTranslate="entity.validation.required">
                             This field is required.
                         </small>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label"  for="field_description" style="font-weight: bold">Description</label>
-                    <textarea type="text" class="form-control" name="description" id="field_description" [(ngModel)]="deployments.description" required style="margin-top: 5px"
-                    ></textarea>
+                    <label class="form-control-label"  for="field_descriptions" style="font-weight: bold">Description</label>
+                    <textarea type="text" class="form-control" name="description" id="field_descriptions"  [(ngModel)]="deployments.descriptions" required style="margin-top: 5px">{{applications.description}}</textarea>
                     <div [hidden]="!(editForm.controls.description?.dirty && editForm.controls.description?.invalid)">
                         <small class="form-text text-danger" [hidden]="!editForm.controls.description?.errors?.required" jhiTranslate="entity.validation.required">
                             This field is required.
