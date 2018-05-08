@@ -32,8 +32,8 @@ public class Application implements Serializable {
     private String name;
 
     @NotNull
-    @Size(min = 10, max = 100)
-    @Column(name = "description", length = 100, nullable = false)
+    @Size(min = 10, max = 700)
+    @Column(name = "description", length = 700, nullable = false)
     private String description;
 
 

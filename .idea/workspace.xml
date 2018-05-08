@@ -2,59 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df6009f0-eab4-4ac2-ac3f-caa043420873" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/application/application-keyvalue.component.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/application/application-keyvalue.component.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/content/images/Karthi.JPG" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/myapp/domain/Application.java" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/myapp/domain/Application.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/myapp/domain/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/myapp/domain/User.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/myapp/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/myapp/service/UserService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/myapp/service/dto/UserDTO.java" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/myapp/service/dto/UserDTO.java" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/.h2.server.properties" afterPath="$PROJECT_DIR$/src/main/resources/.h2.server.properties" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/account/account.module.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/account/account.module.ts" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/account/register/register.component.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/account/register/register.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/account/register/register.component.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/account/register/register.component.ts" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/account/settings/settings.component.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/account/settings/settings.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/account/settings/settings.component.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/account/settings/settings.component.ts" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/app.module.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/app.module.ts" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/app.service.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/app.service.ts" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/application/application-detail.component.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/application/application-detail.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/application/application-detail.component.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/application/application-detail.component.ts" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/application/application-dialog.component.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/application/application-dialog.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/application/application-dialog.component.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/application/application-dialog.component.ts" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/application/application.component.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/application/application.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/application/application.component.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/application/application.component.ts" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/application/application.model.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/application/application.model.ts" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/application/application.module.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/application/application.module.ts" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/application/application.route.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/application/application.route.ts" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/application/application.service.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/application/application.service.ts" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/application/index.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/application/index.ts" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment-detail.component.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment-detail.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment-detail.component.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment-detail.component.ts" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment-dialog.component.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment-dialog.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment-dialog.component.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment-dialog.component.ts" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment-popup.service.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment-popup.service.ts" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment.component.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment.component.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment.component.ts" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment.model.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment.model.ts" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment.route.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment.route.ts" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/entity.module.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/entity.module.ts" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/nodes/nodes-detail.component.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/nodes/nodes-detail.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/nodes/nodes.component.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/nodes/nodes.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/repositories/repositories-detail.component.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/repositories/repositories-detail.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/repositories/repositories.component.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/repositories/repositories.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/stages/stages-detail.component.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/stages/stages-detail.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/stages/stages.component.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/stages/stages.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/tenant-details/tenant-details-detail.component.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/tenant-details/tenant-details-detail.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/tenant-details/tenant-details.component.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/tenant-details/tenant-details.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/layouts/main/main.component.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/layouts/main/main.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/layouts/main/main.component.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/layouts/main/main.component.ts" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/layouts/navbar/navbar.component.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/layouts/navbar/navbar.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/layouts/navbar/navbar.component.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/layouts/navbar/navbar.component.ts" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/layouts/navbar/navbar.css" afterPath="$PROJECT_DIR$/src/main/webapp/app/layouts/navbar/navbar.css" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/shared/auth/principal.service.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/shared/auth/principal.service.ts" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/shared/loading/loading.widget.ts" afterPath="$PROJECT_DIR$/src/main/webapp/app/shared/loading/loading.widget.ts" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/content/css/global.css" afterPath="$PROJECT_DIR$/src/main/webapp/content/css/global.css" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/.h2.server.properties" afterPath="$PROJECT_DIR$/target/classes/.h2.server.properties" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mycompany/myapp/domain/Application.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/myapp/domain/Application.class" />
+      <change beforePath="$PROJECT_DIR$/target/h2db/db/try1.mv.db" afterPath="$PROJECT_DIR$/target/h2db/db/try1.mv.db" />
+      <change beforePath="$PROJECT_DIR$/target/h2db/db/try1.trace.db" afterPath="$PROJECT_DIR$/target/h2db/db/try1.trace.db" />
+      <change beforePath="$PROJECT_DIR$/target/www/app/main.bundle.js" afterPath="$PROJECT_DIR$/target/www/app/main.bundle.js" />
+      <change beforePath="$PROJECT_DIR$/target/www/app/manifest.bundle.js" afterPath="$PROJECT_DIR$/target/www/app/manifest.bundle.js" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,124 +38,81 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="application.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/application/application.component.html">
+      <file leaf-file-name="application.module.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/application/application.module.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="39" column="72" lean-forward="false" selection-start-line="39" selection-start-column="72" selection-end-line="39" selection-end-column="72" />
+            <state relative-caret-position="0">
+              <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application-dialog.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/application/application-dialog.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-345">
+              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#0#99#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="deployment.component.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment.component.html">
+      <file leaf-file-name="application.route.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/application/application.route.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="85" column="65" lean-forward="true" selection-start-line="85" selection-start-column="34" selection-end-line="85" selection-end-column="65" />
+            <state relative-caret-position="0">
+              <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#0#43#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="deployment.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment.component.ts">
+      <file leaf-file-name="application.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/application/application.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+            <state relative-caret-position="-735">
+              <caret line="3" column="7" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.metadata.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/@angular/common/common.metadata.json">
+      <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/myapp/domain/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="0" column="14276" lean-forward="false" selection-start-line="0" selection-start-column="14276" selection-end-line="0" selection-end-column="14276" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="deployment-detail.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment-detail.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="37" column="4" lean-forward="false" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="deployment-dialog.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment-dialog.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1818">
-              <caret line="238" column="31" lean-forward="false" selection-start-line="238" selection-start-column="31" selection-end-line="238" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="deployment-detail.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment-detail.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="82" column="21" lean-forward="false" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="navbar.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/app/layouts/navbar/navbar.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="15" column="43" lean-forward="false" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="navbar.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/app/layouts/navbar/navbar.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="353" column="28" lean-forward="false" selection-start-line="353" selection-start-column="28" selection-end-line="353" selection-end-column="28" />
+            <state relative-caret-position="224">
+              <caret line="35" column="25" lean-forward="false" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="25" />
               <folding>
-                <element signature="n#style#0;n#ul#0;n#div#2;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#a#0;n#li#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#a#0;n#li#3;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#a#0;n#li#4;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#a#0;n#li#5;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#a#0;n#li#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#a#0;n#li#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#a#0;n#li#2;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#a#0;n#li#3;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#a#0;n#li#4;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#a#0;n#li#5;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#a#0;n#li#6;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#a#0;n#li#7;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#4265#4266#0" expanded="true" />
+                <element signature="e#4299#4300#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="global.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/content/css/global.css">
+      <file leaf-file-name="Deployment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/myapp/domain/Deployment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="663" column="18" lean-forward="true" selection-start-line="662" selection-start-column="3" selection-end-line="663" selection-end-column="18" />
+            <state relative-caret-position="242">
+              <caret line="26" column="19" lean-forward="false" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+              <folding>
+                <element signature="e#1226#1227#0" expanded="true" />
+                <element signature="e#1261#1262#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.component.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/app/home/home.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -218,8 +132,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>insert</find>
-      <find>/nodes</find>
       <find>tenant-details</find>
       <find>CONTACT_N</find>
       <find>CONTACT_NAME</find>
@@ -248,6 +160,8 @@
       <find>&quot;</find>
       <find>pre</find>
       <find>activeMo</find>
+      <find>100</find>
+      <find>descr</find>
     </findStrings>
     <replaceStrings>
       <replace>.table-responsive</replace>
@@ -298,7 +212,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/app/entities/repositories/repositories.component.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/app/entities/tenant-details/tenant-details.component.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/app/entities/stages/stages.component.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/myapp/domain/Application.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/app/entities/application/application.route.ts" />
         <option value="$PROJECT_DIR$/src/main/webapp/app/entities/application/index.ts" />
         <option value="$PROJECT_DIR$/src/main/webapp/app/entities/application/application.model.ts" />
@@ -314,9 +227,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/myapp/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/app/layouts/main/main.component.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/app/layouts/navbar/navbar.component.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/app/entities/application/application.component.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/content/css/global.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment.component.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/app/entities/application/application.component.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/myapp/domain/Application.java" />
       </list>
     </option>
   </component>
@@ -351,9 +265,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -377,6 +289,13 @@
               <item name="try1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="try-1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="try1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -394,37 +313,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="entities" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="try-1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="try1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="entities" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="try-1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="try1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="entities" type="462c0819:PsiDirectoryNode" />
-              <item name="deployment" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="try-1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="try1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="entities" type="462c0819:PsiDirectoryNode" />
-              <item name="nodes" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="try-1" type="b2602c69:ProjectViewProjectNode" />
@@ -484,6 +373,8 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -662,11 +553,12 @@
       <workItem from="1524815611414" duration="6663000" />
       <workItem from="1525669581840" duration="13000" />
       <workItem from="1525669630891" duration="21781000" />
+      <workItem from="1525758263148" duration="2517000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="707347000" />
+    <option name="totallyTimeSpent" value="709864000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -679,12 +571,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -694,14 +587,14 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -749,35 +642,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/resources/html5-schema/html5/common.rnc" />
-    <entry file="file://$PROJECT_DIR$/node_modules/bootstrap/scss/_tables.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="115" column="3" lean-forward="false" selection-start-line="115" selection-start-column="3" selection-end-line="115" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/repositories/repositories-detail.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="20" lean-forward="false" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/tenant-details/tenant-details-detail.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/nodes/nodes-detail.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="6" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="22" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/stages/stages-detail.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
@@ -806,24 +670,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/myapp/domain/Deployment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/myapp/domain/InboundOutbound.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/myapp/domain/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-446">
-          <caret line="273" column="18" lean-forward="false" selection-start-line="273" selection-start-column="18" selection-end-line="273" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -883,31 +733,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/application/application.route.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="44" column="5" lean-forward="false" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="565">
           <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/application/application.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1378">
-          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/application/application.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="20" column="29" lean-forward="false" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -932,13 +761,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/application/application.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="7" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/application/application-delete-dialog.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -946,31 +768,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/application/application.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/application/application-keyvalue.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1241">
           <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/application/application-dialog.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/application/application-popup.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -999,7 +800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1836">
           <caret line="128" column="24" lean-forward="false" selection-start-line="128" selection-start-column="24" selection-end-line="128" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1007,7 +807,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1015,7 +814,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="1932" lean-forward="false" selection-start-line="0" selection-start-column="1932" selection-end-line="0" selection-end-column="1932" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1023,7 +821,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="653">
           <caret line="56" column="24" lean-forward="false" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1031,7 +828,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="693">
           <caret line="163" column="43" lean-forward="false" selection-start-line="163" selection-start-column="43" selection-end-line="163" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1045,40 +841,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/app/layouts/navbar/navbar.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
+        <state relative-caret-position="6001">
           <caret line="353" column="28" lean-forward="false" selection-start-line="353" selection-start-column="28" selection-end-line="353" selection-end-column="28" />
           <folding>
-            <element signature="n#style#0;n#ul#0;n#div#2;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#a#0;n#li#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#a#0;n#li#3;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#a#0;n#li#4;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#a#0;n#li#5;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#a#0;n#li#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#a#0;n#li#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#a#0;n#li#2;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#a#0;n#li#3;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#a#0;n#li#4;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#a#0;n#li#5;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#a#0;n#li#6;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#a#0;n#li#7;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/application/application.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="39" column="72" lean-forward="false" selection-start-line="39" selection-start-column="72" selection-end-line="39" selection-end-column="72" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#2;n#nav#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#2;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#3;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#4;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#5;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#1;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#2;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#3;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#4;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#5;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#6;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#7;n#div#1;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment-detail.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
+        <state relative-caret-position="527">
           <caret line="37" column="4" lean-forward="false" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
           <folding />
         </state>
@@ -1086,7 +871,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment-dialog.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1818">
+        <state relative-caret-position="4046">
           <caret line="238" column="31" lean-forward="false" selection-start-line="238" selection-start-column="31" selection-end-line="238" selection-end-column="31" />
           <folding />
         </state>
@@ -1094,7 +879,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment-detail.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
+        <state relative-caret-position="1394">
           <caret line="82" column="21" lean-forward="false" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
           <folding />
         </state>
@@ -1102,7 +887,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/@angular/common/common.metadata.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
+        <state relative-caret-position="238">
           <caret line="0" column="14276" lean-forward="false" selection-start-line="0" selection-start-column="14276" selection-end-line="0" selection-end-column="14276" />
           <folding />
         </state>
@@ -1118,23 +903,157 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/content/css/global.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="663" column="18" lean-forward="true" selection-start-line="662" selection-start-column="3" selection-end-line="663" selection-end-column="18" />
+        <state relative-caret-position="11271">
+          <caret line="663" column="18" lean-forward="false" selection-start-line="662" selection-start-column="3" selection-end-line="663" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="85" column="65" lean-forward="true" selection-start-line="85" selection-start-column="34" selection-end-line="85" selection-end-column="65" />
+        <state relative-caret-position="17">
+          <caret line="85" column="65" lean-forward="false" selection-start-line="85" selection-start-column="34" selection-end-line="85" selection-end-column="65" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/application/application.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="42" column="69" lean-forward="false" selection-start-line="42" selection-start-column="69" selection-end-line="42" selection-end-column="69" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/application/application-popup.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/application/application.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="66" column="17" lean-forward="false" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/application/application.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/application/application-dialog.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-345">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#99#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/application/application.route.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/application/application.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/myapp/config/ApplicationProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/myapp/repository/ApplicationRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/myapp/web/rest/ApplicationResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="106" column="8" lean-forward="false" selection-start-line="106" selection-start-column="7" selection-end-line="106" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/myapp/ApplicationWebXml.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/entities/application/application.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-735">
+          <caret line="3" column="7" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/myapp/domain/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="35" column="25" lean-forward="false" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="25" />
+          <folding>
+            <element signature="e#4265#4266#0" expanded="true" />
+            <element signature="e#4299#4300#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/myapp/domain/Deployment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="26" column="19" lean-forward="false" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+          <folding>
+            <element signature="e#1226#1227#0" expanded="true" />
+            <element signature="e#1261#1262#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/home/home.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
