@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity TenantDetails.
+    -->
+    <changeSet id="20180207063952-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="tenant_details_id"
+                                 baseTableName="tenant_details_tenant_details_to_stages"
+                                 constraintName="fk_tenant_details_tenant_details_to_stages_tenant_details_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tenant_details"/>
+        <addForeignKeyConstraint baseColumnNames="tenant_details_to_stages_id"
+                                 baseTableName="tenant_details_tenant_details_to_stages"
+                                 constraintName="fk_tenant_details_tenant_details_to_stages_tenant_details_to_stages_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="stages"/>
+        
+    </changeSet>
+</databaseChangeLog>

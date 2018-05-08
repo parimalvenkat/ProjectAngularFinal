@@ -1,0 +1,10 @@
+webpackHotUpdate(1,{
+
+/***/ "./src/main/webapp/app/layouts/main/main.component.html":
+/***/ (function(module, exports) {
+
+eval("module.exports = \"<jhi-loading (hook)=\\\"appService.loading = $event\\\"></jhi-loading> <div style=\\\"font-size: 1.1rem;\\nfont-weight: 500;\\nline-height: 1.5;\\\"> <router-outlet name=\\\"navbar\\\"></router-outlet> </div> <div class=\\\"container-fluid no-padding\\\"> <div class=\\\"card jh-card\\\" style=\\\"min-height: 692px !important;\\\"> <router-outlet></router-outlet> <router-outlet name=\\\"popup\\\"></router-outlet> </div> <jhi-footer></jhi-footer> </div> \";//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvbWFpbi93ZWJhcHAvYXBwL2xheW91dHMvbWFpbi9tYWluLmNvbXBvbmVudC5odG1sPzFhNTgiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsb0hBQW9ILG1CQUFtQixtQkFBbUIsdUtBQXVLIiwiZmlsZSI6Ii4vc3JjL21haW4vd2ViYXBwL2FwcC9sYXlvdXRzL21haW4vbWFpbi5jb21wb25lbnQuaHRtbC5qcyIsInNvdXJjZXNDb250ZW50IjpbIm1vZHVsZS5leHBvcnRzID0gXCI8amhpLWxvYWRpbmcgKGhvb2spPVxcXCJhcHBTZXJ2aWNlLmxvYWRpbmcgPSAkZXZlbnRcXFwiPjwvamhpLWxvYWRpbmc+IDxkaXYgc3R5bGU9XFxcImZvbnQtc2l6ZTogMS4xcmVtO1xcbmZvbnQtd2VpZ2h0OiA1MDA7XFxubGluZS1oZWlnaHQ6IDEuNTtcXFwiPiA8cm91dGVyLW91dGxldCBuYW1lPVxcXCJuYXZiYXJcXFwiPjwvcm91dGVyLW91dGxldD4gPC9kaXY+IDxkaXYgY2xhc3M9XFxcImNvbnRhaW5lci1mbHVpZCBuby1wYWRkaW5nXFxcIj4gPGRpdiBjbGFzcz1cXFwiY2FyZCBqaC1jYXJkXFxcIiBzdHlsZT1cXFwibWluLWhlaWdodDogNjkycHggIWltcG9ydGFudDtcXFwiPiA8cm91dGVyLW91dGxldD48L3JvdXRlci1vdXRsZXQ+IDxyb3V0ZXItb3V0bGV0IG5hbWU9XFxcInBvcHVwXFxcIj48L3JvdXRlci1vdXRsZXQ+IDwvZGl2PiA8amhpLWZvb3Rlcj48L2poaS1mb290ZXI+IDwvZGl2PiBcIjtcblxuXG4vLy8vLy8vLy8vLy8vLy8vLy9cbi8vIFdFQlBBQ0sgRk9PVEVSXG4vLyAuL3NyYy9tYWluL3dlYmFwcC9hcHAvbGF5b3V0cy9tYWluL21haW4uY29tcG9uZW50Lmh0bWxcbi8vIG1vZHVsZSBpZCA9IC4vc3JjL21haW4vd2ViYXBwL2FwcC9sYXlvdXRzL21haW4vbWFpbi5jb21wb25lbnQuaHRtbFxuLy8gbW9kdWxlIGNodW5rcyA9IDEiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/main/webapp/app/layouts/main/main.component.html\n");
+
+/***/ })
+
+})

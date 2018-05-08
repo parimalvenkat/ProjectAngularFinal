@@ -1,0 +1,10 @@
+webpackHotUpdate(1,{
+
+/***/ "./src/main/webapp/app/entities/application/application-keyvalue.component.html":
+/***/ (function(module, exports) {
+
+eval("module.exports = \"<form name=\\\"editForm\\\"> <div class=\\\"modal-header\\\" style=\\\"background-color: #e9ecef\\\"> <h4 class=\\\"modal-title colorblue\\\" style=\\\"font-family: Roboto, sans-serif\\\">trail view</h4> <button type=\\\"button\\\" class=\\\"close colorblue\\\" data-dismiss=\\\"modal\\\" aria-hidden=\\\"true\\\" (click)=\\\"clear()\\\">&times;</button> </div> </form> \";//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvbWFpbi93ZWJhcHAvYXBwL2VudGl0aWVzL2FwcGxpY2F0aW9uL2FwcGxpY2F0aW9uLWtleXZhbHVlLmNvbXBvbmVudC5odG1sPzc2ODkiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsbVVBQW1VIiwiZmlsZSI6Ii4vc3JjL21haW4vd2ViYXBwL2FwcC9lbnRpdGllcy9hcHBsaWNhdGlvbi9hcHBsaWNhdGlvbi1rZXl2YWx1ZS5jb21wb25lbnQuaHRtbC5qcyIsInNvdXJjZXNDb250ZW50IjpbIm1vZHVsZS5leHBvcnRzID0gXCI8Zm9ybSBuYW1lPVxcXCJlZGl0Rm9ybVxcXCI+IDxkaXYgY2xhc3M9XFxcIm1vZGFsLWhlYWRlclxcXCIgc3R5bGU9XFxcImJhY2tncm91bmQtY29sb3I6ICNlOWVjZWZcXFwiPiA8aDQgY2xhc3M9XFxcIm1vZGFsLXRpdGxlIGNvbG9yYmx1ZVxcXCIgc3R5bGU9XFxcImZvbnQtZmFtaWx5OiBSb2JvdG8sIHNhbnMtc2VyaWZcXFwiPnRyYWlsIHZpZXc8L2g0PiA8YnV0dG9uIHR5cGU9XFxcImJ1dHRvblxcXCIgY2xhc3M9XFxcImNsb3NlIGNvbG9yYmx1ZVxcXCIgZGF0YS1kaXNtaXNzPVxcXCJtb2RhbFxcXCIgYXJpYS1oaWRkZW49XFxcInRydWVcXFwiIChjbGljayk9XFxcImNsZWFyKClcXFwiPiZ0aW1lczs8L2J1dHRvbj4gPC9kaXY+IDwvZm9ybT4gXCI7XG5cblxuLy8vLy8vLy8vLy8vLy8vLy8vXG4vLyBXRUJQQUNLIEZPT1RFUlxuLy8gLi9zcmMvbWFpbi93ZWJhcHAvYXBwL2VudGl0aWVzL2FwcGxpY2F0aW9uL2FwcGxpY2F0aW9uLWtleXZhbHVlLmNvbXBvbmVudC5odG1sXG4vLyBtb2R1bGUgaWQgPSAuL3NyYy9tYWluL3dlYmFwcC9hcHAvZW50aXRpZXMvYXBwbGljYXRpb24vYXBwbGljYXRpb24ta2V5dmFsdWUuY29tcG9uZW50Lmh0bWxcbi8vIG1vZHVsZSBjaHVua3MgPSAxIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/main/webapp/app/entities/application/application-keyvalue.component.html\n");
+
+/***/ })
+
+})
