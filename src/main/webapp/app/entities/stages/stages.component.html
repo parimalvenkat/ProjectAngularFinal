@@ -20,12 +20,12 @@
 
 
             <button type="reset" onclick="document.getElementById('search').value = ''  " class="btn btn-primary  fa fa-close addbtn btn-sm "
-                    style="position:relative;left:-4px;height: 38px;top: -1px;margin-right: 15px;max-width: 35px;margin-bottom: 3px;border-radius: 0px;">
+                    style="position:relative;left:-5px;height: 38px;top: -1px;margin-right: 15px;max-width: 35px;margin-bottom: 3px;border-radius: 0px;">
 
             </button>
 
 
-            <button style="position: relative;top: -3px;"*jhiHasAnyAuthority="'ROLE_ADMIN'" type="button"  [routerLink]="['/', { outlets: { popup: ['stages-new'] } }]"
+            <button style="position: relative;top: -3px;"*jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_USER']" type="button"  [routerLink]="['/', { outlets: { popup: ['stages-new'] } }]"
                     class="btn btn-primary addbtn float_right"><i class="fa fa-plus-circle" aria-hidden="true"></i> Create Stages</button>
 
         </div>

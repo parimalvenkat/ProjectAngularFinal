@@ -170,14 +170,14 @@
             <wizard-step [title]="'Application info'" >
                 <div class="form-group" [hidden]="!deployments.id" style="margin-top: 20px">
                     <label for="id" jhiTranslate="global.field.id" style="font-weight: bold">ID</label>
-                    <input type="text" class="form-control" id="id" name="id" [(ngModel)]="deployments.id"  readonly style="margin-top: 5px"/>                </div>
+                    <input type="text" class="form-control" id="id" name="id" [(ngModel)]="deployments.id"  readonly style="margin-top: 5px"/></div>
                 <div class="form-group" style="margin-top: 20px">
                     <label class="form-control-label"  for="field_applications" style="font-weight: bold">Name</label>
 
 <!--
                <input type="text"  class="form-control" value="{{applications.name}}" required style="margin-top: 5px"/>
 -->
-                 <input type="text"  class="form-control" name="appName" id="field_applications"  [ngModel]="deployments.applications" required style="margin-top: 5px"/>
+                 <input type="text"  class="form-control" name="appName" id="field_applications"  [ngModel]="deployments.appName" required style="margin-top: 5px" readonly> {{applications.name}}</input>
                     <div [hidden]="!(editForm.controls.applications?.dirty && editForm.controls.applications?.invalid)">
                         <small class="form-text text-danger" [hidden]="!editForm.controls.appName?.errors?.required" jhiTranslate="entity.validation.required">
                             This field is required.
@@ -186,7 +186,7 @@
                 </div>
                 <div class="form-group">
                     <label class="form-control-label"  for="field_descriptions" style="font-weight: bold">Description</label>
-                    <textarea type="text" class="form-control" name="description" id="field_descriptions"  [(ngModel)]="deployments.descriptions" required style="margin-top: 5px">{{applications.description}}</textarea>
+                    <textarea type="text" class="form-control" name="description" id="field_descriptions"  [(ngModel)]="applications.description" required style="margin-top: 5px" readonly>{{applications.description}}</textarea>
                     <div [hidden]="!(editForm.controls.description?.dirty && editForm.controls.description?.invalid)">
                         <small class="form-text text-danger" [hidden]="!editForm.controls.description?.errors?.required" jhiTranslate="entity.validation.required">
                             This field is required.
@@ -195,8 +195,7 @@
                 </div>
                 <div class="form-group">
                     <label class="form-control-label"  for="field_containerImage" style="font-weight: bold">Container Image</label>
-                    <input type="text" class="form-control" name="containerImage" id="field_containerImage" [(ngModel)]="deployments.containerImage" style="margin-top: 5px"
-                           required />
+                    <input type="text" class="form-control" name="containerImage" id="field_containerImage" [(ngModel)]="deployments.containerImage" style="margin-top: 5px" required  readonly />
                     <div [hidden]="!(editForm.controls.containerImage?.dirty && editForm.controls.containerImage?.invalid)">
                         <small class="form-text text-danger" [hidden]="!editForm.controls.containerImage?.errors?.required" jhiTranslate="entity.validation.required">
                             This field is required.

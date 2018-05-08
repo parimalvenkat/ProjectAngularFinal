@@ -1,6 +1,6 @@
 
 
-<div *ngIf="stages">
+<!--<div *ngIf="stages">
     <h2 style="font-weight: bold"><span>Stages</span> {{stages.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
@@ -30,4 +30,55 @@
         class="btn btn-primary">
     <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
 </button>
+</div>-->
+
+ <div class="container mt-5">
+        <div class="offset-1 col-md-10">
+            <table class="table text-left lightblue">
+                <jhi-alert-error></jhi-alert-error>
+
+
+                <tr  *ngIf="stages">
+                    <th class="colorblue light-bg" scope="col">Stage ID</th>
+                    <td>{{stages.id}} </td>
+                </tr>
+
+
+                <tr>
+
+                    <th class="colorblue light-bg" scope="col">Stage Detail</th>
+
+                    <td>{{stages.name}}</td>
+                </tr>
+
+                <tr>
+
+                    <th class="colorblue light-bg" scope="col">Tenant ID</th>
+
+                    <td><div *ngIf="stages.tenantDetails">
+                        <a [routerLink]="['/tenant-details', stages.tenantDetails?.id]">{{stages.tenantDetails?.id}}</a>
+                    </div></td>
+                </tr>
+            </table>
+        </div>
+    <div class="row mt-3">
+        <div class="col-md-1">
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+            </button>
+
+        </div>
+        <div class="offset-10 col-md-1">
+            <button type="button"
+                    [routerLink]="['/', { outlets: { popup: 'stages/'+ stages.id + '/edit'} }]"
+                    replaceUrl="true"
+                    queryParamsHandling="merge"
+                    class="btn btn-primary">
+                <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+
 </div>

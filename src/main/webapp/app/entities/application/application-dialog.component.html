@@ -62,57 +62,103 @@
                 <input type="text" class="form-control" name="version" id="field_version" style="margin-top: 5px"
                        [(ngModel)]="application.version"  />
             </div> -->
-            {{checkURL()}}
+            <!-- {{checkURL()}} -->
             <div *ngIf="createApp" class="form-group" style="margin-left: 5px">
                 <div style="margin-top: 5px; padding-top: 10px">
                     <div class="fileUpload btn button-primary">
-                        <span>Upload logo</span>
-                        <input type="file" id="file_logo" class="upload" (change)="setFileData($event, application, 'logo', true)" accept="image/*"
-                        />
-                        <span>Upload json</span>
-                        <input type="file" id="file_json" class="upload" (change)="setJsonFileData($event, application, 'json', false)" accept=".json"
-                        />
-                    </div>
-                    <span *ngIf="application.logo">
-                        <button type="button" (click)="clearInputImage('logo', 'logoContentType', 'fileImage')" class="btn btn-secondary btn-xs">
-                        Remove</button>
+                        <div class="row mb-4">
+                                <div class="col-md-6 mt-4">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="profilePicture">Profile Photo</label>
+                                        <input #myInput type="file" placeholder="File Name" name="profileImage" (change)="fileChangeEvent($event)" accept="image/*">
+                                        <image-cropper
+                                            [imageChangedEvent]="imageChangedEvent"
+                                            [maintainAspectRatio]="true"
+                                            [aspectRatio]="4 / 3"
+                                            [resizeToWidth]="128"
+                                            format="png"
+                                            (imageCropped)="imageCropped($event)"
+                                            (imageLoaded)="imageLoaded()"
+                                            (loadImageFailed)="loadImageFailed()"
+                                        ></image-cropper>
+                            
+                                        <img [src]="croppedImage" />
+                                    </div>
+                            
+                                    <div>
+                                        <input type="button" value="Reset Image" (click)="reset()" class="btn btn-primary"></input> 
+                                    </div>        
+                        </div>
+                            <!-- <div class="col-md-6">
+                                    <img [src]="'data:' + application.logoContentType + ';base64,' + application.logo" style="max-height: 100px;" *ngIf="application.logo"
+                                         alt="application image" />
+                                    <span *ngIf="application.logo">
+                        <button type="button" (click)="clearInputImage('logo', 'logoContentType', 'fileImage')" class="btn btn-secondary btn-xs">Remove</button>
                     </span>
-                    <br>
-                    <br>
-                    <img [src]="'data:' + application.logoContentType + ';base64,' + application.logo" style="max-height: 100px;" *ngIf="application.logo"
-                        alt="application image" />
-                    <div *ngIf="jsonFileContent">
-                        <div>Name: {{application.name}}</div>
-                        <div>Description: {{application.description}}</div>
-                        <div>Version: {{application.version}}</div>
-                        <div>Secret: {{application.secret}}</div>
-                        <div>Container Image: {{application.containerImage}}</div>
-                        <div>Number of Cores: {{application.numberOfCores}}</div>
-                        <div>Number of Instances: {{application.numberOfInstances}}</div>
-                        <div>Memory: {{application.memory}}</div>
+                                    <input type="hidden" class="form-control" name="logo" id="field_logo" [(ngModel)]="application.logo" />
+
+                                </div> -->
+                            </div>
+                        <hr style="width:767px"/>
+                        <div class="row">
+                                <div class="col-md-6 mt-5">
+                                <span>Upload json</span>
+                                    <input #myJSONInput type="file" id="file_json" class="upload" (change)="setJsonFileData($event, application, 'json', false)" accept=".json"/>
+                                    </div>
+                            <div class="col-md-6 ">
+                                <span *ngIf="this.jsonFileSelect">
+                                <button type="button" (click)="clearJSON()" class="btn btn-secondary btn-xs">Remove</button>
+                            </span>
+                                    <div *ngIf="jsonFileSelect">
+                                        <div>Name: {{application.name}}</div>
+                                        <div>Description: {{application.description}}</div>
+                                        <div>Version: {{application.version}}</div>
+                                        <div>Secret: {{application.secret}}</div>
+                                        <div>Container Image: {{application.containerImage}}</div>
+                                        <div>Number of Cores: {{application.numberOfCores}}</div>
+                                        <div>Number of Instances: {{application.numberOfInstances}}</div>
+                                        <div>Memory: {{application.memory}}</div>
+                                    </div>
+                                    <input type="hidden" class="form-control" name="logoContentType" id="field_logoContentType" [(ngModel)]="application.logoContentType"/>
+
+                                </div>
                     </div>
-                </div>
-                <input type="hidden" class="form-control" name="logo" id="field_logo" [(ngModel)]="application.logo" />
-                <input type="hidden" class="form-control" name="logoContentType" id="field_logoContentType" [(ngModel)]="application.logoContentType"
-                />
-            </div>
+
+                    </div></div></div>
+
+                    <br>
+                    <br>
+
+
             <div *ngIf="!createApp">
                 <div>
                     <textarea style="width:600px;height:250px" (change)="updatejson($event)">{{this.jsonFileContent}}</textarea>
                 </div>
-                <div class="fileUpload btn button-primary">
-                        <span>Upload logo</span>
-                        <input type="file"  class="upload" (change)="setFileData($event, application, 'logo', true)" accept="image/*"
-                        />
-                    </div>
-                    <span *ngIf="application.logo">
-                        <button type="button" (click)="clearInputImage('logo', 'logoContentType', 'fileImage')" class="btn btn-secondary btn-xs">
-                        Remove</button>
-                    </span>
-                    <br>
-                    <br>
-                    <img [src]="'data:' + application.logoContentType + ';base64,' + application.logo" style="max-height: 100px;" *ngIf="application.logo"
-                        alt="application image" />
+                <div class="form-group" *ngIf="isEdit">
+                    <label class="form-control-label" for="profilePicture">Profile Photo</label>
+                    <input #myInput type="file" placeholder="File Name" name="profileImage" (change)="fileChangeEvent($event)" accept="image/*">
+                    <image-cropper
+                        [imageChangedEvent]="imageChangedEvent"
+                        [maintainAspectRatio]="true"
+                        [aspectRatio]="4 / 3"
+                        [resizeToWidth]="128"
+                        format="png"
+                        (imageCropped)="imageCropped($event)"
+                        (imageLoaded)="imageLoaded()"
+                        (loadImageFailed)="loadImageFailed()"
+                    ></image-cropper>
+        
+                    <img [src]="croppedImage" />
+                </div>
+        
+                <div class="form-group" *ngIf="!isEdit">
+                    <img onerror="this.onerror=null;this.src='https://i.imgur.com/T1Wfiis.png';" class="card-img-top" [src]="'data:' + application.logoContentType + ';base64,' + application.logo"
+                    style="width: 10%;">
+                </div>
+
+                <div class="form-group">
+                    <input type="button" value="Reset Image" (click)="reset()" class="btn btn-primary"></input> 
+                </div>
             </div>
         </wizard-step>
 
@@ -127,7 +173,6 @@
                 <label class="form-control-label"  for="field_containerImage" style="font-weight: bold">Container Image</label>
                 <input type="text" class="form-control" name="containerImage" id="field_containerImage" [(ngModel)]="application.containerImage" style="margin-top: 5px"
                        required />
-                <div [hidden]="!(editForm.controls.containerImage?.dirty && editForm.controls.containerImage?.invalid)">
                     <small class="form-text text-danger" [hidden]="!editForm.controls.containerImage?.errors?.required" jhiTranslate="entity.validation.required">
                         This field is required.
                     </small>

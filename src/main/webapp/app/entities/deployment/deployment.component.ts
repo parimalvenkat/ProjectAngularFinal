@@ -38,6 +38,7 @@ export class DeploymentComponent implements OnInit, OnDestroy {
         private jhiAlertService: JhiAlertService,
         private eventManager: JhiEventManager,
         private principal: Principal,
+        public router: Router,
        public dialog: MatDialog
     ) {
     }
@@ -46,6 +47,8 @@ export class DeploymentComponent implements OnInit, OnDestroy {
         this.deploymentService.query().subscribe(
             (res: ResponseWrapper) => {
                 this.deployments = res.json;
+                console.log('deployments details');
+                console.log(this.deployments);
             },
             (res: ResponseWrapper) => this.onError(res.json)
         );
@@ -130,4 +133,6 @@ export class DeploymentComponent implements OnInit, OnDestroy {
             //this.dialogResult = result;
         });
     }
+
+
 }

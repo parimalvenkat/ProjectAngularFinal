@@ -50,4 +50,5 @@ export class DeploymentDetailComponent implements OnInit, OnDestroy {
             (response) => this.load(this.deployment.id)
         );
     }
+
 }

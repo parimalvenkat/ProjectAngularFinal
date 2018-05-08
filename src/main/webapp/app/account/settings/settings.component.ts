@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Principal, AccountService } from '../../shared';
 
@@ -11,6 +11,11 @@ export class SettingsComponent implements OnInit {
     success: string;
     settingsAccount: any;
     languages: any[];
+    imageChangedEvent: any = '';
+    croppedImage: any = '';
+    @ViewChild('myInput')
+    myInputVariable: any;
+    isEdit: boolean = false;
 
     constructor(
         private account: AccountService,
@@ -22,6 +27,32 @@ export class SettingsComponent implements OnInit {
         this.principal.identity().then((account) => {
             this.settingsAccount = this.copyAccount(account);
         });
+    }
+
+    reset() {
+        this.isEdit=true;
+        this.myInputVariable.nativeElement.value = '';
+        this.imageChangedEvent='';
+        this.croppedImage='';
+    }
+
+    getImageType() {
+        return this.principal.getImageType();
+    }
+
+    getImageUrl() {
+        return this.principal.getImageUrl();
+    }
+
+    fileChangeEvent(event: any): void {
+        this.imageChangedEvent = event;
+    }
+    imageCropped(image: string) {
+        this.settingsAccount.imageUrl=image.split("base64,")[1];
+        this.croppedImage = image;
+        this.settingsAccount.imageType=image.split(";base64,")[0];
+        this.settingsAccount.imageType=this.settingsAccount.imageType.split("data:")[1];
+        
     }
 
     save() {
@@ -45,7 +76,8 @@ export class SettingsComponent implements OnInit {
             langKey: account.langKey,
             lastName: account.lastName,
             login: account.login,
-            imageUrl: account.imageUrl
+            imageUrl: account.imageUrl,
+            imageType: account.imageType
         };
     }
 

@@ -1,36 +1,51 @@
+<div class="container mt-5">
+        <div class="offset-1 col-md-10">
+            <table class="table text-left lightblue">
+                <jhi-alert-error></jhi-alert-error>
 
 
-<div style="max-width: 1450px;" class="container mt-5">
+                <tr  *ngIf="application">
+                    <th class="colorblue light-bg" scope="col">ID</th>
+                    <td>{{application.id}} </td>
+                </tr>
 
-    <table class="table text-center lightblue">
-        <jhi-alert-error></jhi-alert-error>
 
-        <thead class="thead-light">
-        <tr>
-            <th class="colorblue" scope="col">ID</th>
-            <th class="colorblue" scope="col">Logo</th>
-            <th class="colorblue" scope="col">Name</th>
-            <th class="colorblue" scope="col">Description</th>
-            <th class="colorblue" scope="col">Version</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngIf="application">
-            <td> {{application.id}}</td>
-            <td *ngIf="application.logo">
-                <a (click)="openFile(application.logoContentType, application.logo)">
-                    <img [src]="'data:' + application.logoContentType + ';base64,' + application.logo" style=" max-width: 150px;" alt="application image"/>
-                </a></td>
-            <td>{{application.name}}</td>
-            <td>{{application.description}}</td>
-            <td>{{application.version}}</td>
-        </tr>
-        </tbody>
-    </table>
+                <tr>
+
+                    <th class="colorblue light-bg" scope="col">Logo</th>
+
+                    <td *ngIf="application.logo">
+                        <a (click)="openFile(application.logoContentType, application.logo)">
+                            <img [src]="'data:' + application.logoContentType + ';base64,' + application.logo" style=" max-width: 150px;" alt="application image"/>
+                        </a></td>
+                </tr>
+
+                <tr>
+
+                    <th class="colorblue light-bg" scope="col">Application Name</th>
+
+                    <td>
+                        {{application.name}}
+                    </td>
+                </tr>
+                <tr>
+
+                    <th class="colorblue light-bg" scope="col">Description</th>
+
+                    <td>{{application.description}}</td>
+                </tr>
+                <tr>
+
+                    <th class="colorblue light-bg" scope="col">Version</th>
+
+                    <td>{{application.version}}</td>
+                </tr>
+            </table>
+        </div>
     <div class="row mt-3">
         <div class="col-md-1">
             <button type="submit"
-                    (click)="previousState()"
+                    (click)="previousState1()"
                     class="btn btn-info">
                 <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
             </button>

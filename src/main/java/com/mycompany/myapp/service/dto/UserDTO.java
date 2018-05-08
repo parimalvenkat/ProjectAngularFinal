@@ -8,6 +8,7 @@ import com.mycompany.myapp.domain.User;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
+import javax.persistence.Lob;
 import javax.validation.constraints.*;
 import java.time.Instant;
 import java.util.Set;
@@ -35,8 +36,11 @@ public class UserDTO {
     @Size(min = 5, max = 100)
     private String email;
 
+    @Lob
+    private byte[] imageUrl;
+
     @Size(max = 256)
-    private String imageUrl;
+    private String imageType;
 
     private boolean activated = false;
 
@@ -65,6 +69,7 @@ public class UserDTO {
         this.email = user.getEmail();
         this.activated = user.getActivated();
         this.imageUrl = user.getImageUrl();
+        this.imageType = user.getImageType();
         this.langKey = user.getLangKey();
         this.createdBy = user.getCreatedBy();
         this.createdDate = user.getCreatedDate();
@@ -115,12 +120,20 @@ public class UserDTO {
         this.email = email;
     }
 
-    public String getImageUrl() {
+    public byte[] getImageUrl() {
         return imageUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
+    public void setImageUrl(byte[] imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getImageType() {
+        return imageType;
+    }
+
+    public void setImageType(String imageType) {
+        this.imageType = imageType;
     }
 
     public boolean isActivated() {
@@ -187,6 +200,7 @@ public class UserDTO {
             ", lastName='" + lastName + '\'' +
             ", email='" + email + '\'' +
             ", imageUrl='" + imageUrl + '\'' +
+            ", imageType='" + imageType + '\'' +
             ", activated=" + activated +
             ", langKey='" + langKey + '\'' +
             ", createdBy=" + createdBy +

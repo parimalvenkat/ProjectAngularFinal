@@ -343,6 +343,12 @@ public class Application implements Serializable {
             ", version='" + getVersion() + "'" +
             ", logo='" + getLogo() + "'" +
             ", logoContentType='" + getLogoContentType()+ "'" +
+            ", container_image='" + getContainerImage() + "'" +
+            ", number_of_instances='" + getNumberOfInstances()+ "'" +
+            ", number_of_cores='" + getNumberOfCores()+ "'" +
+            ", memory='" + getMemory()+ "'" +
+            ",secret='" + getSecret()+ "'" +
+
             "}";
     }
 }

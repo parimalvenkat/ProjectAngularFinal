@@ -1,25 +1,32 @@
-import { Component, OnInit, AfterViewInit, Renderer, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Renderer, ElementRef, ViewChild } from '@angular/core';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { Register } from './register.service';
+import {NavbarComponent} from '../../layouts/navbar/navbar.component'
 import { LoginModalService, EMAIL_ALREADY_USED_TYPE, LOGIN_ALREADY_USED_TYPE } from '../../shared';
+
 
 @Component({
     selector: 'jhi-register',
     templateUrl: './register.component.html'
 })
 export class RegisterComponent implements OnInit, AfterViewInit {
-
     confirmPassword: string;
     doNotMatch: string;
     error: string;
     errorEmailExists: string;
     errorUserExists: string;
     registerAccount: any;
+    //registeraccount : jhi_user;
     success: boolean;
     mobileNumber : number;
     country : string;
     modalRef: NgbModalRef;
+    navbar : NavbarComponent;
+    imageChangedEvent: any = '';
+    croppedImage: any = '';
+    @ViewChild('myInput')
+    myInputVariable: any;
 
 
     constructor(
@@ -40,6 +47,29 @@ export class RegisterComponent implements OnInit, AfterViewInit {
         this.renderer.invokeElementMethod(this.elementRef.nativeElement.querySelector('#login'), 'focus', []);
     }
 
+    reset() {
+        this.myInputVariable.nativeElement.value = '';
+        this.imageChangedEvent='';
+        this.croppedImage='';
+    }
+
+    fileChangeEvent(event: any): void {
+        this.imageChangedEvent = event;
+    }
+    imageCropped(image: string) {
+        this.registerAccount.imageUrl=image.split("base64,")[1];
+        this.croppedImage = image;
+        this.registerAccount.imageType=image.split(";base64,")[0];
+        this.registerAccount.imageType=this.registerAccount.imageType.split("data:")[1];
+        
+    }
+    imageLoaded() {
+       // console.log("Imge Loaded");
+    }
+    loadImageFailed() {
+       // console.log("Imge Load Failed");
+    }
+
     register() {
         if (this.registerAccount.password !== this.confirmPassword) {
             this.doNotMatch = 'ERROR';
@@ -58,6 +88,8 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     }
     singin() {
         this.router.navigate(['/']);
+        this.navbar.home = true;
+
     }
 
     openLogin() {

@@ -1,23 +1,26 @@
 
 
 <div class="container mt-5">
-
-<table class="table text-center lightblue">
+<div class="offset-1 col-md-10">
+<table class="table text-left lightblue">
     <jhi-alert-error></jhi-alert-error>
 
-    <thead class="thead-light">
-    <tr>
-        <th class="colorblue" scope="col">Nodes</th>
-        <th class="colorblue" scope="col">Master Url</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngIf="nodes">
+
+    <tr  *ngIf="nodes">
+        <th class="colorblue light-bg" scope="col">Nodes</th>
         <td>{{nodes.id}} </td>
+    </tr>
+
+
+    <tr>
+
+        <th class="colorblue light-bg" scope="col">Master Url</th>
+
         <td>{{nodes.masterUrl}} </td>
     </tr>
-    </tbody>
+
 </table>
+</div>
  <div class="row mt-3">
      <div class="col-md-1">
      <button type="submit"

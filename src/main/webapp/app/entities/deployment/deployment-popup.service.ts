@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Deployment } from './deployment.model';
 import { DeploymentService } from './deployment.service';
-import {ApplicationService} from "../application/application.service";
-import {Application} from "../application/application.model";
+import {ApplicationService} from '../application/application.service';
+import {Application} from '../application/application.model';
 
 @Injectable()
 export class DeploymentPopupService {
@@ -78,21 +78,26 @@ export class DeploymentPopupService {
         modalRef.componentInstance.deployments.description = applications.description;
         modalRef.componentInstance.deployments.inboundOutboundPorts = applications.inboundOutboundPorts;
         modalRef.componentInstance.inboundOutboundPorts = [];
-        if(applications.inboundOutboundPorts && applications.inboundOutboundPorts.length > 0){
-            for(let ports of applications.inboundOutboundPorts){
+        if(applications.inboundOutboundPorts && applications.inboundOutboundPorts.length > 0)
+        {
+            for(let ports of applications.inboundOutboundPorts)
+            {
                 modalRef.componentInstance.inboundOutboundPorts.push({protocol:ports.protocol, key:ports.inbound, value:ports.outbound});
             }
-        } else {
-            modalRef.componentInstance.inboundOutboundPorts.push({protocol:'tcp', key:'', value:''});
-        }
+        } else
+            {
+            modalRef.componentInstance.inboundOutboundPorts.push({protocol:'tcp', key:'', value:'' } );
+            }
 
         modalRef.result.then((result) => {
             this.router.navigate([{ outlets: { popup: null }}], { replaceUrl: true });
             this.ngbModalRef = null;
-        }, (reason) => {
+        },
+            (reason) =>
+            {
             this.router.navigate([{ outlets: { popup: null }}], { replaceUrl: true });
             this.ngbModalRef = null;
-        });
+            });
         return modalRef;
     }
 

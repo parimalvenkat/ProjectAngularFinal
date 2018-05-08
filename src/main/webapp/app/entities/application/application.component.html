@@ -16,57 +16,108 @@
         </div>
         <div class="page-title-column2" align="right">
             <input type="text" class="form-control" name="search" id="search" placeholder="search"
-                   style="height: 38px;width: 30%;display: inline-block;border-radius: 0px" (keypress)="searchItem()" [(ngModel)]="search">
+                   style="height: 38px;width: 30%;display: inline-block;border-radius: 0px" (keydown)="searchItem()" [(ngModel)]="search">
 
 
-            <button type="reset" onclick="document.getElementById('search').value = ''  " class="btn btn-primary  fa fa-close addbtn btn-sm "
+            <button type="reset" (click)="loadAll()" onclick="document.getElementById('search').value = '' " class="btn btn-primary  fa fa-close addbtn btn-sm "
                     style="position:relative;left:-5px;height: 38px;top: -1px;margin-right: 15px;max-width: 35px;margin-bottom: 3px;border-radius: 0px;">
 
 
             </button>
 
 
-        <button style="position: relative;top: -3px;"*jhiHasAnyAuthority="'ROLE_ADMIN'" type="button" data-toggle="modal" data-target="#poper" [routerLink]="['/', { outlets: { popup: ['application-new'] } }]"
+        <button style="position: relative;top: -3px;"*jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_USER']" type="button" data-toggle="modal" data-target="#poper" [routerLink]="['/', { outlets: { popup: ['application-new'] } }]"
                     class="btn btn-primary addbtn float_right"><i class="fa fa-plus-circle" aria-hidden="true"></i> Import Application</button>
-
-
-
-
+        <!-- <button style="position: relative;top: -3px;"*jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_USER']" type="button" data-toggle="modal" data-target="#poper" [routerLink]="['/', { outlets: { popup: ['application-keyvalue'] } }]"
+                    class="btn btn-primary addbtn float_right"><i class="fa fa-plus-circle" aria-hidden="true"></i> Create Application</button>-->
 
         </div>
     </div>
     <jhi-alert></jhi-alert>
 
+    <div class="row" style="margin-left: 50px">
+        <div class="col-sm-3 mb-4" *ngFor="let application of applications ;trackBy: trackId">
+            <div class="card" style="border-color: #00BCD4; width: 290px">
 
-    <div class="row" style="margin: 0 30px">
-            <div style="max-width: 20%; min-width: 20%" *ngFor="let application of applications ;trackBy: trackId">
-                <div class="card-deck" style="margin-bottom:10px;padding: 5px">
+                <img onerror="this.onerror=null;this.src='https://i.imgur.com/T1Wfiis.png';" class="card-img-top" [src]="'data:' + application.logoContentType + ';base64,' + application.logo"
+                     style="padding: 20px;width: 100%;height: 130px">
+                <div class="card-body added-card">
+                    <h3 class="card-title m-0 paricolor colorblue " style="font-family: Roboto, sans-serif;font-style: normal;font-weight:bold">{{application.name}}
+                        <span class="badge badge-pill badge-info pull-right">{{application.version}}</span>
+                    </h3>
+                    <p class="card-text samplecolor" style="height: 90px; overflow: auto">{{application.description}}</p>
+                </div>
+                <div class="card-footer newclass">
+                    <div class="float-left">
+                        <button *jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_USER']" type="submit" [routerLink]="['../application', application.id ]" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="view" style="cursor: pointer">
+                            <span class="fa fa-eye"></span>
+                        </button>
+                        <button *jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_USER']" type="submit" [routerLink]="['/', { outlets: { popup: 'application/'+ application.id + '/edit'} }]" replaceUrl="true"
+                                class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="edit" style="cursor: pointer">
+                            <span class="fa fa-pencil"></span>
+                        </button>
+                        <button *jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_USER']" type="submit" (click)="cloneApplication(application)"
+                                class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="clone" style="cursor: pointer">
+                            <span class="fa fa-clone"></span>
+                        </button>
+                        <button *jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_USER']" type="submit" [routerLink]="['/', { outlets: { popup: 'application/'+ application.id + '/delete'} }]" replaceUrl="true"
+                                class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="delete" style="cursor: pointer">
+                            <span class="fa fa-remove"></span>
+                        </button>
+                        <button *jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_USER']" type="submit" (click)="downloadJSON(application)"
+                                class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="export application" style="cursor:pointer">
+                            <span class="fa fa-download"></span>
+                        </button>
+                    </div>
+                    <!-- *ngIf="application.deployed" -->
+                    <div class="float-right">
+                        <button type="submit" [routerLink]="['/', { outlets: { popup: 'deployment-new-app/' + application.id } }]" class="btn btn-info btn-sm">
+                            <span class="fa fa-cog"></span>
+                            <span class="d-none d-md-inline">Deploy</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+   <!-- <div class="row" style="margin: 0 auto">
+            <div style="max-width: 22%; min-width: 20%" *ngFor="let application of applications ;trackBy: trackId">
+                <div class="card-deck" style="margin-bottom:10px;padding: 8px">
                     <div class="card">
 
          <img onerror="this.onerror=null;this.src='https://i.imgur.com/SBntdac.png';" class="card-img-top" [src]="'data:' + application.logoContentType + ';base64,' + application.logo"
-                             style="padding: 20px;width: 100%;height: 170px">
+                             style="padding: 20px;width: 100%;height: 150px">
                         <div class="card-body added-card">
-                            <h3 class="card-title m-0 paricolor">{{application.name}}
+                            <h3 class="card-title m-0 paricolor colorblue " style="font-family: Roboto, sans-serif;font-style: normal;font-weight:bold">{{application.name}}
                                 <span class="badge badge-pill badge-info pull-right">{{application.version}}</span>
                             </h3>
                             <p class="card-text samplecolor" style="height: 90px; overflow: auto">{{application.description}}</p>
                         </div>
                         <div class="card-footer">
                             <div class="float-left">
-                                <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit" [routerLink]="['../application', application.id ]" class="btn btn-info btn-sm">
+                                <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit" [routerLink]="['../application', application.id ]" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="view" style="cursor: pointer">
                                     <span class="fa fa-eye"></span>
                                 </button>
                                 <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit" [routerLink]="['/', { outlets: { popup: 'application/'+ application.id + '/edit'} }]" replaceUrl="true"
-                                    class="btn btn-primary btn-sm">
+                                    class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="edit" style="cursor: pointer">
                                     <span class="fa fa-pencil"></span>
                                 </button>
                                 <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit" [routerLink]="['/', { outlets: { popup: 'application/'+ application.id + ':clone/edit'} }]" replaceUrl="true"
-                                        class="btn btn-primary btn-sm">
+                                        class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="clone" style="cursor: pointer">
                                     <span class="fa fa-clone"></span>
                                 </button>
                                 <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit" [routerLink]="['/', { outlets: { popup: 'application/'+ application.id + '/delete'} }]" replaceUrl="true"
-                                    class="btn btn-danger btn-sm">
+                                    class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="delete" style="cursor: pointer">
                                     <span class="fa fa-remove"></span>
+                                </button>
+                                <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit" (click)="downloadJSON(application)"
+                                        class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="export application" style="cursor:pointer">
+                                    <span class="fa fa-download"></span>
                                 </button>
                             </div>
                             <div class="float-right">
@@ -79,8 +130,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-
+        </div>-->
 
 
     <!--<div class="row" style="margin: 0 30px">

@@ -6,6 +6,7 @@ import { ApplicationComponent } from './application.component';
 import { ApplicationDetailComponent } from './application-detail.component';
 import { ApplicationPopupComponent } from './application-dialog.component';
 import { ApplicationDeletePopupComponent } from './application-delete-dialog.component';
+import {ApplicationKeyvalueComponent} from "./application-keyvalue.component";
 
 export const applicationRoute: Routes = [
     {
@@ -41,7 +42,17 @@ export const applicationPopupRoute: Routes = [
     },
 
 
+    {
+        path: 'application-keyvalue',
+        component: ApplicationKeyvalueComponent,
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle:'Applications'
+        },
+        canActivate: [UserRouteAccessService],
+        outlet: 'popup'
 
+    },
 
     {
         path: 'application/:id/edit',

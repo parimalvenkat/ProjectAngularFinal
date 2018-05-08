@@ -1,4 +1,5 @@
 
+<!--
 
 <div *ngIf="tenantDetails">
     <h2 style="font-weight: bold"><span>Tenant Details</span> {{tenantDetails.id}}</h2>
@@ -42,4 +43,65 @@
         class="btn btn-primary">
     <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
 </button>
+</div>
+-->
+
+
+
+
+
+
+    <div class="container mt-5">
+        <div class="offset-1 col-md-10">
+            <table class="table text-left lightblue">
+                <jhi-alert-error></jhi-alert-error>
+
+
+                <tr *ngIf="tenantDetails">
+                    <th class="colorblue light-bg" scope="col">Tenant ID</th>
+                    <td>{{tenantDetails.id}}</td>
+                </tr>
+
+
+                <tr>
+
+                    <th class="colorblue light-bg" scope="col">Name</th>
+
+                    <td>{{tenantDetails.name}}</td>
+                </tr>
+                <tr  >
+                    <th class="colorblue light-bg" scope="col">Description</th>
+                    <td>{{tenantDetails.description}}</td>
+                </tr>
+                <tr  >
+                    <th class="colorblue light-bg" scope="col">Contact Name</th>
+                    <td>{{tenantDetails.contactname}}</td>
+                </tr>
+                <tr  >
+                    <th class="colorblue light-bg" scope="col">Conatact email</th>
+                    <td>{{tenantDetails.contactemail}} </td>
+                </tr>
+
+            </table>
+
+    <div class="row mt-3">
+        <div class="col-md-1">
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+            </button>
+        </div>
+        <div class="offset-10 col-md-1">
+            <button type="button"
+                    [routerLink]="['/', { outlets: { popup: 'tenant-details/'+ tenantDetails.id + '/edit'} }]"
+                    replaceUrl="true"
+                    queryParamsHandling="merge"
+                    class="btn btn-primary">
+                <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+
 </div>

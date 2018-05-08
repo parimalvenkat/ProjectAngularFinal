@@ -35,7 +35,7 @@ export class ApplicationDetailComponent implements OnInit, OnDestroy {
             this.application = application;
         });
     }
-    previousState() {
+    previousState1() {
         window.history.back();
     }
 

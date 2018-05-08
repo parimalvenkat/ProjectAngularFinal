@@ -1,47 +1,59 @@
 
 
-<div *ngIf="repositories">
-    <h2 style="font-weight: bold"><span>Repositories</span> {{repositories.id}}</h2>
-    <hr>
-    <jhi-alert-error></jhi-alert-error>
-<dl class="row-md jh-entity-details">
-    <dt><span>Protocol</span></dt>
-    <dd>
-        <span>{{repositories.protocol}}</span>
-    </dd>
-    <dt><span>Hostname</span></dt>
-    <dd>
-        <span>{{repositories.hostname}}</span>
-    </dd>
-    <dt><span>Port</span></dt>
-    <dd>
-        <span>{{repositories.port}}</span>
-    </dd>
-    <dt><span>User Name</span></dt>
-    <dd>
-        <span>{{repositories.userName}}</span>
-    </dd>
-    <dt><span>Password</span></dt>
-    <dd>
-        <span>{{repositories.password}}</span>
-    </dd>
-    <dt><span>Secret</span></dt>
-    <dd>
-        <span>{{repositories.secret}}</span>
-    </dd>
-</dl>
+    <div class="container mt-5">
+        <div class="offset-1 col-md-10">
+            <table class="table text-left lightblue">
+                <jhi-alert-error></jhi-alert-error>
 
-<button type="submit"
-        (click)="previousState()"
-        class="btn btn-info">
-    <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
-</button>
 
-<button type="button"
-        [routerLink]="['/', { outlets: { popup: 'repositories/'+ repositories.id + '/edit'} }]"
-        replaceUrl="true"
-        queryParamsHandling="merge"
-        class="btn btn-primary">
-    <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
-</button>
+                <tr *ngIf="repositories">
+                    <th class="colorblue light-bg" scope="col">Protocol</th>
+                    <td>{{repositories.protocol}} </td>
+                </tr>
+
+
+                <tr>
+
+                    <th class="colorblue light-bg" scope="col">Hostname</th>
+
+                    <td>{{repositories.hostname}}</td>
+                </tr>
+                <tr  >
+                    <th class="colorblue light-bg" scope="col">Port</th>
+                    <td>{{repositories.port}}</td>
+                </tr>
+                <tr  >
+                    <th class="colorblue light-bg" scope="col">User Name</th>
+                    <td>{{repositories.userName}}</td>
+                </tr>
+                <tr  >
+                    <th class="colorblue light-bg" scope="col">Password</th>
+                    <td>{{repositories.password}} </td>
+                </tr>
+                <tr  >
+                    <th class="colorblue light-bg" scope="col">Secret</th>
+                    <td>{{repositories.secret}} </td>
+                </tr>
+
+            </table>
+    <div class="row mt-3">
+        <div class="col-md-1">
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+            </button>
+        </div>
+        <div class="offset-10 col-md-1">
+            <button type="button"
+                    [routerLink]="['/', { outlets: { popup: 'repositories/'+ repositories.id + '/edit'} }]"
+                    replaceUrl="true"
+                    queryParamsHandling="merge"
+                    class="btn btn-primary">
+                <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+
 </div>

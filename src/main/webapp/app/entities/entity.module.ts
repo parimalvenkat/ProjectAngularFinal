@@ -13,6 +13,8 @@ import { Try1ImageModule } from './image/image.module';
 import { Try1InboundOutboundModule } from './inbound-outbound/inbound-outbound.module';
 import {Try1ScaleManagementModule} from './scale-management/scale-management.module';
 import {Try1VersionManagementModule} from "./version-management/version-management.module";
+import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+
 
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
@@ -31,9 +33,9 @@ import {Try1VersionManagementModule} from "./version-management/version-manageme
         Try1InboundOutboundModule,
         Try1ScaleManagementModule,
         Try1VersionManagementModule,
-        
-       
-        
+
+
+
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

@@ -3,9 +3,10 @@ import { RouterModule } from '@angular/router';
 import {Try1DeploymentModule} from '../deployment/deployment.module'
 import {Try1StagesModule} from "../stages/stages.module";
 import {Try1TenantDetailsModule} from "../tenant-details/tenant-details.module";
-import {WizardComponent} from "../../entities/wizardcomponent/wizard.component";
-import {WizardStepComponent} from "../../entities/wizardcomponent/wizard-step.component";
 import { Try1SharedModule } from '../../shared';
+import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import { ImageCropperModule } from 'ngx-image-cropper';
+
 import {
     ApplicationService,
     ApplicationPopupService,
@@ -15,9 +16,11 @@ import {
     ApplicationPopupComponent,
     ApplicationDeletePopupComponent,
     ApplicationDeleteDialogComponent,
+    ApplicationKeyvalueComponent,
     applicationRoute,
     applicationPopupRoute,
 } from './';
+import {ApplicationKeyvaluePopupComponent} from "./application-keyvalue.component";
 
 const ENTITY_STATES = [
     ...applicationRoute,
@@ -26,6 +29,7 @@ const ENTITY_STATES = [
 
 @NgModule({
     imports: [
+        ImageCropperModule,
         Try1SharedModule,
         Try1DeploymentModule,
         Try1TenantDetailsModule,
@@ -39,6 +43,7 @@ const ENTITY_STATES = [
         ApplicationDeleteDialogComponent,
         ApplicationPopupComponent,
         ApplicationDeletePopupComponent,
+        ApplicationKeyvalueComponent,
 
     ],
     entryComponents: [
@@ -47,10 +52,14 @@ const ENTITY_STATES = [
         ApplicationPopupComponent,
         ApplicationDeleteDialogComponent,
         ApplicationDeletePopupComponent,
+        ApplicationKeyvalueComponent,
     ],
     providers: [
         ApplicationService,
         ApplicationPopupService,
+/*
+        NgbActiveModal
+*/
     ],
     exports: [
 

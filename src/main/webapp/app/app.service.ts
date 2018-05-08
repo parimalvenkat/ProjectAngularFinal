@@ -1,5 +1,5 @@
-import { Injectable} from "@angular/core";
-import {LoadingWidget} from "./shared/loading/loading.widget";
+import { Injectable} from '@angular/core';
+import {LoadingWidget} from './shared/loading/loading.widget';
 
 @Injectable()
 export class AppService {

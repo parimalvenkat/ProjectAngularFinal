@@ -14,6 +14,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.sql.Blob;
+import java.sql.Blob;
+import java.sql.Blob;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Objects;
@@ -68,9 +71,12 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(name = "lang_key", length = 6)
     private String langKey;
 
-    @Size(max = 256)
-    @Column(name = "image_url", length = 256)
-    private String imageUrl;
+    @Lob
+    @Column(name = "image_url")
+    private byte[] imageUrl;
+
+    @Column(name = "image_type")
+    private String imageType;
 
     @Size(max = 20)
     @Column(name = "activation_key", length = 20)
@@ -144,12 +150,20 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.email = email;
     }
 
-    public String getImageUrl() {
+    public byte[] getImageUrl() {
         return imageUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
+    public void setImageUrl(byte[] imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getImageType() {
+        return imageType;
+    }
+
+    public void setImageType(String imageType) {
+        this.imageType = imageType;
     }
 
     public boolean getActivated() {
@@ -226,6 +240,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
             ", lastName='" + lastName + '\'' +
             ", email='" + email + '\'' +
             ", imageUrl='" + imageUrl + '\'' +
+            ", imageType='" + imageType + '\'' +
             ", activated='" + activated + '\'' +
             ", langKey='" + langKey + '\'' +
             ", activationKey='" + activationKey + '\'' +

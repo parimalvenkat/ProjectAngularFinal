@@ -1,7 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
 import { Try1SharedModule } from '../shared';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 import {
     Register,
@@ -21,6 +21,7 @@ import {
 
 @NgModule({
     imports: [
+        ImageCropperModule,
         Try1SharedModule,
         RouterModule.forChild(accountState)
     ],

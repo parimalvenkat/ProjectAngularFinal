@@ -1,5 +1,5 @@
-//Copyright (c) 2016 Software AG, Darmstadt, Germany and/or Software AG USA, Inc., Reston, VA, United States of America, and/or their licensors.
-// This program is confidential, proprietary and a trade secret to Software AG and/or its licensors and may not be reproduced, published or disclosed to others without the express written consent of Software AG.
+ //Copyright (c) 2016 Software AG, Darmstadt, Germany and/or Software AG USA, Inc., Reston, VA, United States of America, and/or their licensors.
+ // This program is confidential, proprietary and a trade secret to Software AG and/or its licensors and may not be reproduced, published or disclosed to others without the express written consent of Software AG.
 
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core'
 
@@ -46,6 +46,6 @@ export class LoadingWidget implements OnInit {
     }
 }
 
-export interface CallBack {
+ export interface CallBack {
     execute();
 }

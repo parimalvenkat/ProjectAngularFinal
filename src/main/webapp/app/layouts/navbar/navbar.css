@@ -8,7 +8,7 @@ Navbar
 
 .jh-navbar {
     background-color: #0899cc;
-    padding: .2em 1em;
+    height:50px;
 }
 
 .jh-navbar .profile-image {
@@ -90,3 +90,53 @@ Logo styles
 
 
 /*----------------------------------------------------------------------------------------------------------------------------------------*/
+.sidenav {
+    height: 100%;
+    width:50px;
+    position: fixed;
+    z-index: 1;
+    top: 76px;
+    left: 0;
+    background-color: #088cc0;
+    overflow-x: hidden;
+}
+
+.sidenav li {
+    padding: 0px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffffff;
+    display: block;
+}
+.sidenav li a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffffff;
+    display: block;
+} 
+.main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.hoverable{
+    display: none;
+}
+.dropdown-item:hover .hoverable{
+    display:inline-block;
+}
+.navtop{
+    position: fixed;
+    top: 50px;
+    background-color: lightgrey;
+}
+.fa-fw{
+   width:42.285714em !important;
+}

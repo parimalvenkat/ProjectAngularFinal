@@ -218,10 +218,10 @@ import { DeploymentService } from './deployment.service';
 import { TenantDetailsService } from './../tenant-details/tenant-details.service';
 import { StagesService } from './../stages/stages.service';
 import { RepositoriesService } from './../repositories/repositories.service';
-import {Application} from "../application/application.model";
-import {ApplicationService} from "../application/application.service";
-import {AppService} from "../../app.service";
-import {InboundOutbound} from "../inbound-outbound/inbound-outbound.model";
+import {Application} from '../application/application.model';
+import {ApplicationService} from '../application/application.service';
+import {AppService} from '../../app.service';
+import {InboundOutbound} from '../inbound-outbound/inbound-outbound.model';
 
 @Component({
     selector: 'jhi-deployment-dialog',
@@ -248,8 +248,10 @@ export class DeploymentDialogComponent implements OnInit {
         private eventManager: JhiEventManager,
         public router: Router,
         private route: ActivatedRoute,
-        private appService: AppService
+        private appService: AppService,
+        private applicationService: ApplicationService
     ) {
+        this.deployments = new Deployment();
     }
 
     ngOnInit() {
@@ -264,6 +266,9 @@ export class DeploymentDialogComponent implements OnInit {
     }
 
     save() {
+        this.deployments.descriptions=this.applications.description;
+        this.deployments.applications=this.deployments.appName;
+        this.deployments.deploymentToApplications = this.applications;
        this.appService.loading.showLoading();
         this.isSaving = true;
         if(this.inboundOutboundPorts && this.inboundOutboundPorts.length > 0){
@@ -279,9 +284,19 @@ export class DeploymentDialogComponent implements OnInit {
             this.subscribeToSaveResponse(
                 this.deploymentsService.update(this.deployments));
         } else {
+            console.log('create deployment');
+            console.log(this.deployments);
             this.subscribeToSaveResponse(
                 this.deploymentsService.create(this.deployments));
+
         }
+        this.updateApplication();
+    }
+
+    updateApplication() {
+        this.applications.deployed=true;
+        this.subscribeToSaveResponse(
+            this.applicationService.update(this.applications));
     }
 
     getAllStages() {

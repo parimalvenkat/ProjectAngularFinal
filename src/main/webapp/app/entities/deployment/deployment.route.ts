@@ -6,8 +6,8 @@ import { DeploymentDetailComponent } from './deployment-detail.component';
 import { DeploymentPopupComponent } from './deployment-dialog.component';
 import { DeploymentDeletePopupComponent } from './deployment-delete-dialog.component';
 
-import {ScaleManagementPopupComponent} from "../scale-management/scale-management-dialog.component";
-import {VersionManagementPopupComponent} from "../version-management/version-management-dialog.component";
+import {ScaleManagementPopupComponent} from '../scale-management/scale-management-dialog.component';
+import {VersionManagementPopupComponent} from '../version-management/version-management-dialog.component';
 export const deploymentRoute: Routes = [
     {
         path: 'deployment',

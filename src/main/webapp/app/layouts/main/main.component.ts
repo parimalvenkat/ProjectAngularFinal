@@ -10,6 +10,7 @@ import {AppService} from "../../app.service";
     templateUrl: './main.component.html'
 })
 export class JhiMainComponent implements OnInit {
+    id: any;
 
     constructor(
         private titleService: Title,
@@ -23,6 +24,10 @@ export class JhiMainComponent implements OnInit {
             title = this.getPageTitle(routeSnapshot.firstChild) || title;
         }
         return title;
+    }
+
+    addClass(_id:any){
+        this.id=_id;
     }
 
     ngOnInit() {

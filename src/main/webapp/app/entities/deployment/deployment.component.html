@@ -20,12 +20,12 @@
 
 
             <button  type="submit" (click)="clearItems()"   class="btn btn-primary  fa fa-close addbtn btn-sm "
-                    style="position:relative;left:-4px;height: 38px;top: -1px;margin-right: 15px;max-width: 35px;margin-bottom: 3px;border-radius: 0px;">
+                    style="position:relative;left:-5px;height: 38px;top: -1px;margin-right: 15px;max-width: 35px;margin-bottom: 3px;border-radius: 0px;">
 
             </button>
 
 
-            <button style="position: relative;top: -3px;"*jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_USER']" type="button"  [routerLink]="['/', { outlets: { popup: ['deployment-new'] } }]"
+            <button style="position: relative;top: -3px;" *jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_USER']" data-toggle="modal" data-target="#poper" type="button"  [routerLink]="['/', { outlets: { popup: ['deployment-new'] } }]"
                     class="btn btn-primary addbtn float_right"><i class="fa fa-plus-circle" aria-hidden="true"></i> Create Deployment</button>
 
 
@@ -36,7 +36,207 @@
 
     <jhi-alert></jhi-alert>
 
-<div class="row" style="margin: 0 30px" *ngIf="deployments">
+<!--    <div class="card" style="width: 300px" *ngIf="deployments">
+
+
+            <img src='https://i.imgur.com/T1Wfiis.png'
+                 style="padding: 20px;width: 100%;height: 195px">
+            <div class="card-body added-card">
+
+            </div>
+            <div class="card-footer" style="padding: 0.75rem 2.25rem">
+
+                <button type="submit"
+                        [routerLink]="['../deployment', deployment.id ]"
+                        class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="view"style="margin: 1px; cursor: pointer">
+                    <span class="fa fa-eye"></span>
+                </button>
+                <button type="submit" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="scale up" style="margin: 1px;border:0;background-color:#B9D532;cursor: pointer" [routerLink]="['/', { outlets: { popup: 'scale-management/' + deployment.id } }]">
+                    <span class="fa fa-plus"></span>
+                </button>
+                <button type="submit" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="version upgrade" style="margin: 1px;border:0;background-color:#EC5826; cursor: pointer" [routerLink]="['/', { outlets: { popup: 'version-management/' + 'upgrade:' + deployment.id } }]">
+                    <span class="fa fa-arrow-up"></span>
+                </button>
+                <button type="submit" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="version downgrade" style="margin: 1px;border:0;background-color:#EC5826;cursor: pointer" [routerLink]="['/', { outlets: { popup: 'version-management/' + 'degrade:' + deployment.id } }]">
+                    <span class="fa fa-arrow-down"></span>
+                </button>
+                <button type="submit"
+                        [routerLink]="['/', { outlets: { popup: 'deployment/'+ deployment.id + '/edit'} }]"
+                        replaceUrl="true"
+                        class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="edit" style="margin: 1px; cursor: pointer">
+                    <span class="fa fa-pencil"></span>
+                </button>
+                <button type="submit"
+                        [routerLink]="['/', { outlets: { popup: 'deployment/'+ deployment.id + '/delete'} }]"
+                        replaceUrl="true"
+                        class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="delete" style="margin: 1px; cursor: pointer">
+                    <span class="fa fa-remove"></span>
+                </button>
+
+    </div>
+                </div>-->
+
+<div *ngIf="deployments">
+    <div class="container-fluid mt-3" *ngFor="let deployment of deployments ;trackBy: trackId">
+        <div class="row" style="border: 1px solid #00BCD4">
+            <div class="col-md-2" style="padding:0px">
+                <div class="card" style="border:0;border-right: 1px solid #00BCD4">
+
+
+                    <img onerror='https://i.imgur.com/SBntdac.png' [src]="'data:' + deployment.deploymentToApplications.logoContentType + ';base64,' + deployment.deploymentToApplications.logo"
+                         style="padding: 5px;width: 150px;height: 96px;display: block;margin: 0 auto;">
+
+                    <div class="card-footer text-center">
+                        <span class="colorblue">{{deployment.applications}}</span>
+                    </div>
+                    </div>
+                </div>
+            <div class="col-md-10">
+                <div class="row mt-2 lowerborder">
+                    <div class="col-md-12">
+                        <p class="page-title-helptext ">{{deployment.descriptions}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 text-center hovdiv"  style="cursor: pointer;" onclick="this.navigateByUrl()"  [routerLink]="['../deployment', deployment.id ]"  replaceUrl="true">
+                        <i class="fa fa-eye" style="color:#00BCD4;font-size: 40px;cursor:pointer;padding-top: 15px;"></i>
+                        <h5 style="color: #00BCD4;font-size: 15px">VIEW</h5>
+                    </div>
+                    <div class="col-md-2 text-center hovdiv"  style="cursor: pointer;" onclick="this.navigateByUrl()"  [routerLink]="['/', { outlets: { popup: 'scale-management/' + deployment.id } }]"  replaceUrl="true">
+                <i class="fa fa-plane"></i>
+                <h5 style="color: #00BCD4 ;font-size: 15px">SCALE UP</h5>
+                     </div>
+                    <div class="col-md-2 text-center hovdiv"  style="cursor: pointer;" onclick="this.navigateByUrl()"  [routerLink]="['/', { outlets: { popup: 'version-management/' + 'upgrade:' + deployment.id } }]"  replaceUrl="true">
+                <i class="fa fa fa-calendar-plus-o"></i>
+                <h5 style="color: #00BCD4 ;font-size: 15px">VERSION UPGRADE</h5>
+            </div>
+            <div class="col-md-2 text-center hovdiv"  style="cursor: pointer;"   onclick="this.navigateByUrl()"  [routerLink]="['/', { outlets: { popup: 'version-management/' + 'degrade:' + deployment.id } }]"  replaceUrl="true">
+                <i class="fa fa fa-calendar-minus-o"></i>
+                <h5 style="color: #00BCD4;font-size: 15px">VERSION DOWNGRADE</h5>
+            </div>
+                <div class="col-md-2 text-center hovdiv"  style="cursor: pointer;"  onclick="this.navigateByUrl()"  [routerLink]="['/', { outlets: { popup: 'deployment/'+ deployment.id + '/edit'} }]"  replaceUrl="true" >
+                    <i class="fa fa-pencil-square-o"></i>
+                    <h5 style="color: #00BCD4 ;font-size: 15px">EDIT</h5>
+                </div>
+            <div class="col-md-2 text-center hovdiv" style="cursor: pointer; " onclick="this.navigateByUrl()" [routerLink]="['/', { outlets: { popup: 'deployment/'+ deployment.id + '/delete'} }]" replaceUrl="true">
+
+                <i class="	fa fa-trash-o"></i>
+                <h5 style="color: #00BCD4 ;font-size: 15px">DELETE</h5>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+
+
+                        <!--<button type="submit"
+                                [routerLink]="['../deployment', deployment.id ]"
+                                class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="view"style="margin: 1px; cursor: pointer">
+                            <span class="fa fa-eye"></span>
+                        </button>
+                        <button type="submit" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="scale up" style="margin: 1px;border:0;background-color:#B9D532;cursor: pointer" [routerLink]="['/', { outlets: { popup: 'scale-management/' + deployment.id } }]">
+                            <span class="fa fa-plus"></span>
+                        </button>
+                        <button type="submit" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="version upgrade" style="margin: 1px;border:0;background-color:#EC5826; cursor: pointer" [routerLink]="['/', { outlets: { popup: 'version-management/' + 'upgrade:' + deployment.id } }]">
+                            <span class="fa fa-arrow-up"></span>
+                        </button>
+                        <button type="submit" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="version downgrade" style="margin: 1px;border:0;background-color:#EC5826;cursor: pointer" [routerLink]="['/', { outlets: { popup: 'version-management/' + 'degrade:' + deployment.id } }]">
+                            <span class="fa fa-arrow-down"></span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'deployment/'+ deployment.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="edit" style="margin: 1px; cursor: pointer">
+                            <span class="fa fa-pencil"></span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'deployment/'+ deployment.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="delete" style="margin: 1px; cursor: pointer">
+                            <span class="fa fa-remove"></span>
+                        </button>-->
+
+
+              <!--  </div>
+            </div>
+            <div class="col-md-10" style="border:1px solid rgba(0,0,0,.125);border-left:0px">
+                <div class="col-md-1 col">
+                    <h1>abch=def</h1>
+                </div>
+                <div class="col-md-1 col">
+                    <h1>abch=def</h1>
+                </div>
+                <div class="col-md-1 col">
+                    <h1>abch=def</h1>
+                </div>
+                <div class="col-md-1 col">
+                    <h1>abch=def</h1>
+                </div>
+                <div class="col-md-1 col">
+                    <h1>abch=def</h1>
+                </div>
+                <div class="col-md-1 col">
+                    <h1>abch=def</h1>
+                </div>
+            </div>
+        </div>-->
+            <!--<div class="col-md-4 mt-4">
+                <table class="table borderless text-left">
+                    <tr>
+                        <td>View Application Details</td>
+                        <td><button type="submit"
+                                    [routerLink]="['../deployment', deployment.id ]"
+                                    class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="view"style="margin: 1px; cursor: pointer">
+                            <span class="fa fa-eye"></span>
+                        </button></td>
+                    </tr>
+                    <tr>
+                        <td>Scale Up Application</td>
+                        <td><button type="submit" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="scale up" style="margin: 1px;border:0;background-color:#B9D532;cursor: pointer" [routerLink]="['/', { outlets: { popup: 'scale-management/' + deployment.id } }]">
+                            <span class="fa fa-plus"></span>
+                        </button></td>
+                    </tr>
+                    <tr>
+                        <td>Application Version Upgrade</td>
+                        <td><button type="submit" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="version upgrade" style="margin: 1px;border:0;background-color:#EC5826; cursor: pointer" [routerLink]="['/', { outlets: { popup: 'version-management/' + 'upgrade:' + deployment.id } }]">
+                            <span class="fa fa-arrow-up"></span>
+                        </button></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="col-md-4 mt-4">
+                <table  class="table borderless">
+                    <tr>
+                        <td>Application Version Downgrade</td>
+                        <td><button type="submit" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="version downgrade" style="margin: 1px;border:0;background-color:#EC5826;cursor: pointer" [routerLink]="['/', { outlets: { popup: 'version-management/' + 'degrade:' + deployment.id } }]">
+                            <span class="fa fa-arrow-down"></span>
+                        </button></td>
+                    </tr>
+                    <tr>
+                        <td> Edit Application</td>
+                        <td> <button type="submit"
+                                     [routerLink]="['/', { outlets: { popup: 'deployment/'+ deployment.id + '/edit'} }]"
+                                     replaceUrl="true"
+                                     class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="edit" style="margin: 1px; cursor: pointer">
+                            <span class="fa fa-pencil"></span>
+                        </button></td>
+                    </tr>
+                    <tr>
+                        <td> Delete Application</td>
+                        <td><button type="submit"
+                                    [routerLink]="['/', { outlets: { popup: 'deployment/'+ deployment.id + '/delete'} }]"
+                                    replaceUrl="true"
+                                    class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="delete" style="margin: 1px; cursor: pointer">
+                            <span class="fa fa-remove"></span>
+                        </button></td>
+                    </tr>
+                </table>
+            </div>-->
+
+
+<!--<div class="row" style="margin: 0 4px" *ngIf="deployments">
 
 
 
@@ -108,28 +308,28 @@
             <div class="btn-group flex-btn-group-container">
                 <button type="submit"
                         [routerLink]="['../deployment', deployment.id ]"
-                        class="btn btn-info btn-sm" style="margin: 1px">
+                        class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="view"style="margin: 1px; cursor: pointer">
                     <span class="fa fa-eye"></span>
                 </button>
-                <button type="submit" class="btn btn-info btn-sm" style="margin: 1px;border:0;background-color:#B9D532" [routerLink]="['/', { outlets: { popup: 'scale-management/' + deployment.id } }]">
+                <button type="submit" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="scale up" style="margin: 1px;border:0;background-color:#B9D532;cursor: pointer" [routerLink]="['/', { outlets: { popup: 'scale-management/' + deployment.id } }]">
                     <span class="fa fa-plus"></span>
                 </button>
-                <button type="submit" class="btn btn-info btn-sm" style="margin: 1px;border:0;background-color:#EC5826" [routerLink]="['/', { outlets: { popup: 'version-management/' + 'upgrade:' + deployment.id } }]">
+                <button type="submit" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="version upgrade" style="margin: 1px;border:0;background-color:#EC5826; cursor: pointer" [routerLink]="['/', { outlets: { popup: 'version-management/' + 'upgrade:' + deployment.id } }]">
                     <span class="fa fa-arrow-up"></span>
                 </button>
-                <button type="submit" class="btn btn-info btn-sm" style="margin: 1px;border:0;background-color:#EC5826" [routerLink]="['/', { outlets: { popup: 'version-management/' + 'degrade:' + deployment.id } }]">
+                <button type="submit" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="version downgrade" style="margin: 1px;border:0;background-color:#EC5826;cursor: pointer" [routerLink]="['/', { outlets: { popup: 'version-management/' + 'degrade:' + deployment.id } }]">
                     <span class="fa fa-arrow-down"></span>
                 </button>
                 <button type="submit"
                         [routerLink]="['/', { outlets: { popup: 'deployment/'+ deployment.id + '/edit'} }]"
                         replaceUrl="true"
-                        class="btn btn-primary btn-sm" style="margin: 1px">
+                        class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="edit" style="margin: 1px; cursor: pointer">
                     <span class="fa fa-pencil"></span>
                 </button>
                 <button type="submit"
                         [routerLink]="['/', { outlets: { popup: 'deployment/'+ deployment.id + '/delete'} }]"
                         replaceUrl="true"
-                        class="btn btn-danger btn-sm" style="margin: 1px">
+                        class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="delete" style="margin: 1px; cursor: pointer">
                     <span class="fa fa-remove"></span>
                 </button>
             </div>
@@ -137,5 +337,21 @@
     </tr>
     </tbody>
 </table>
+</div>-->
+    <div *ngIf="deployments" class="mt-4">
+    <div class="flip-container" ontouchstart="this.classList.toggle('hover');" *ngFor="let deployment of deployments ;trackBy: trackId">
+        <div class="flipper">
+            <div class="front">
+                <img onerror='https://i.imgur.com/SBntdac.png' [src]="'data:' + deployment.deploymentToApplications.logoContentType + ';base64,' + deployment.deploymentToApplications.logo"
+                     style="width: 300px;height: 200px">
+            </div>
+            <div class="back">
+                <div class="back-logo"></div>
+                <div class="back-title"></div>
+                <div>{{deployment.id}}</div> <br>
+                <div>{{deployment.applications}}</div>
+            </div>
+        </div>
+    </div>
 </div>
 </div>
