@@ -300,7 +300,7 @@ ui bootstrap tweaks
 .page-title-column2 {
     display: inline-block;
     position: relative;
-    right: -75px;
+    right: -269px;
     top: -8px;
     bottom: 0;
     margin: auto;
@@ -519,7 +519,10 @@ h3.branding_header1 {
     background-image: url('../images/catalog-placeholder.png');
 }
 .all-space {
-    padding: 0px 1.5%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 5.5%;
+    padding-right: 2.5%;
 }
 .settings-container
 {
@@ -629,7 +632,7 @@ body{
     background-color: #e9ecef;
     width: 32%;
 }
-.content-position{
+/*.content-position{
     position:relative;
     top:50px;
 }
@@ -639,7 +642,7 @@ body{
 .con-width{
     width: 1318px;
     margin-left: 51px;
-}
+}*/
 /*///////////////////////////////////////////////////////////////////////////////////////////////////*/
 /* entire container, keeps perspective */
 .flip-container {
@@ -660,8 +663,8 @@ body{
 }
 
 .flip-container, .front, .back {
-    width: 300px;
-    height: 200px;
+    width: 213px;
+    height: 163px;
 }
 
 .flipper {

@@ -290,21 +290,21 @@
     </div>
 </nav>
 
-<nav class="nav navtop fixed-top" *ngIf="isAuthenticated()">
+<!--<nav class="nav navtop fixed-top" *ngIf="isAuthenticated()">
     <a (click)="toggleNavBar()" style="font-size:18px;cursor:pointer">&#9776;</a>
+</nav>-->
 
 
-</nav>
 <div class="sidenav"  *ngIf="isAuthenticated() && navbarVisibility" id="sidebar">
     <div  *ngIf="navbarType" >
-            <li>
+            <li style="cursor: pointer"data-toggle="tooltip" data-placement="top" title="Nodes">
                     <a class="dropdown-item" routerLink="nodes" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                         <i class="material-icons" style="font-size:20px;">forum</i>
                     </a>
                 </li>
-                <li>
+                <li style="cursor: pointer"data-toggle="tooltip" data-placement="top" title="Repositories">
                     <a class="dropdown-item" routerLink="repositories" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                        <i class="material-icons" style="font-size:20px;">business</i>
+                        <i class="material-icons" style="font-size:20px">business</i>
 
                     </a>
                 </li>
@@ -320,19 +320,19 @@
                         <span>Tenant Deployment</span>
                     </a>
                 </li> -->
-                <li>
+                <li style="cursor: pointer"data-toggle="tooltip" data-placement="top" title="Tenant Details">
                     <a class="dropdown-item" routerLink="tenant-details" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                         <i class="material-icons" style="font-size:20px;">fingerprint</i>
 
                     </a>
                 </li>
-                <li>
+                <li style="cursor: pointer"data-toggle="tooltip" data-placement="top" title="Deployment">
                     <a class="dropdown-item" routerLink="deployment" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                         <i class="material-icons" style="font-size:20px;">work</i>
 
                     </a>
                 </li>
-             <li>
+             <li style="cursor: pointer"data-toggle="tooltip" data-placement="top" title="Stages">
                     <a class="dropdown-item" routerLink="stages" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                         <i class="material-icons" style="font-size:20px;">equalizer</i>
 
@@ -344,7 +344,7 @@
                            <span>Tenant Contact Details</span>
                        </a>
                    </li> -->
-                <li>
+                <li style="cursor: pointer"data-toggle="tooltip" data-placement="top" title="Applications">
                     <a class="dropdown-item" routerLink="application" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                         <i class="material-icons" style="font-size:20px;">dialpad</i>
 
@@ -352,7 +352,7 @@
                 </li>
     </div>
     <div *ngIf="!navbarType">
-        <li>
+        <li style="cursor: pointer"data-toggle="tooltip" data-placement="top" title="User Management">
             <a class="dropdown-item" routerLink="user-management" routerLinkActive="active" (click)="collapseNavbar()">
                 <i class="material-icons" style="font-size:20px;">account_box</i>
 
@@ -361,43 +361,43 @@
 -->
             </a>
         </li>
-        <li>
+        <li style="cursor: pointer"data-toggle="tooltip" data-placement="top" title="Application Metrics">
             <a class="dropdown-item" routerLink="jhi-metrics" routerLinkActive="active" (click)="collapseNavbar()">
                 <i class="material-icons" style="font-size:20px;">timeline</i>
 
             </a>
         </li>
-        <li>
+        <li style="cursor: pointer"data-toggle="tooltip" data-placement="top" title="Health Checks">
             <a class="dropdown-item" routerLink="jhi-health" routerLinkActive="active" (click)="collapseNavbar()">
                 <i class="material-icons" style="font-size:20px;">favorite</i>
 
             </a>
         </li>
-        <li>
+        <li style="cursor: pointer"data-toggle="tooltip" data-placement="top" title="Configurations">
             <a class="dropdown-item" routerLink="jhi-configuration" routerLinkActive="active" (click)="collapseNavbar()">
                 <i class="material-icons" style="font-size:20px;">build</i>
 
             </a>
         </li>
-        <li>
+        <li style="cursor: pointer"data-toggle="tooltip" data-placement="top" title="Audits">
             <a class="dropdown-item" routerLink="audits" routerLinkActive="active" (click)="collapseNavbar()">
                 <i class="material-icons" style="font-size:20px;">content_paste</i>
 
             </a>
         </li>
-        <li>
+        <li style="cursor: pointer"data-toggle="tooltip" data-placement="top" title="Logs">
             <a class="dropdown-item" routerLink="logs" routerLinkActive="active" (click)="collapseNavbar()">
                 <i class="material-icons" style="font-size:20px;">receipt</i>
 
             </a>
         </li>
-        <li *ngIf="swaggerEnabled">
+        <li *ngIf="swaggerEnabled" style="cursor: pointer"data-toggle="tooltip" data-placement="top" title="API">
             <a class="dropdown-item" routerLink="docs" routerLinkActive="active" (click)="collapseNavbar()">
                 <i class="material-icons" style="font-size:20px;">book</i>
 
             </a>
         </li>
-        <li *ngIf="!inProduction">
+        <li *ngIf="!inProduction" style="cursor: pointer"data-toggle="tooltip" data-placement="top" title="Database">
             <a class="dropdown-item" href='./h2-console' target="_tab" (click)="collapseNavbar()">
                 <i class="material-icons" style="font-size:20px;">data_usage</i>
 
