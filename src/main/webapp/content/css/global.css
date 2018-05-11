@@ -663,8 +663,8 @@ body{
 }
 
 .flip-container, .front, .back {
-    width: 213px;
-    height: 163px;
+    width: 241px;
+    height: 150px;
 }
 
 .flipper {
