@@ -17,7 +17,7 @@
 
             <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
             <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer float-left" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
+                <a class="nav-link" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
                     <span (click)="showEntities()">
                         <i class="fa fa-th-list" aria-hidden="true"></i>
                         <span>
@@ -222,17 +222,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
             </ul>
 
                   </span>
@@ -407,13 +396,7 @@
 
       </div>
 
-
-
-
-
-
-
-    </div>
+ </div>
      <!-- <div class="sidenav"  *ngIf="isAuthenticated() && navbarVisibility" id="sidebar">-->
             <!--
                 Administration content here and write logic

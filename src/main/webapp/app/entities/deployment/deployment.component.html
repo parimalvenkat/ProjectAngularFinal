@@ -342,7 +342,7 @@
     <div class="flip-container" ontouchstart="this.classList.toggle('hover');" *ngFor="let deployment of deployments ;trackBy: trackId">
         <div class="flipper">
             <div class="front">
-                <img onerror='https://i.imgur.com/SBntdac.png' [src]="'data:' + deployment.deploymentToApplications.logoContentType + ';base64,' + deployment.deploymentToApplications.logo"
+                <img onerror='https:"//i.imgur.com/SBntdac.png"' [src]="'data:' + deployment.deploymentToApplications.logoContentType + ';base64,' + deployment.deploymentToApplications.logo"
                      style="width: 213px;height: 163px">
             </div>
             <div class="back">
@@ -351,6 +351,7 @@
                 <div>{{deployment.id}}</div> <br>
                 <div>{{deployment.applications}}</div>
             </div>
+
         </div>
     </div>
 </div>

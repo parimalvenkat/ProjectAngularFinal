@@ -3,17 +3,17 @@
 font-weight: 500;
 line-height: 1.5;">
     <router-outlet name="navbar"></router-outlet>
-   
+
 </div>
 <div [ngClass]="{'content-position': id === 1 }" class="container-fluid no-padding" >
 
-    <div [ngClass]="{'con-width':id===1}" class="card jh-card" style=" min-height: 692px !important;">
+    <div [ngClass]="{'con-width':id===1}" class="card jh-card" style=" min-height: 755px !important;">
         <router-outlet></router-outlet>
         <router-outlet name="popup"></router-outlet>
     </div>
 </div>
 <div class="container">
-        <jhi-footer></jhi-footer>
+       <jhi-footer></jhi-footer>
 </div>
 
 

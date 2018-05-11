@@ -1,4 +1,4 @@
-<div class="settings-container mt-0 mr-0 ml-0"  style="height: 695px;">
+<div class="settings-container mt-0 mr-0 ml-0"  style="height: 755px;">
 
         <div class="offset-7 col-md-4">
 
@@ -91,17 +91,17 @@
                                 (imageLoaded)="imageLoaded()"
                                 (loadImageFailed)="loadImageFailed()"
                             ></image-cropper>
-                
+
                             <img [src]="croppedImage" />
                         </div>
-                
+
                         <div class="form-group" *ngIf="!isEdit">
                             <img onerror="this.onerror=null;this.src='https://i.imgur.com/9b5DNoF.png';" class="card-img-top" [src]="'data:' + getImageType() + ';base64,' + getImageUrl()"
                             style="width: 10%;">
                         </div>
 
                         <div class="form-group">
-                            <input type="button" value="Reset Image" (click)="reset()" class="btn btn-primary"></input> 
+                            <input type="button" value="Reset Image" (click)="reset()" class="btn btn-primary"></input>
                         </div>
                         <button type="submit" [disabled]="settingsForm.form.invalid" class="btn btn-primary">Save</button>
                     </form>
