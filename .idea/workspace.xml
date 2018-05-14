@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df6009f0-eab4-4ac2-ac3f-caa043420873" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment.component.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/deployment/deployment.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/home/home.component.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/home/home.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/content/css/global.css" afterPath="$PROJECT_DIR$/src/main/webapp/content/css/global.css" />
-    </list>
+    <list default="true" id="df6009f0-eab4-4ac2-ac3f-caa043420873" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/webapp/content/css/global.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="659" column="36" lean-forward="true" selection-start-line="659" selection-start-column="36" selection-end-line="659" selection-end-column="36" />
+              <caret line="659" column="36" lean-forward="false" selection-start-line="659" selection-start-column="36" selection-end-line="659" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -1108,7 +1104,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/content/css/global.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="659" column="36" lean-forward="true" selection-start-line="659" selection-start-column="36" selection-end-line="659" selection-end-column="36" />
+          <caret line="659" column="36" lean-forward="false" selection-start-line="659" selection-start-column="36" selection-end-line="659" selection-end-column="36" />
           <folding />
         </state>
       </provider>
